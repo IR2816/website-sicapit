@@ -14,31 +14,31 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kampung Wisata Si Capit | Desa Wisata Garut",
-    template: "%s | Si Capit",
+    default: "Kampung Wisata Sicapit | Desa Wisata Bogor",
+    template: "%s | Sicapit",
   },
-  description: "Eksplorasi alam asri, keseruan bermain air, dan hangatnya budaya lokal di Kampung Wisata Si Capit. Destinasi wisata terbaik di Garut untuk petualangan dan liburan keluarga.",
-  keywords: ["Wisata Garut", "Kampung Wisata Si Capit", "Desa Wisata", "Rafting Garut", "Liburan Alam", "Spot Foto Hijau"],
-  authors: [{ name: "Kampung Wisata Si Capit" }],
-  creator: "Kampung Wisata Si Capit",
-  publisher: "Kampung Wisata Si Capit",
+  description: "Eksplorasi alam asri, keseruan bermain air, dan hangatnya budaya lokal di Kampung Wisata Sicapit. Destinasi wisata terbaik di Bogor untuk petualangan dan liburan keluarga.",
+  keywords: ["Wisata Bogor", "Kampung Wisata Sicapit", "Desa Wisata", "Rafting Bogor", "Liburan Alam", "Spot Foto Hijau"],
+  authors: [{ name: "Kampung Wisata Sicapit" }],
+  creator: "Kampung Wisata Sicapit",
+  publisher: "Kampung Wisata Sicapit",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: "Kampung Wisata Si Capit | Desa Wisata Garut",
-    description: "Eksplorasi alam asri, keseruan bermain air, dan hangatnya budaya lokal di Kampung Wisata Si Capit.",
+    title: "Kampung Wisata Sicapit | Desa Wisata Bogor",
+    description: "Eksplorasi alam asri, keseruan bermain air, dan hangatnya budaya lokal di Kampung Wisata Sicapit.",
     url: "https://sicapit.com", // Ganti dengan domain asli nanti
-    siteName: "Kampung Wisata Si Capit",
+    siteName: "Kampung Wisata Sicapit",
     locale: "id_ID",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kampung Wisata Si Capit",
-    description: "Destinasi wisata alam terbaik di Garut untuk petualangan dan keluarga.",
+    title: "Kampung Wisata Sicapit",
+    description: "Destinasi wisata alam terbaik di Bogor untuk petualangan dan keluarga.",
   },
   robots: {
     index: true,
