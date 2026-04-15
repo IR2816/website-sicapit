@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type Review = {
   author: string;
@@ -9,6 +10,7 @@ type Review = {
   rating: number;
   time: string;
   text: string;
+  attachedImage?: string;
 };
 
 type ReviewsCarouselProps = {
@@ -28,7 +30,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
 
   return (
     <div className="w-full flex flex-col gap-6">
-      <div className="relative flex flex-col items-center min-h-[260px] md:min-h-[240px]">
+      <div className="relative flex flex-col items-center min-h-[380px] sm:min-h-[320px] md:min-h-[280px]">
         {reviews.map((review, index) => {
           const isActive = index === active;
           return (
@@ -38,8 +40,8 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
             >
               <div className="flex flex-col sm:flex-row items-start gap-4 p-6 md:p-8 bg-surface-strong/50 border border-white/5 rounded-[24px] shadow-shadow hover:border-white/10 transition-colors">
                 <div className="flex-shrink-0 relative">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden">
-                    <img src={review.avatar} alt={review.author} className="w-full h-full object-cover" />
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden relative">
+                    <Image src={review.avatar} alt={review.author} fill sizes="56px" className="object-cover" unoptimized />
                   </div>
                   {review.isLocalGuide && (
                     <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow-sm">
@@ -67,9 +69,15 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
                     ))}
                   </div>
                   
-                  <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                    "{review.text}"
+                  <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-4">
+                    &quot;{review.text}&quot;
                   </p>
+
+                  {review.attachedImage && (
+                    <div className="mt-2 w-full max-w-[200px] h-[120px] rounded-xl overflow-hidden border border-white/10 hover:border-brand/40 transition-colors relative">
+                      <Image src={review.attachedImage} alt={`Ulasan dari ${review.author}`} fill sizes="200px" className="object-cover transition-transform hover:scale-105 duration-500" />
+                    </div>
+                  )}
                 </div>
               </div>
             </article>
