@@ -91,7 +91,7 @@ export function SiteNav({ brand }: SiteNavProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-3 text-base font-bold border-b border-white/5 text-slate-300 hover:text-brand transition-colors flex justify-between items-center"
+                className="py-3 text-base font-bold border-b border-white/5 text-white hover:text-brand transition-colors flex justify-between items-center"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
