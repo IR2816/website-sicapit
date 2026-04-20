@@ -1,3 +1,5 @@
+import { TransitionScreen } from "@/components/TransitionScreen";
+import { SiteFooter } from "@/components/Footer";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
@@ -63,7 +65,16 @@ export default function RootLayout({
       lang="id"
       className={`${inter.variable} ${montserrat.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#0a0a0a] text-slate-100">{children}</body>
+      <body className="min-h-full flex flex-col font-sans bg-[#0a0a0a] text-slate-100">
+        <TransitionScreen />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
+
+
+
+
+

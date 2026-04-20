@@ -50,7 +50,7 @@ function VideoCard({ item }: { item: VideoItem }) {
 
   return (
     <article 
-      className="group flex flex-col bg-surface hover:bg-surface-strong border border-line hover:border-brand/40 rounded-[28px] overflow-hidden transition-all duration-500 shadow-shadow hover:shadow[[0_20px_40px_rgba(153,51,0,0.25)] hover:-translate-y-2 relative"
+      className="group flex flex-col bg-surface hover:bg-surface-strong border border-line hover:border-brand/40 rounded-[28px] overflow-hidden transition-all duration-500 shadow-sm hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-2 relative cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -66,7 +66,7 @@ function VideoCard({ item }: { item: VideoItem }) {
           playsInline
           preload="none"
           poster={item.poster}
-          className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-105' : 'scale-100'} ${hasFailed ? 'opacity-0' : 'opacity-100'}`}
+          className={`w-full h-full object-cover transition-transform duration-700 pointer-events-none ${isHovered ? 'scale-105' : 'scale-100'} ${hasFailed ? 'opacity-0' : 'opacity-100'}`}
           onLoadedMetadata={() => setIsReady(true)}
           onError={() => {
             setHasFailed(true);
@@ -81,10 +81,12 @@ function VideoCard({ item }: { item: VideoItem }) {
           }}
         >
           <source src={item.src} type="video/webm" />
+          <source src={item.src} type="video/mp4" />
         </video>
--        
-        {!!isReady && !hasFailed && (
-          <div className="absolute inset-0 bg-surface-strong animate-pulse z-0" />
+        
+        {/* Loading skeleton while poster/video is not yet ready */}
+        {!isReady && !hasFailed && (
+          <div className="absolute inset-0 bg-surface-strong animate-pulse z-20 pointer-events-none" />
         )}
 
         <Image
@@ -96,21 +98,22 @@ function VideoCard({ item }: { item: VideoItem }) {
         />
         
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
-           <div className="w-16 h-16 rounded-full bg-brand/90 text-white flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_rgba(249,115,22,0.6)] transform scame-90 group-hover:scale-100 transition-all duration-300">
+           <div className="w-16 h-16 rounded-full bg-brand/90 text-white flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_rgba(16,185,129,0.6)] transform scale-90 group-hover:scale-100 transition-all duration-300">
              <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
            </div>
         </div>
 
-        <div className="absolute top-4 left-4 z-10 fix gap-2 transition-transform duration-500 group-hover:-translate-y-1">
+        <div className="absolute top-4 left-4 z-10 flex gap-2 transition-transform duration-500 group-hover:-translate-y-1">
            <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-[#0a0a0a]/60 backdrop-blur-md text-white rounded-full border border-white/10 shadow-lg">
              HD 1080p
            </span>
         </div>
 
+        {/* Progress Bar Container */}
         <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#0a0a0a]/50 z-20 overflow-hidden">
           <span 
             id={`progress-${id}`}
-            className="block h-full bg-gradient-to-r from-brand to-[#ff9b52] w-0 transition-all duration-75 ease-linear shadow-[0_0_10px_rgba(249,115,22,0.8)]" 
+            className="block h-full bg-gradient-to-r from-emerald-300 to-emerald-600 w-0 transition-all duration-75 ease-linear shadow-[0_0_10px_rgba(16,185,129,0.8)]" 
           />
         </div>
 
@@ -136,3 +139,5 @@ export function VideoShowcase({ items }: VideoShowcaseProps) {
     </div>
   );
 }
+
+

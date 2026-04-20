@@ -377,98 +377,11 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="pt-20 pb-10 border-t border-line bg-surface-strong relative z-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-            {/* Kolom 1: Brand & Sosial Media */}
-            <div className="flex flex-col">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-brand/50 shadow-[0_0_20px_rgba(249,115,22,0.4)]">
-                  <Image src="/assets/images/Icon.jpg" alt="Logo Sicapit" fill sizes="64px" className="object-cover" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs uppercase font-bold text-brand tracking-[0.2em]">Kampung Wisata</span>
-                  <span className="font-heading font-black text-3xl text-white tracking-tighter">Sicapit</span>
-                </div>
-              </div>
-              <p className="text-muted leading-relaxed mb-8 max-w-sm">Teman Wisata Terbaikmu. Kampung tematik dengan keindahan alam, wisata air menantang, dan kehangatan warga lokal di pinggir Sungai Cisadane.</p>
-              
-              <div className="flex items-center gap-3">
-                <a href="https://youtube.com/@hercemherman4230" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-surface flex items-center justify-center text-slate-300 hover:text-[#FF0000] border border-line hover:border-[#FF0000]/50 transition-all hover:scale-110" aria-label="YouTube">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" /></svg>
-                </a>
-                <a href="https://instagram.com/kampung_sicapit" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-surface flex items-center justify-center text-slate-300 hover:text-[#E1306C] border border-line hover:border-[#E1306C]/50 transition-all hover:scale-110" aria-label="Instagram">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2.163c3.204,0,3.584,0.012,4.85,0.07l0.02,0.001c1.171,0.053,1.808,0.24,2.227,0.395c0.558,0.216,0.957,0.473,1.378,0.892c0.419,0.42,0.676,0.82,0.892,1.378c0.155,0.419,0.342,1.056,0.395,2.227l0.001,0.02C21.988,8.416,22,8.796,22,12c0,3.204-0.012,3.584-0.07,4.85l-0.001,0.02c-0.053,1.171-0.24,1.808-0.395,2.227c-0.216,0.558-0.473,0.957-0.892,1.378c-0.42,0.419-0.82,0.676-1.378,0.892c-0.419,0.155-1.056,0.342-2.227,0.395l-0.02,0.001C15.584,21.988,15.204,22,12,22c-3.204,0-3.584-0.012-4.85-0.07l-0.02-0.001c-1.171-0.053-1.808-0.24-2.227-0.395c-0.558-0.216-0.957-0.473-1.378-0.892c-0.419-0.42-0.676-0.82-0.892-1.378c-0.155-0.419-0.342-1.056-0.395-2.227l-0.001-0.02C2.012,15.584,2,15.204,2,12c0-3.204,0.012-3.584,0.07-4.85l0.001-0.02c0.053-1.171,0.24-1.808,0.395-2.227c0.216-0.558,0.473-0.957,0.892-1.378c0.42-0.419,0.82-0.676,1.378-0.892c0.419-0.155,1.056-0.342,2.227-0.395l0.02-0.001C8.416,2.012,8.796,2,12,2.163 M12,0C8.741,0,8.333,0.014,7.053,0.072C5.775,0.131,4.901,0.334,4.14,0.63c-0.79,0.306-1.458,0.73-2.128,1.399c-0.67,0.67-1.093,1.338-1.399,2.128c-0.296,0.761-0.499,1.634-0.558,2.913C0.014,8.333,0,8.741,0,12c0,3.259,0.014,3.667,0.072,4.947c0.059,1.279,0.262,2.152,0.558,2.913c0.306,0.79,0.73,1.458,1.399,2.128c0.67,0.67,1.338,1.093,2.128,1.399c0.761,0.296,1.634,0.499,2.913,0.558C8.333,23.986,8.741,24,12,24c3.259,0,3.667-0.014,4.947-0.072c1.279-0.059,2.152-0.262,2.913-0.558c0.79-0.306,1.458-0.73,2.128-1.399c0.67-0.67,1.093-1.338,1.399-2.128c0.296-0.761,0.499-1.634,0.558-2.913C23.986,15.667,24,15.259,24,12c0-3.259-0.014-3.667-0.072-4.947c-0.059-1.279-0.262-2.152-0.558-2.913c-0.306-0.79-0.73-1.458-1.399-2.128c-0.67-0.67-1.338-1.093-2.128-1.399c-0.761-0.296-1.634-0.499-2.913-0.558C15.667,0.014,15.259,0,12,0z M12,5.838c-3.403,0-6.162,2.759-6.162,6.162c0,3.403,2.759,6.162,6.162,6.162c3.403,0,6.162-2.759,6.162-6.162C18.162,8.597,15.403,5.838,12,5.838z M12,16c-2.209,0-4-1.791-4-4c0-2.209,1.791-4,4-4c2.209,0,4,1.791,4,4C16,14.209,14.209,16,12,16z M18.406,4.155c-0.795,0-1.44,0.645-1.44,1.44c0,0.795,0.645,1.44,1.44,1.44c0.795,0,1.44-0.645,1.44-1.44C19.846,4.8,19.201,4.155,18.406,4.155z"/></svg>
-                </a>
-                <a href="https://tiktok.com/@kampung_sicapit" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-surface flex items-center justify-center text-slate-300 hover:text-[#00f2fe] border border-line hover:border-[#00f2fe]/50 transition-all hover:scale-110" aria-label="TikTok">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Kolom 2: Kontak Pengurus */}
-            <div className="flex flex-col">
-              <h3 className="font-heading font-bold text-xl mb-6">Hubungi Kami</h3>
-              <ul className="space-y-5">
-                <li className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-bold tracking-wide">Hermansyah</p>
-                    <p className="text-slate-400 text-sm">0813-1825-1218</p>
-                  </div>
-                </li>
-                <li className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-bold tracking-wide">Rany Maulida</p>
-                    <p className="text-slate-400 text-sm">0813-1700-1223</p>
-                  </div>
-                </li>
-                <li className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-bold tracking-wide">Dedy</p>
-                    <p className="text-slate-400 text-sm">0857-1703-3126</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* Kolom 3: Alamat */}
-            <div className="flex flex-col">
-              <h3 className="font-heading font-bold text-xl mb-6">Alamat Kami</h3>
-              <div className="flex items-start gap-4 p-6 bg-surface rounded-2xl border border-line hover:border-white/20 transition-colors shadow-shadow">
-                <div className="w-12 h-12 rounded-full bg-[#EA4335]/10 flex items-center justify-center text-[#EA4335] shrink-0 mt-1 border border-[#EA4335]/20">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                </div>
-                <p className="text-slate-300 text-sm leading-loose">
-                  <strong className="text-white block mb-2 text-base font-bold tracking-wide">Kampung Wisata Sicapit</strong>
-                  Jalan Raya Semplak Gang Flamboyan 1,<br/>
-                  RT 03/06 Kel. Semplak,<br/>
-                  Kec. Bogor Barat
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-line text-center flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-muted text-sm font-sans flex items-center gap-1 mx-auto md:mx-0">
-              © {new Date().getFullYear()} Kampung Wisata Sicapit. Semua Hak Cipta Dilindungi.
-            </p>
-            <div className="flex items-center justify-center gap-6 text-sm text-slate-400 font-medium">
-              <a href="#" className="hover:text-brand transition-colors">Kebijakan Privasi</a>
-              <span className="w-1 h-1 rounded-full bg-slate-600"></span>
-              <a href="#" className="hover:text-brand transition-colors">Syarat & Ketentuan</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 }
+
+
+
+
