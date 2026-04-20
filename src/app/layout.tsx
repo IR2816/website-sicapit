@@ -1,5 +1,6 @@
 import { TransitionScreen } from "@/components/TransitionScreen";
 import { SiteFooter } from "@/components/Footer";
+import NextTopLoader from "nextjs-toploader";
 import type { Metadata } from "next";
 import { Inter, Montserrat, Geist } from "next/font/google";
 import "./globals.css";
@@ -69,6 +70,7 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "scroll-smooth", inter.variable, montserrat.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col font-sans bg-[#0a0a0a] text-slate-100">
+        <NextTopLoader color="#10b981" showSpinner={false} />
         <TransitionScreen />
         {children}
         <SiteFooter />
