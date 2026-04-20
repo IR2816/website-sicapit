@@ -30,34 +30,34 @@ export function SiteNav({ brand }: SiteNavProps) {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 flex justify-center w-full px-4 ${
-        scrolled ? "pt-4" : "pt-8"
+        scrolled ? "pt-4" : "pt-6"
       }`}
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 overflow-hidden ${
+        className={`flex items-center justify-between transition-all duration-500 overflow-visible ${
           scrolled
-            ? "w-full max-w-4xl bg-[#0a0a0a]/70 backdrop-blur-xl border border-white/10 py-3 px-6 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
-            : "w-full max-w-7xl bg-transparent py-4 px-2 md:px-12 border border-transparent rounded-none shadow-none"
+            ? "w-full max-w-4xl bg-[#111111]/80 backdrop-blur-xl border border-white/10 py-3 px-6 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
+            : "w-full max-w-6xl bg-black/30 backdrop-blur-md py-3.5 px-6 md:px-10 border border-white/10 rounded-full shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
         }`}
       >
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-full border-2 border-brand/50 shadow-[0_0_15px_rgba(249,115,22,0.5)] group-hover:scale-105 transition-transform duration-300">
+          <div className="relative w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-full border-2 border-brand/80 shadow-[0_0_15px_rgba(249,115,22,0.6)] group-hover:scale-105 transition-transform duration-300">
             <Image src="/assets/images/Icon.jpg" alt="Logo Sicapit" fill sizes="48px" className="object-cover" />
           </div>
           <div className="flex flex-col">
-            <span className="text-[9px] uppercase font-semibold text-brand tracking-[0.2em] transform transition-transform group-hover:translate-x-0.5 drop-shadow-md">Kampung Wisata</span>
-            <span className="font-heading font-black text-xl text-white tracking-tighter drop-shadow-md">{brand}</span>
+            <span className="text-[9px] uppercase font-bold text-brand tracking-[0.2em] transform transition-transform group-hover:translate-x-0.5 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">Kampung Wisata</span>
+            <span className="font-heading font-black text-xl text-white tracking-tighter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{brand}</span>
           </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 text-white">
           <div className="flex items-center gap-6">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[13px] font-medium text-slate-300 hover:text-white transition-all duration-300 hover:scale-105"
+                className="text-[13px] font-bold text-[#ffffff] hover:text-brand drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] transition-all duration-300 hover:scale-105"
               >
                 {link.label}
               </Link>
@@ -65,7 +65,7 @@ export function SiteNav({ brand }: SiteNavProps) {
           </div>
           <a
             href="#lokasi"
-            className="px-6 py-2.5 bg-brand/10 hover:bg-brand text-brand hover:text-white border border-brand/20 hover:border-brand text-[13px] font-bold rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(249,115,22,0)] hover:shadow-[0_0_20px_rgba(249,115,22,0.4)]"
+            className="px-6 py-2.5 bg-brand hover:bg-[#ffffff] text-[#ffffff] hover:text-brand border-none text-[13px] font-bold rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(249,115,22,0.4)] hover:shadow-[0_4px_20px_rgba(255,255,255,0.4)]"
           >
             Rencanakan Trip
           </a>
@@ -111,3 +111,5 @@ export function SiteNav({ brand }: SiteNavProps) {
     </nav>
   );
 }
+
+
