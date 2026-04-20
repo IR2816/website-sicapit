@@ -91,7 +91,7 @@ export function SiteNav({ brand }: SiteNavProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-3 text-base font-bold border-b border-white/5 text-white hover:text-brand transition-colors flex justify-between items-center"
+                className="py-3 text-base font-bold border-b border-white/5 text-[#ffffff] hover:text-[#f97316] transition-colors flex justify-between items-center"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -100,7 +100,7 @@ export function SiteNav({ brand }: SiteNavProps) {
             ))}
             <a
               href="#lokasi"
-              className="mt-4 px-6 py-4 bg-brand text-white text-center font-bold rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.4)]"
+              className="mt-4 px-6 py-4 bg-[#f97316] text-[#ffffff] text-center font-bold rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.4)]"
               onClick={() => setOpen(false)}
             >
               Rencanakan Trip Sekarang
