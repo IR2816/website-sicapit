@@ -16,7 +16,7 @@ export function SiteFooter() {
                 <span className="font-heading font-black text-2xl md:text-3xl text-white tracking-tighter drop-shadow-md">Sicapit</span>
               </div>
             </div>
-            <p className="text-muted leading-relaxed mb-8 max-w-sm">Teman Wisata Terbaikmu. Kampung tematik dengan keindahan alam, wisata air menantang, dan kehangatan warga lokal di pinggir Sungai Cisadane.</p>
+            <p className="text-slate-400 leading-relaxed mb-8 max-w-sm">Teman Wisata Terbaikmu. Kampung tematik dengan keindahan alam, wisata air menantang, dan kehangatan warga lokal di pinggir Sungai Cisadane.</p>
             
             <div className="flex items-center gap-3">
               <a href="https://youtube.com/@hercemherman4230" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-surface flex items-center justify-center text-slate-300 hover:text-[#FF0000] border border-line hover:border-[#FF0000]/50 transition-all hover:scale-110 shadow-sm" aria-label="YouTube">
@@ -84,8 +84,8 @@ export function SiteFooter() {
 
         {/* Footer Bottom */}
         <div className="pt-8 border-t border-line flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted text-sm">&copy; {new Date().getFullYear()} Kampung Wisata Sicapit. All rights reserved.</p>
-          <div className="flex gap-6 text-sm text-muted">
+          <p className="text-slate-400 text-sm">&copy; {new Date().getFullYear()} Kampung Wisata Sicapit. All rights reserved.</p>
+          <div className="flex gap-6 text-sm text-slate-400">
             <a href="#" className="hover:text-brand transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-brand transition-colors">Terms of Service</a>
           </div>
