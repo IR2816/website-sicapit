@@ -237,10 +237,10 @@ export default function EduSicapit() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-500 text-white rounded-full px-8 py-6 text-base font-semibold shadow-xl shadow-emerald-900/30 transition-all hover:scale-105" asChild>
+                  <Button size="lg" className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white rounded-full px-8 py-6 text-base font-semibold shadow-xl shadow-emerald-900/30 transition-all hover:scale-105" asChild>
                     <a href="#wisata">Jelajahi Wisata</a>
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-emerald-900 rounded-full px-8 py-6 text-base font-semibold transition-all hover:scale-105" asChild>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-emerald-900 rounded-full px-8 py-6 text-base font-semibold transition-all hover:scale-105" asChild>
                     <a href="#sejarah">Pelajari Sejarah</a>
                   </Button>
                 </motion.div>
@@ -297,7 +297,7 @@ export default function EduSicapit() {
               <Badge variant="outline" className="mb-3 border-emerald-300 text-emerald-700 dark:text-emerald-400">
                 <BookOpen className="h-3 w-3 mr-1" /> Sejarah
               </Badge>
-              <h2 className=" font-heading">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-emerald-950 dark:text-emerald-50">
                 Dari &ldquo;Sisi Cai Cidepit&rdquo; menjadi Kampung Wisata
               </h2>
               <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
@@ -306,7 +306,7 @@ export default function EduSicapit() {
               </p>
             </FadeInSection>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Name origin */}
               <FadeInSection delay={0.1}>
                 <Card className="border-emerald-100 dark:border-emerald-900/50 shadow-sm dark:shadow-none overflow-hidden">
@@ -323,7 +323,7 @@ export default function EduSicapit() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-emerald-100 dark:border-emerald-900/20 rounded-full animate-spin-slow opacity-30" style={{ animationDirection: 'reverse', animationDuration: '15s' }} />
                   </div>
                   <CardContent className="p-6">
-                    <h3 className=" font-heading">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">
                       <CircleDot className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                       Asal Usul Nama &ldquo;Sicapit&rdquo;
                     </h3>
@@ -352,7 +352,7 @@ export default function EduSicapit() {
 
               {/* Timeline */}
               <FadeInSection delay={0.2}>
-                <h3 className=" font-heading">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">
                   <Calendar className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                   Linimasa Transformasi
                 </h3>
@@ -395,7 +395,7 @@ export default function EduSicapit() {
             <FadeInSection delay={0.3}>
               <Card className="mt-12 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white border-0 shadow-lg">
                 <CardContent className="p-8 md:p-12 text-center">
-                  <h3 className=" font-heading">
+                  <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">
                     &ldquo;Dari Kumuh Menjadi Berkah&rdquo;
                   </h3>
                   <p className="text-emerald-100 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
@@ -421,7 +421,7 @@ export default function EduSicapit() {
               <Badge variant="outline" className="mb-3 border-amber-300 text-amber-700">
                 <Flower2 className="h-3 w-3 mr-1" /> Kebudayaan
               </Badge>
-              <h2 className=" font-heading">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-emerald-950 dark:text-emerald-50">
                 Warisan Budaya Sunda yang Hidup
               </h2>
               <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
@@ -430,7 +430,7 @@ export default function EduSicapit() {
               </p>
             </FadeInSection>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <FadeInSection delay={0.1}>
                 <div className="relative rounded-2xl overflow-hidden shadow-lg">
                   <img src="https://picsum.photos/seed/budaya/800/1000" alt="Tari Jaipong di Kampung Sicapit" className="w-full h-[400px] sm:h-[500px] object-cover" />
@@ -510,7 +510,7 @@ export default function EduSicapit() {
               <Badge variant="outline" className="mb-3 border-emerald-300 text-emerald-700 dark:text-emerald-400">
                 <TreePine className="h-3 w-3 mr-1" /> Keindahan Alam
               </Badge>
-              <h2 className=" font-heading">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-emerald-950 dark:text-emerald-50">
                 Oase Hijau di Tengah Kota Bogor
               </h2>
               <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
@@ -531,7 +531,7 @@ export default function EduSicapit() {
                     </div>
                   </div>
                   <CardContent className="p-5">
-                    <h3 className=" font-heading">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">
                       <Droplets className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                       Sungai Cisadane
                     </h3>
@@ -557,7 +557,7 @@ export default function EduSicapit() {
                     </div>
                   </div>
                   <CardContent className="p-5">
-                    <h3 className=" font-heading">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">
                       <TreePine className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                       Rimbunan Bambu
                     </h3>
@@ -582,7 +582,7 @@ export default function EduSicapit() {
                     </div>
                   </div>
                   <CardContent className="p-5">
-                    <h3 className=" font-heading">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">
                       <Fish className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                       Keanekaragaman Hayati
                     </h3>
@@ -692,7 +692,7 @@ export default function EduSicapit() {
               <Badge variant="outline" className="mb-3 border-emerald-300 text-emerald-700 dark:text-emerald-400">
                 <Compass className="h-3 w-3 mr-1" /> Wisata & Atraksi
               </Badge>
-              <h2 className=" font-heading">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-emerald-950 dark:text-emerald-50">
                 Petualangan Seru Menanti Anda
               </h2>
               <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
@@ -711,7 +711,7 @@ export default function EduSicapit() {
                     <Badge className="bg-emerald-500 dark:bg-emerald-400 text-white border-0 mb-3">
                       <Waves className="h-3 w-3 mr-1" /> Atraksi Unggulan
                     </Badge>
-                    <h3 className=" font-heading">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">
                       Arung Jeram di Bawah Kanopi Bambu
                     </h3>
                     <p className="text-white/80 mb-4">
@@ -856,7 +856,7 @@ export default function EduSicapit() {
               <Badge variant="outline" className="mb-3 border-emerald-300 text-emerald-700 dark:text-emerald-400">
                 <GraduationCap className="h-3 w-3 mr-1" /> Edukasi
               </Badge>
-              <h2 className=" font-heading">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-emerald-950 dark:text-emerald-50">
                 Belajar Sambil Bersenang-senang
               </h2>
               <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
@@ -865,7 +865,7 @@ export default function EduSicapit() {
               </p>
             </FadeInSection>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <FadeInSection delay={0.2} className="space-y-6 order-2 lg:order-1">
                 <Card className="border-emerald-100 dark:border-emerald-900/50 overflow-hidden">
                   <div className="relative h-48">
@@ -994,7 +994,7 @@ export default function EduSicapit() {
               <Badge variant="outline" className="mb-3 border-emerald-300 text-emerald-700 dark:text-emerald-400">
                 <HandHeart className="h-3 w-3 mr-1" /> Komunitas
               </Badge>
-              <h2 className=" font-heading">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-emerald-950 dark:text-emerald-50">
                 Semangat Gotong Royong
               </h2>
               <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400">
@@ -1003,13 +1003,13 @@ export default function EduSicapit() {
               </p>
             </FadeInSection>
 
-            <div className="grid lg:grid-cols-5 gap-8">
+            <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
               <FadeInSection delay={0.1} className="lg:col-span-3">
                 <div className="relative rounded-2xl overflow-hidden">
                   <img src="https://picsum.photos/seed/gotongroyong/1200/800" alt="Gotong Royong di Kampung Sicapit" className="w-full h-[350px] object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className=" font-heading">Gotong Royong Masyarakat</h3>
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold flex items-center justify-center lg:justify-start gap-3 mb-4 text-emerald-950 dark:text-emerald-50">Gotong Royong Masyarakat</h3>
                     <p className="text-white/80 text-sm">
                       Kegiatan bersih-bersih kampung dan penjagaan lingkungan sungai secara rutin dilakukan bersama.
                     </p>
@@ -1103,7 +1103,7 @@ export default function EduSicapit() {
               <Badge variant="outline" className="mb-4 border-emerald-300 text-emerald-700 bg-emerald-50 dark:bg-emerald-950/30 dark:border-emerald-700/50 dark:text-emerald-300 px-4 py-1">
                 Pertanyaan Umum
               </Badge>
-              <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100">
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100">
                 FAQ — Pertanyaan yang Sering Diajukan
               </h2>
               <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
