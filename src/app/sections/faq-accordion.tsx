@@ -62,7 +62,7 @@ export function FaqAccordion() {
                 openIndex === index ? 'max-h-96 opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'
               }`}
             >
-              <p className="text-muted leading-relaxed pr-10 text-sm md:text-base border-l-2 border-brand/30 pl-4 py-1">
+              <p className="text-muted-foreground leading-relaxed pr-10 text-sm md:text-base border-l-2 border-brand/30 pl-4 py-1">
                 {faq.answer}
               </p>
             </div>

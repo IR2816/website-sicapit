@@ -59,7 +59,7 @@ export function VillageAwards() {
               <h3 className={`font-heading text-xl md:text-2xl font-bold mb-3 ${award.isSpecial ? 'text-white' : 'text-white'}`}>
                 {award.title}
               </h3>
-              <p className={`leading-relaxed text-sm ${award.isSpecial ? 'text-white/80' : 'text-muted'}`}>
+              <p className={`leading-relaxed text-sm ${award.isSpecial ? 'text-white/80' : 'text-muted-foreground'}`}>
                 {award.desc}
               </p>
             </div>

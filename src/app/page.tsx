@@ -141,7 +141,7 @@ export default function Home() {
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Sekilas Tentang Kami</span>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4">Apa yang Ada di Sini?</h2>
-                <p className="text-muted mt-4 leading-relaxed">Kami hanya sekumpulan desa kecil yang ingin berbagi kesederhanaan. Temukan ritme hidup yang lebih perlahan dan membumi lewat keseharian yang bisa Anda rasakan langsung.</p>
+                <p className="text-muted-foreground mt-4 leading-relaxed">Kami hanya sekumpulan desa kecil yang ingin berbagi kesederhanaan. Temukan ritme hidup yang lebih perlahan dan membumi lewat keseharian yang bisa Anda rasakan langsung.</p>
               </div>
             </ScrollReveal>
 
@@ -153,7 +153,7 @@ export default function Home() {
                       0{i+1}
                     </div>
                     <h3 className="font-heading text-xl font-bold mb-3">{point.title}</h3>
-                    <p className="text-muted leading-relaxed text-sm">{point.text}</p>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{point.text}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -168,7 +168,7 @@ export default function Home() {
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Profil Kampung</span>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4 text-white">Kisah Transformasi Sicapit</h2>
-                <p className="text-muted mt-4 leading-relaxed max-w-2xl mx-auto">Dari predikat kampung terkumuh menjadi inspirasi pariwisata hijau tingkat nasional. Inilah perjalanan panjang kami membangun ruang hidup yang bermanfaat.</p>
+                <p className="text-muted-foreground mt-4 leading-relaxed max-w-2xl mx-auto">Dari predikat kampung terkumuh menjadi inspirasi pariwisata hijau tingkat nasional. Inilah perjalanan panjang kami membangun ruang hidup yang bermanfaat.</p>
               </div>
             </ScrollReveal>
             <VillageStory />
@@ -197,7 +197,7 @@ export default function Home() {
               <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Pilih Pengalamanmu</span>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4">Jelajahi Sudut Sicapit</h2>
-                <p className="text-muted mt-4 leading-relaxed">Pilih petualangan mana yang paling cocok dengan irama hidupmu. Mulai dari yang menantang adrenalin, merawat nilai sosial di ruang edukasi, hingga menyapa alam dan satwa di area pertanian asri.</p>
+                <p className="text-muted-foreground mt-4 leading-relaxed">Pilih petualangan mana yang paling cocok dengan irama hidupmu. Mulai dari yang menantang adrenalin, merawat nilai sosial di ruang edukasi, hingga menyapa alam dan satwa di area pertanian asri.</p>
               </div>
             </ScrollReveal>
 
@@ -293,7 +293,7 @@ export default function Home() {
             <ScrollReveal>
               <span className="text-brand font-bold uppercase tracking-wider text-sm">Lensa Warga</span>
               <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Sedikit Tayangan</h2>
-              <p className="text-muted mt-4 max-w-2xl">Sedikit kebahagiaan dan tawa yang terekam secara alami di halaman kami. Semoga ikut tersenyum.</p>
+              <p className="text-muted-foreground mt-4 max-w-2xl">Sedikit kebahagiaan dan tawa yang terekam secara alami di halaman kami. Semoga ikut tersenyum.</p>
             </ScrollReveal>
           </div>
           <ScrollReveal>
@@ -315,7 +315,7 @@ export default function Home() {
                         <div className="min-w-6 h-6 rounded-full bg-brand/20 flex items-center justify-center mt-1">
                           <span className="w-2 h-2 rounded-full bg-brand"></span>
                         </div>
-                        <p className="text-muted leading-relaxed">{tip}</p>
+                        <p className="text-muted-foreground leading-relaxed">{tip}</p>
                       </li>
                     ))}
                   </ul>
@@ -342,7 +342,7 @@ export default function Home() {
               <div className="text-center max-w-3xl mx-auto mb-12">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Pertanyaan Umum</span>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4">Yang Sering Ditanyakan</h2>
-                <p className="text-muted mt-4 leading-relaxed">Beberapa hal yang mungkin terlintas di pikiran Anda sebelum memulai petualangan sederhana di kampung kami.</p>
+                <p className="text-muted-foreground mt-4 leading-relaxed">Beberapa hal yang mungkin terlintas di pikiran Anda sebelum memulai petualangan sederhana di kampung kami.</p>
               </div>
             </ScrollReveal>
             <FaqAccordion />
@@ -356,7 +356,7 @@ export default function Home() {
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Aksesibilitas</span>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Lokasi & Rute</h2>
-                <p className="text-muted mt-4">Akses yang cukup terjangkau dari pusat kota Bogor. Siapkan kendaraan yang fit, let&apos;s go!</p>
+                <p className="text-muted-foreground mt-4">Akses yang cukup terjangkau dari pusat kota Bogor. Siapkan kendaraan yang fit, let&apos;s go!</p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 bg-surface p-2 md:p-4 rounded-3xl border border-line shadow-shadow">
@@ -365,7 +365,7 @@ export default function Home() {
                 </div>
                 <div className="lg:col-span-2 flex flex-col justify-center p-6 lg:px-8">
                   <h3 className="font-heading font-bold text-2xl mb-2">Buka Setiap Hari</h3>
-                  <p className="text-muted mb-8">08:00 - 17:00 WIB. Disarankan booking terlebih dahulu untuk kegiatan kelompok besar.</p>
+                  <p className="text-muted-foreground mb-8">08:00 - 17:00 WIB. Disarankan booking terlebih dahulu untuk kegiatan kelompok besar.</p>
                   
                   <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20">
                     Hubungi WhatsApp
