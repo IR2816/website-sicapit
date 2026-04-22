@@ -312,7 +312,7 @@ a {
 }
 
 .section-intro {
-  color: var(--muted);
+  color: var(--muted-foreground);
   margin: 0.35rem 0 0;
   line-height: 1.6;
 }
@@ -467,7 +467,7 @@ a {
 
 .guide-point-card p {
   margin: 0;
-  color: var(--muted);
+  color: var(--muted-foreground);
   line-height: 1.55;
 }
 
@@ -520,7 +520,7 @@ a {
 }
 
 .location-info p {
-  color: var(--muted);
+  color: var(--muted-foreground);
   line-height: 1.6;
 }
 
@@ -569,7 +569,7 @@ a {
 .gallery-subtitle {
   margin: 0.35rem 0 0;
   max-width: 62ch;
-  color: var(--muted);
+  color: var(--muted-foreground);
   line-height: 1.6;
 }
 
@@ -590,7 +590,7 @@ a {
 
 .gallery-header-meta span {
   display: block;
-  color: var(--muted);
+  color: var(--muted-foreground);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -813,7 +813,7 @@ a {
 
 .gallery-detail-copy {
   margin: 0.35rem 0 0;
-  color: var(--muted);
+  color: var(--muted-foreground);
   line-height: 1.65;
 }
 
@@ -829,7 +829,7 @@ a {
 
 .gallery-detail-list span {
   display: block;
-  color: var(--muted);
+  color: var(--muted-foreground);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -979,7 +979,7 @@ a {
 
 .video-card p {
   margin: 0;
-  color: var(--muted);
+  color: var(--muted-foreground);
   line-height: 1.5;
 }
 

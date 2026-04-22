@@ -53,7 +53,7 @@ export function VillageStory() {
                     {item.year}
                   </span>
                   <h3 className="font-heading text-2xl font-bold mb-3 text-white">{item.title}</h3>
-                  <p className="text-muted leading-relaxed text-sm md:text-base">
+                  <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                     {item.desc}
                   </p>
                 </div>

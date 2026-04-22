@@ -124,7 +124,7 @@ function VideoCard({ item }: { item: VideoItem }) {
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         
         <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-brand transition-colors drop-shadow-sm">{item.title}</h3>
-        <p className="text-muted text-sm md:text-base leading-relaxed flex-grow group-hover:text-slate-300 transition-colors">{item.desc}</p>
+        <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-grow group-hover:text-slate-300 transition-colors">{item.desc}</p>
       </div>
     </article>
   );
