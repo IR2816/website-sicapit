@@ -6,31 +6,31 @@ import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 
 const slides = [
   {
-    src: 'https://picsum.photos/seed/rafting1/800/800',
+    src: '/assets/images/rafting/5.jpeg',
     alt: 'Momen rafting Kampung Sicapit',
     title: 'Menaklukkan Jeram',
     subtitle: 'Kekompakan tim di Sungai Cisadane',
   },
   {
-    src: 'https://picsum.photos/seed/rafting2/800/800',
+    src: '/assets/images/rafting/6.jpeg',
     alt: 'Momen rafting Kampung Sicapit',
     title: 'Keindahan Alam',
     subtitle: 'Pemandangan spektakuler selama arung jeram',
   },
   {
-    src: 'https://picsum.photos/seed/rafting3/800/800',
+    src: '/assets/images/rafting/7.jpeg',
     alt: 'Momen rafting Kampung Sicapit',
     title: 'Momen Kebersamaan',
     subtitle: 'Kenangan seru bersama di Kampung siCapit',
   },
   {
-    src: 'https://picsum.photos/seed/rafting4/800/800',
+    src: '/assets/images/rafting/8.jpeg',
     alt: 'Momen rafting Kampung Sicapit',
     title: 'Petualangan Seru',
     subtitle: 'Tantangan dan kebahagiaan di setiap jeram',
   },
   {
-    src: 'https://picsum.photos/seed/rafting5/800/800',
+    src: '/assets/images/rafting/9.jpeg',
     alt: 'Momen rafting Kampung Sicapit',
     title: 'Keseruan Tanpa Henti',
     subtitle: 'Tawa dan adrenalin menjadi satu',
@@ -102,7 +102,7 @@ export default function GallerySection() {
           className="relative"
         >
           {/* Main Slideshow Container */}
-          <div className="relative overflow-hidden rounded-3xl aspect-[16/9] sm:aspect-[21/9] shadow-2xl shadow-black/10">
+          <div className="relative overflow-hidden rounded-3xl aspect-square sm:aspect-video lg:aspect-[16/9] max-h-[70vh] mx-auto shadow-2xl shadow-black/10">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentSlide}
