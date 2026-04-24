@@ -8,7 +8,7 @@ import { Clock, Users, Zap, Star, Check, ArrowRight } from 'lucide-react';
 const packages = [
   {
     name: 'Paket Pamili',
-    image: 'https://picsum.photos/seed/rafting-family/800/600',
+    image: '/assets/images/rafting/2.jpeg',
     level: '7 Km',
     levelColor: 'bg--500/10 text--400',
     distance: '7 Km',
@@ -26,7 +26,7 @@ const packages = [
   },
   {
     name: 'Paket Konservasi',
-    image: 'https://picsum.photos/seed/rafting-adv/800/600',
+    image: '/assets/images/rafting/3.jpeg',
     level: '12 Km',
     levelColor: 'bg--500/10 text--400',
     distance: '12 Km',
@@ -44,7 +44,7 @@ const packages = [
   },
   {
     name: 'Paket Petualangan',
-    image: 'https://picsum.photos/seed/rafting-ext/800/600',
+    image: '/assets/images/rafting/4.jpeg',
     level: '27 Km',
     levelColor: 'bg--500/10 text--400',
     distance: '27 Km',
@@ -95,13 +95,13 @@ export default function PackagesSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative rounded-3xl overflow-hidden bg-[#0a0a0a] border border-white/10 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-500 group"
+              className="relative rounded-3xl overflow-hidden bg-[#0a0a0a] border border-white/10 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-500 group flex flex-col"
             >
               {/* Top Accent Bar */}
               <div className={`h-1.5 w-full ${index === 0 ? 'bg-gradient-to-r from-emerald-400 to-emerald-500' : index === 1 ? 'bg-gradient-to-r from-amber-400 to-amber-500' : 'bg-gradient-to-r from-red-400 to-red-500'}`} />
 
               {/* Package Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative aspect-[4/3] w-full overflow-hidden shrink-0">
                 <img
                   src={pkg.image}
                   alt={pkg.name}
@@ -110,7 +110,7 @@ export default function PackagesSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
 
-              <div className="p-6 lg:p-8">
+              <div className="p-6 lg:p-8 flex flex-col flex-1">
                 {/* Package Header */}
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-3">

@@ -17,7 +17,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://picsum.photos/seed/raftinghero/1920/1080"
+          src="/assets/images/rafting/1.jpeg"
           alt="Arung Jeram - Rapid Rush"
           className="w-full h-full object-cover"
         />
