@@ -1,6 +1,28 @@
 import Image from "next/image";
 
 export function SiteFooter() {
+  // Kontak dari env
+  const contacts = [
+    {
+      name: process.env.NEXT_PUBLIC_CONTACT_1_NAME,
+      phone: process.env.NEXT_PUBLIC_CONTACT_1_PHONE,
+    },
+    {
+      name: process.env.NEXT_PUBLIC_CONTACT_2_NAME,
+      phone: process.env.NEXT_PUBLIC_CONTACT_2_PHONE,
+    },
+    {
+      name: process.env.NEXT_PUBLIC_CONTACT_3_NAME,
+      phone: process.env.NEXT_PUBLIC_CONTACT_3_PHONE,
+    },
+  ];
+
+  // Alamat dari env
+  const addressTitle = process.env.NEXT_PUBLIC_ADDRESS_TITLE;
+  const addressLine1 = process.env.NEXT_PUBLIC_ADDRESS_LINE1;
+  const addressLine2 = process.env.NEXT_PUBLIC_ADDRESS_LINE2;
+  const addressLine3 = process.env.NEXT_PUBLIC_ADDRESS_LINE3;
+
   return (
     <footer className="pt-20 pb-10 border-t border-line bg-surface-strong relative z-20 mt-auto">
       <div className="container mx-auto px-6 md:px-12">
@@ -35,33 +57,17 @@ export function SiteFooter() {
           <div className="flex flex-col">
             <h3 className="font-heading font-bold text-xl mb-6">Hubungi Kami</h3>
             <ul className="space-y-5">
-              <li className="flex items-center gap-4 group">
-                <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                </div>
-                <div>
-                  <p className="text-white text-sm font-bold tracking-wide">Hermansyah</p>
-                  <p className="text-slate-400 text-sm">0813-1825-1218</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-4 group">
-                <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                </div>
-                <div>
-                  <p className="text-white text-sm font-bold tracking-wide">Rany Maulida</p>
-                  <p className="text-slate-400 text-sm">0813-1700-1223</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-4 group">
-                <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                </div>
-                <div>
-                  <p className="text-white text-sm font-bold tracking-wide">Dedy</p>
-                  <p className="text-slate-400 text-sm">0857-1703-3126</p>
-                </div>
-              </li>
+              {contacts.map((contact, idx) => (
+                <li key={idx} className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-bold tracking-wide">{contact.name}</p>
+                    <p className="text-slate-400 text-sm">{contact.phone}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -73,10 +79,10 @@ export function SiteFooter() {
                 <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
               <p className="text-slate-300 text-sm leading-loose">
-                <strong className="text-white block mb-2 text-base font-bold tracking-wide">Kampung Wisata Sicapit</strong>
-                Jalan Raya Semplak Gang Flamboyan 1,<br/>
-                RT 03/06 Kel. Semplak,<br/>
-                Kec. Bogor Barat
+                <strong className="text-white block mb-2 text-base font-bold tracking-wide">{addressTitle}</strong>
+                {addressLine1}<br/>
+                {addressLine2}<br/>
+                {addressLine3}
               </p>
             </div>
           </div>
