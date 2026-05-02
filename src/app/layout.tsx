@@ -20,11 +20,11 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kampung Wisata Sicapit | Desa Wisata Bogor",
+    default: "Kampung Wisata Sicapit | Pesona Alam & Edukasi Budaya Bogor",
     template: "%s | Sicapit",
   },
-  description: "Eksplorasi alam asri, keseruan bermain air, dan hangatnya budaya lokal di Kampung Wisata Sicapit. Destinasi wisata terbaik di Bogor untuk petualangan dan liburan keluarga.",
-  keywords: ["Wisata Bogor", "Kampung Wisata Sicapit", "Desa Wisata", "Rafting Bogor", "Liburan Alam", "Spot Foto Hijau"],
+  description: "Rasakan ketenangan alam, pacu adrenalin dengan rafting, dan pelajari budaya lokal di Kampung Wisata Sicapit. Destinasi wisata terpadu terbaik di Bogor.",
+  keywords: ["Wisata Bogor", "Kampung Wisata", "Kampung Sicapit", "Rafting Cisadane", "Wisata Edukasi", "Agrowisata", "Liburan Alam Bogor"],
   authors: [{ name: "Kampung Wisata Sicapit" }],
   creator: "Kampung Wisata Sicapit",
   publisher: "Kampung Wisata Sicapit",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Kampung Wisata Sicapit | Desa Wisata Bogor",
-    description: "Eksplorasi alam asri, keseruan bermain air, dan hangatnya budaya lokal di Kampung Wisata Sicapit.",
+    title: "Kampung Wisata Sicapit | Pesona Alam & Edukasi Budaya Bogor",
+    description: "Rasakan ketenangan alam, pacu adrenalin dengan rafting, dan pelajari budaya lokal di Kampung Wisata Sicapit.",
     url: "https://sicapit.com", // Ganti dengan domain asli nanti
     siteName: "Kampung Wisata Sicapit",
     locale: "id_ID",
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kampung Wisata Sicapit",
-    description: "Destinasi wisata alam terbaik di Bogor untuk petualangan dan keluarga.",
+    title: "Kampung Wisata Sicapit | Pesona Alam & Edukasi Budaya",
+    description: "Destinasi wisata alam terpadu terbaik di Bogor untuk berpetualang dan bersantai bersama keluarga.",
   },
   robots: {
     index: true,
