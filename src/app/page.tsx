@@ -201,24 +201,24 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Farm Card */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Agrowisata Card */}
               <ScrollReveal>
-                <Link href="/farm" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand/40 transition-all duration-500 shadow-shadow bg-surface">
-                  <Image src="/assets/images/2.jpg" alt="Farm Edukasi Sicapit" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-90" />
+                <Link href="/agrowisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand/40 transition-all duration-500 shadow-shadow bg-surface">
+                  <Image src="/assets/images/2.jpg" alt="Agrowisata Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
                       <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand/20 border border-brand/30 text-brand text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
-                        Mengenal Alam
+                        Alam & Budaya
                       </span>
-                      <h3 className="font-heading text-3xl font-black text-white mb-2 tracking-tight group-hover:text-brand transition-colors">Farm</h3>
+                      <h3 className="font-heading text-3xl font-black text-white mb-2 tracking-tight group-hover:text-brand transition-colors">Agrowisata</h3>
                       <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
-                        <p className="text-slate-300 text-sm leading-relaxed mt-2">Menyapa hewan ternak, memberi makan ikan di kolam budidaya, serta mempelajari siklus berkebun ramah lingkungan.</p>
+                        <p className="text-slate-300 text-sm leading-relaxed mt-2">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-brand font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
-                      Buka Laman Farm 
+                      Buka Laman Agrowisata 
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </div>
                   </div>
@@ -228,7 +228,7 @@ export default function Home() {
               {/* Rafting Card */}
               <ScrollReveal>
                 <Link href="/rafting" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-white/5 hover:border-[#00f2fe]/40 transition-all duration-500 shadow-shadow bg-surface md:mt-12">
-                  <Image src="/assets/images/4.jpg" alt="Rafting Sungai Cisadane Sicapit" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-90" />
+                  <Image src="/assets/images/4.jpg" alt="Rafting Sungai Cisadane Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
@@ -242,29 +242,6 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-2 text-[#00f2fe] font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
                       Buka Laman Rafting 
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </div>
-                  </div>
-                </Link>
-              </ScrollReveal>
-
-              {/* Edukasi Card */}
-              <ScrollReveal>
-                <Link href="/education" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-white/5 hover:border-[#E1306C]/40 transition-all duration-500 shadow-shadow bg-surface md:mt-4">
-                  <Image src="/assets/images/3.jpg" alt="Edukasi Budaya Sicapit" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent z-10 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
-                    <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
-                      <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-[#E1306C]/20 border border-[#E1306C]/30 text-[#E1306C] text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
-                        Seni Budaya
-                      </span>
-                      <h3 className="font-heading text-3xl font-black text-white mb-2 tracking-tight group-hover:text-[#E1306C] transition-colors">Edukasi</h3>
-                      <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
-                        <p className="text-slate-300 text-sm leading-relaxed mt-2">Bawa serta keluarga menonton riuhnya parade budaya lokal dan mempraktikkan seni kerajinan anyaman bambu khas Sunda.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-[#E1306C] font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
-                      Buka Laman Edukasi 
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </div>
                   </div>
