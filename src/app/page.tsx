@@ -121,12 +121,12 @@ export default function Home() {
               Kami tak tawarkan kemewahan, hanya udara yang lebih sejuk, air sungai yang mengalir jernih, dan warga yang menyambut hangat. Mampirlah sekadar untuk rehat dari hiruk pikuk kota.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#about" className="px-8 py-4 bg-brand hover:bg-[#15803d] text-white font-black tracking-wide rounded-[12px] md:rounded-full w-full sm:w-auto transition-all duration-300 hover:-translate-y-1 shadow-[0_0_30px_rgba(22,163,74,0.4)] hover:shadow-[0_0_40px_rgba(22,163,74,0.6)]">
-                Lihat Kampung Kami
+              <a href="#kisah" className="px-8 py-4 bg-brand hover:bg-[#15803d] text-white font-black tracking-wide rounded-[12px] md:rounded-full w-full sm:w-auto transition-all duration-300 hover:-translate-y-1 shadow-[0_0_30px_rgba(22,163,74,0.4)] hover:shadow-[0_0_40px_rgba(22,163,74,0.6)]">
+                Kenali Kami Lebih Dekat
               </a>
-              <a href="#video" className="group px-8 py-4 bg-white/5 hover:bg-white/10 text-white backdrop-blur-xl border border-white/20 hover:border-white/40 font-bold tracking-wide rounded-[12px] md:rounded-full w-full sm:w-auto transition-all duration-300 flex items-center justify-center gap-3">
+              <a href="#layanan" className="group px-8 py-4 bg-white/5 hover:bg-white/10 text-white backdrop-blur-xl border border-white/20 hover:border-white/40 font-bold tracking-wide rounded-[12px] md:rounded-full w-full sm:w-auto transition-all duration-300 flex items-center justify-center gap-3">
                 <svg className="w-5 h-5 text-slate-300 group-hover:text-brand transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                Tonton Teaser
+                Jelajahi Layanan Kami
               </a>
             </div>
           </ScrollReveal>
@@ -134,26 +134,42 @@ export default function Home() {
       </header>
 
       <main className="relative z-20">
-        {/* Features / Why Us Grid */}
+        
+        {/* Profile & History Section - DIPINDAH KE ATAS UNTUK ALUR COMPANY PROFILE COHESIVE */}
+        <section id="kisah" className="py-24 bg-surface-strong/50 border-t border-b border-line">
+          <div className="container mx-auto px-6 md:px-12">
+            <ScrollReveal>
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="text-brand font-bold uppercase tracking-wider text-sm">Tentang Profil Kami</span>
+                <h2 className="font-heading text-3xl md:text-5xl font-bold mt-4 text-white">Sejarah & Transformasi Sicapit</h2>
+                <p className="text-muted-foreground mt-4 leading-relaxed max-w-2xl mx-auto text-lg">Dari predikat kampung terkumuh menjadi rujukan wisata hijau tingkat nasional. Inilah dedikasi panjang kami menghidupkan harmoni manusia, sungai, dan alam.</p>
+              </div>
+            </ScrollReveal>
+            <VillageStory />
+          </div>
+        </section>
+
+        {/* Features / Why Us Grid - DIKEMAS SEBAGAI "VALUE" PERUSAHAAN/KAMPUNG */}
         <section id="about" className="py-24">
           <div className="container mx-auto px-6 md:px-12">
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-brand font-bold uppercase tracking-wider text-sm">Sekilas Tentang Kami</span>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4">Apa yang Ada di Sini?</h2>
-                <p className="text-muted-foreground mt-4 leading-relaxed">Kami hanya sekumpulan desa kecil yang ingin berbagi kesederhanaan. Temukan ritme hidup yang lebih perlahan dan membumi lewat keseharian yang bisa Anda rasakan langsung.</p>
+                <span className="text-brand font-bold uppercase tracking-wider text-sm">Nilai Utama Kami</span>
+                <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4">Apa yang Kami Tawarkan?</h2>
+                <p className="text-muted-foreground mt-4 leading-relaxed text-lg">Integritas kami membentang dari merawat keseharian lokal yang orisinil, memuliakan alam apa adanya, hingga mengkurasi kesederhanaan menjadi kenangan manis di setiap kunjungan Anda.</p>
               </div>
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {guidePoints.map((point, i) => (
                 <ScrollReveal key={point.title}>
-                  <div className="h-full p-8 rounded-3xl bg-surface border border-line hover:border-brand/30 transition-colors shadow-shadow">
-                    <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand font-black text-xl mb-6">
+                  <div className="group h-full p-10 rounded-3xl bg-gradient-to-b from-surface to-surface-strong border border-white/5 hover:border-brand/40 transition-all duration-500 shadow-xl overflow-hidden relative">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 ease-out"></div>
+                    <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-2xl mb-8 transform group-hover:-translate-y-2 transition-transform duration-500">
                       0{i+1}
                     </div>
-                    <h3 className="font-heading text-xl font-bold mb-3">{point.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{point.text}</p>
+                    <h3 className="font-heading text-2xl font-bold mb-4 text-white/90">{point.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-base">{point.text}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -161,43 +177,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Profile & History Section */}
-        <section id="kisah" className="py-24 bg-surface-strong/50 border-t border-b border-line">
-          <div className="container mx-auto px-6 md:px-12">
-            <ScrollReveal>
-              <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-brand font-bold uppercase tracking-wider text-sm">Profil Kampung</span>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4 text-white">Kisah Transformasi Sicapit</h2>
-                <p className="text-muted-foreground mt-4 leading-relaxed max-w-2xl mx-auto">Dari predikat kampung terkumuh menjadi inspirasi pariwisata hijau tingkat nasional. Inilah perjalanan panjang kami membangun ruang hidup yang bermanfaat.</p>
-              </div>
-            </ScrollReveal>
-            <VillageStory />
-          </div>
-        </section>
-
-        {/* Awards Section */}
-        <section id="penghargaan" className="py-24 bg-[url('/assets/images/5.jpg')] bg-cover bg-center bg-fixed relative">
-          <div className="absolute inset-0 bg-[#0a0a0a]/90 backdrop-blur-sm z-0"></div>
-          <div className="container mx-auto px-6 md:px-12 relative z-10">
-            <ScrollReveal>
-              <div className="text-center max-w-3xl mx-auto">
-                <span className="text-white/70 font-bold uppercase tracking-wider text-sm">Kebanggaan Kampung</span>
-                <h2 className="font-heading text-3xl md:text-5xl font-bold mt-4 text-white">Jejak Prestasi</h2>
-                <p className="text-slate-300 mt-4 leading-relaxed max-w-2xl mx-auto">Torehan langkah nyata dedikasi warga yang berhasil diakui di level kota hingga panggung nasional.</p>
-              </div>
-            </ScrollReveal>
-            <VillageAwards />
-          </div>
-        </section>
-
-        {/* Pilih Petualangan Grid / Layanan Kami */}
+        {/* Layanan Kami / Products (Pilih Petualangan) */}
         <section id="layanan" className="py-24 relative overflow-hidden bg-surface-strong/30 border-t border-line">
           <div className="container mx-auto px-6 md:px-12">
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
-                <span className="text-brand font-bold uppercase tracking-wider text-sm">Pilih Pengalamanmu</span>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4">Jelajahi Sudut Sicapit</h2>
-                <p className="text-muted-foreground mt-4 leading-relaxed">Pilih petualangan mana yang paling cocok dengan irama hidupmu. Mulai dari yang menantang adrenalin, merawat nilai sosial di ruang edukasi, hingga menyapa alam dan satwa di area pertanian asri.</p>
+                <span className="text-brand font-bold uppercase tracking-wider text-sm">Layanan & Fasilitas Kami</span>
+                <h2 className="font-heading text-3xl md:text-5xl font-bold mt-4">Pilar Wisata Sicapit</h2>
+                <p className="text-muted-foreground mt-4 leading-relaxed text-lg">Sebagai entitas wisata terpadu, kami membagi pengalaman autentik ke dalam dua pilar utama: pemberdayaan agrowisata untuk menumbuhkan kepedulian lingkungan, serta rekreasi adrenalin melintasi derasnya sungai Cisadane.</p>
               </div>
             </ScrollReveal>
 
