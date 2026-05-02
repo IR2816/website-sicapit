@@ -114,8 +114,8 @@ export default function Home() {
               </span>
             </div>
             <h1 className="font-heading text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 leading-[1.1] mb-8 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] filter">
-              Singgah Sejenak di <br className="hidden md:block" />
-              Kampung <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-[#4ade80] to-brand blur-[0.3px]">Sicapit.</span>
+              Lepaskan Penatmu di <br className="hidden md:block" />
+              Kampung Wisata <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-[#4ade80] to-brand blur-[0.3px]">Sicapit.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300/90 mb-12 max-w-2xl mx-auto leading-relaxed md:leading-loose font-medium drop-shadow-md">
               Kami tak tawarkan kemewahan, hanya udara yang lebih sejuk, air sungai yang mengalir jernih, dan warga yang menyambut hangat. Mampirlah sekadar untuk rehat dari hiruk pikuk kota.
