@@ -10,9 +10,8 @@ type SiteNavProps = {
 
 const links = [
   { href: "/", label: "Beranda" },
-  { href: "/farm", label: "Farm" },
+  { href: "/agrowisata", label: "Agrowisata" },
   { href: "/rafting", label: "Rafting" },
-  { href: "/education", label: "Edukasi" },
 ];
 
 export function SiteNav({ brand }: SiteNavProps) {
