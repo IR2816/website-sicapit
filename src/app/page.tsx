@@ -104,29 +104,44 @@ export default function Home() {
       {/* Hero Section */}
       <header className="relative min-h-[95vh] md:min-h-screen flex items-center justify-center pt-24 overflow-hidden" id="home">
         <HeroSlider />
+        {/* Gradient overlay untuk transisi lebih mulus */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-[#050505] z-10 pointer-events-none"></div>
 
-        <div className="relative z-20 container mx-auto px-6 md:px-12 text-center max-w-4xl pt-16">
+        <div className="relative z-20 container mx-auto px-4 md:px-12 flex flex-col items-center text-center mt-12 md:mt-24">
           <ScrollReveal>
-            <div className="relative inline-flex items-center justify-center isolate mb-8">
-              <div className="absolute inset-0 bg-brand/30 blur-2xl rounded-full mix-blend-screen scale-150 animate-pulse"></div>
-              <span className="relative z-10 inline-block py-2 px-6 rounded-full bg-brand/10 border border-brand/30 text-brand text-xs md:text-sm font-black tracking-[0.25em] uppercase shadow-[0_0_20px_rgba(22,163,74,0.3)] backdrop-blur-md">
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-10 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand"></span>
+              </span>
+              <span className="text-white/90 text-xs md:text-sm font-bold tracking-[0.15em] uppercase">
                 Selamat Datang di Bogor
               </span>
             </div>
-            <h1 className="font-heading text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 leading-[1.1] mb-8 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] filter">
+            
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-[5.5rem] font-extrabold text-white leading-[1.1] md:leading-[1.15] mb-8 max-w-5xl mx-auto tracking-tight drop-shadow-2xl">
               Lepaskan Penatmu di <br className="hidden md:block" />
-              Kampung Wisata <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-[#4ade80] to-brand blur-[0.3px]">Sicapit.</span>
+              <span className="relative inline-block mt-2">
+                Kampung <span className="text-brand">Sicapit.</span>
+                {/* SVG Underline Highlight */}
+                <svg className="absolute -bottom-2 left-0 w-full h-4 text-brand/40 w-full -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                  <path fill="currentColor" d="M0 10 Q 50 0 100 10 Q 50 2 0 10" />
+                </svg>
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-300/90 mb-12 max-w-2xl mx-auto leading-relaxed md:leading-loose font-medium drop-shadow-md">
+
+            <p className="text-base md:text-xl lg:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed md:leading-loose mb-12 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Kami tak tawarkan kemewahan, hanya udara yang lebih sejuk, air sungai yang mengalir jernih, dan warga yang menyambut hangat. Mampirlah sekadar untuk rehat dari hiruk pikuk kota.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#kisah" className="px-8 py-4 bg-brand hover:bg-[#15803d] text-white font-black tracking-wide rounded-[12px] md:rounded-full w-full sm:w-auto transition-all duration-300 hover:-translate-y-1 shadow-[0_0_30px_rgba(22,163,74,0.4)] hover:shadow-[0_0_40px_rgba(22,163,74,0.6)]">
-                Kenali Kami Lebih Dekat
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto px-4">
+              <a href="#kisah" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-[#15803d] text-white font-bold text-sm tracking-wide rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(22,163,74,0.4)] hover:shadow-[0_8px_40px_rgba(22,163,74,0.6)] hover:-translate-y-1 overflow-hidden">
+                <span className="relative z-10">Kenali Kami</span>
+                <div className="absolute inset-0 h-full w-0 bg-white/20 transition-all duration-500 ease-out group-hover:w-full z-0"></div>
               </a>
-              <a href="#layanan" className="group px-8 py-4 bg-white/5 hover:bg-white/10 text-white backdrop-blur-xl border border-white/20 hover:border-white/40 font-bold tracking-wide rounded-[12px] md:rounded-full w-full sm:w-auto transition-all duration-300 flex items-center justify-center gap-3">
-                <svg className="w-5 h-5 text-slate-300 group-hover:text-brand transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                Jelajahi Layanan Kami
+              <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-[#111111]/60 hover:bg-[#222222]/80 text-white backdrop-blur-xl border border-white/20 hover:border-brand/50 font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
+                Jelajahi Layanan
+                <svg className="w-4 h-4 text-brand group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
             </div>
           </ScrollReveal>
