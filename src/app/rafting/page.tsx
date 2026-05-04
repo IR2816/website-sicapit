@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import { SiteNav } from '../sections/site-nav'
+import { useToast } from '@/hooks/use-toast'
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
@@ -22,9 +24,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
-  DialogFooter,
-  DialogClose,
 } from '@/components/ui/dialog'
 import {
   Sheet,
@@ -37,10 +36,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { useToast } from '@/hooks/use-toast'
 import {
   Waves,
-  Mountain,
   Shield,
   Users,
   Star,
@@ -50,7 +47,6 @@ import {
   Clock,
   ChevronRight,
   Menu,
-  X,
   Heart,
   Award,
   Camera,
@@ -71,131 +67,6 @@ import {
   Info,
   BookOpen,
 } from 'lucide-react'
-
-// ==================== NAVBAR ====================
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const navLinks = [
-    { label: 'Beranda', href: '#beranda' },
-    { label: 'Tentang', href: '#tentang' },
-    { label: 'Paket', href: '#paket' },
-    { label: 'Galeri', href: '#galeri' },
-    { label: 'Testimoni', href: '#testimoni' },
-    { label: 'Keselamatan', href: '#keselamatan' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Kontak', href: '#kontak' },
-  ]
-
-  const scrollTo = (href: string) => {
-    setMobileOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <button onClick={() => scrollTo('#beranda')} className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center shadow-lg group-hover:bg-brand/80 text-white transition-colors">
-              <Waves className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className={`font-bold text-lg leading-tight transition-colors ${scrolled ? 'text-brand' : 'text-white'}`}>
-                Kampung Sicapit
-              </h1>
-              <p className={`text-xs leading-tight transition-colors ${scrolled ? 'text-brand' : 'text-emerald-200'}`}>
-                Wisata Air Bogor
-              </p>
-            </div>
-          </button>
-
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollTo(link.href)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-emerald-100/80 ${
-                  scrolled ? 'text-slate-200 hover:text-brand' : 'text-white/90 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
-            <Button
-              onClick={() => window.open('https://wa.me/6285773246998?text=Halo%20Kampung%20Sicapit%2C%20saya%20ingin%20booking%20rafting!', '_blank')}
-              className="ml-4 bg-brand text-white hover:bg-brand/80 text-white text-white rounded-lg"
-              size="sm"
-            >
-              <CalendarDays className="w-4 h-4 mr-2" />
-              Pesan Sekarang
-            </Button>
-          </div>
-
-          {/* Mobile Menu */}
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild>
-              <button className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-slate-200' : 'text-white'}`}>
-                <Menu className="w-6 h-6" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-72 bg-surface p-0">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-6 border-b">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center">
-                      <Waves className="w-6 h-6 text-white" />
-                    </div>
-                    <h2 className="font-bold text-lg text-brand">Kampung Sicapit</h2>
-                  </div>
-                </div>
-                <div className="flex-1 p-4">
-                  {navLinks.map((link) => (
-                    <button
-                      key={link.href}
-                      onClick={() => scrollTo(link.href)}
-                      className="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-brand/10 hover:text-brand font-medium transition-colors"
-                    >
-                      {link.label}
-                    </button>
-                  ))}
-                </div>
-                <div className="p-4 border-t">
-                  <Button
-                    onClick={() => window.open('https://wa.me/6285773246998?text=Halo%20Kampung%20Sicapit%2C%20saya%20ingin%20booking%20rafting!', '_blank')}
-                    className="w-full bg-brand text-white hover:bg-brand/80 text-white text-white rounded-lg"
-                  >
-                    <CalendarDays className="w-4 h-4 mr-2" />
-                    Pesan Sekarang
-                  </Button>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
-    </motion.nav>
-  )
-}
 
 // ==================== HERO SECTION ====================
 function HeroSection() {
@@ -491,7 +362,6 @@ const packages = [
 function PackagesSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const { toast } = useToast()
 
   const handleBooking = (pkgName: string) => {
     const text = encodeURIComponent(`Halo Kampung Sicapit! Saya ingin booking paket ${pkgName}. Mohon info jadwal dan ketersediaannya. Terima kasih!`)
@@ -1661,148 +1531,6 @@ function ContactSection() {
         </div>
       </div>
     </section>
-  )
-}
-
-// ==================== FOOTER ====================
-function Footer() {
-  const [showScrollTop, setShowScrollTop] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 500)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center">
-                <Waves className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg">Kampung Sicapit</h3>
-                <p className="text-xs text-emerald-400">Wisata Air Bogor</p>
-              </div>
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Wisata air terpercaya di Sungai Cisadane, Bogor. Menawarkan rafting, river tubing, 
-              wisata kuliner, dan kesenian lokal dengan suasana alam yang asri.
-            </p>
-            <div className="flex gap-3">
-              {['Instagram', 'Facebook', 'YouTube', 'TikTok'].map((social) => (
-                <button
-                  key={social}
-                  className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-brand text-white flex items-center justify-center transition-colors"
-                  aria-label={social}
-                >
-                  <span className="text-xs font-bold">{social[0]}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Menu</h4>
-            <ul className="space-y-2">
-              {['Beranda', 'Tentang Kami', 'Paket Rafting', 'Galeri Foto', 'Testimoni', 'Kontak'].map((link) => (
-                <li key={link}>
-                  <button
-                    className="text-slate-400 hover:text-emerald-400 text-sm transition-colors"
-                    onClick={() => {
-                      const href = `#${link.toLowerCase().replace(/\s+/g, '').replace('kami', '')}`
-                      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-                    }}
-                  >
-                    {link}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Layanan</h4>
-            <ul className="space-y-2">
-              {[
-                'Arung Jeram Keluarga',
-                'Team Building',
-                'Rafting Corporate',
-                'Outbound Adventure',
-                'Camping & Rafting',
-                'River Tubing',
-              ].map((service) => (
-                <li key={service}>
-                  <span className="text-slate-400 text-sm">{service}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Hubungi Kami</h4>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
-                <span className="text-slate-400 text-sm">Kampung Wisata SiCapit, Gg. Flamboyan I No.1, Semplak, Bogor Barat</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="text-slate-400 text-sm">+62 857-7324-6998</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="text-slate-400 text-sm">Kampungwisatasicapit382@gmail.com</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="text-slate-400 text-sm">Setiap Hari, 08:00 - 17:00 WIB</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-sm">
-            &copy; 2024 Kampung Sicapit. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <button className="text-slate-400 hover:text-gray-300 text-sm transition-colors">
-              Kebijakan Privasi
-            </button>
-            <button className="text-slate-400 hover:text-gray-300 text-sm transition-colors">
-              Syarat & Ketentuan
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll to top */}
-      <AnimatePresence>
-        {showScrollTop && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-brand text-white hover:bg-brand/80 text-white text-white shadow-lg flex items-center justify-center z-50 transition-colors"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="w-5 h-5" />
-          </motion.button>
-        )}
-      </AnimatePresence>
-    </footer>
   )
 }
 
