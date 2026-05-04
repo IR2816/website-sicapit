@@ -1,24 +1,42 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const content = `"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollReveal } from "../sections/scroll-reveal";
 import { SiteNav } from "../sections/site-nav";
 import {
+  TreePine,
+  UtensilsCrossed,
+  Palette,
+  Home as HomeIcon,
   Users,
   MapPin,
+  CalendarDays,
   Star,
   ArrowRight,
   ChevronDown,
   Heart,
+  BookOpen,
+  Camera,
+  Leaf,
+  Sparkles,
+  Compass,
+  Sun,
   Mountain,
-  UtensilsCrossed,
+  Fish,
+  Scissors,
+  Coffee,
+  ShieldCheck,
+  Clock,
+  Phone,
   ChevronUp,
   Landmark,
   GraduationCap,
@@ -27,7 +45,8 @@ import {
   TrendingUp,
   ArrowLeft,
   Bird,
-  Flower2
+  Flower2,
+  Gamepad2
 } from "lucide-react";
 
 /* ─── Generic Section Content Reveal ─── */
@@ -112,10 +131,10 @@ function PageHeader() {
             <a href="#tentang" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-[#15803d] text-white font-bold text-sm tracking-wide rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(22,163,74,0.4)] hover:shadow-[0_8px_40px_rgba(22,163,74,0.6)] hover:-translate-y-1 overflow-hidden">
               <span className="relative z-10 flex items-center justify-center gap-2">Mulai Belajar <ArrowRight className="w-4 h-4" /></span>
             </a>
-            <Link href="/" className="group w-full sm:w-auto px-8 py-4 bg-[#111111]/60 hover:bg-[#222222]/80 text-white backdrop-blur-xl border border-white/20 font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
+            <a href="/" className="group w-full sm:w-auto px-8 py-4 bg-[#111111]/60 hover:bg-[#222222]/80 text-white backdrop-blur-xl border border-white/20 font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               Kembali ke Beranda
-            </Link>
+            </a>
           </div>
         </ScrollReveal>
       </div>
@@ -297,15 +316,15 @@ function ActivitiesSection() {
                   <Image src={act.image} alt={act.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-strong via-transparent to-transparent z-10" />
                   <div className="absolute top-4 left-4 z-20">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase backdrop-blur-sm ${act.tagColor}`}>{act.tag}</span>
+                    <span className={\`px-3 py-1 rounded-full text-xs font-bold uppercase backdrop-blur-sm \${act.tagColor}\`}>{act.tag}</span>
                   </div>
                 </div>
                 <div className="p-8 pt-4 flex-1 flex flex-col">
                   <h3 className="text-2xl font-bold text-white mb-3">{act.title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm mb-6 flex-1">{act.desc}</p>
-                  <Link href="/agrowisata/pertanian" className="inline-flex items-center w-fit text-brand hover:text-green-400 px-4 py-2 font-bold p-0 transition-colors">
+                  <Button variant="ghost" className="w-fit text-brand hover:text-brand hover:bg-brand/10 px-4 py-2 font-bold p-0">
                     Selengkapnya <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </FadeSection>
@@ -423,7 +442,7 @@ function BottomSections() {
           
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-white/10 rounded-2xl px-6 bg-surface-strong/50 data-[state=open]:border-brand/40 overflow-hidden transition-colors">
+              <AccordionItem key={i} value={\`item-\${i}\`} className="border border-white/10 rounded-2xl px-6 bg-surface-strong/50 data-[state=open]:border-brand/40 overflow-hidden transition-colors">
                 <AccordionTrigger className="text-left text-lg font-bold text-white py-6 hover:no-underline hover:text-brand transition-colors">
                   {faq.q}
                 </AccordionTrigger>
@@ -498,3 +517,7 @@ export default function KampungWisataPage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync(path.join(__dirname, 'src', 'app', 'agrowisata', 'page.tsx'), content);
+console.log('Done!');
