@@ -199,9 +199,19 @@ function Navbar() {
 
 // ==================== HERO SECTION ====================
 function HeroSection() {
-  const [mounted, setMounted] = useState(false);
+  const [particles, setParticles] = useState<{initialX: number, animX: string, duration: number, delay: number}[]>([]);
+  
   useEffect(() => {
-    setMounted(true);
+    // Gunakan timeout kecil agar setState tidak berjalan synchronoulsy tepat saat rendering cycle
+    const timeout = setTimeout(() => {
+      setParticles([...Array(6)].map(() => ({
+        initialX: Math.random() * 1440,
+        animX: `+=${Math.random() * 200 - 100}`,
+        duration: 8 + Math.random() * 6,
+        delay: Math.random() * 5
+      })));
+    }, 0);
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -216,13 +226,13 @@ function HeroSection() {
       </div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {mounted && [...Array(6)].map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-brand/30 rounded-full"
-            initial={{ x: Math.random() * 1440, y: 900 }}
-            animate={{ y: -100, x: `+=${Math.random() * 200 - 100}` }}
-            transition={{ duration: 8 + Math.random() * 6, repeat: Infinity, delay: Math.random() * 5, ease: 'linear' }}
+            initial={{ x: p.initialX, y: 900 }}
+            animate={{ y: -100, x: p.animX }}
+            transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'linear' }}
           />
         ))}
       </div>
@@ -644,48 +654,48 @@ const bentoItemsLayout = [
     src: '/assets/images/rafting/3.jpeg',
     title: 'Pemandu Ahli',
     tag: 'Tim Kami',
-    colSpan: 'md:col-span-1',
-    rowSpan: 'md:row-span-1',
+    colSpan: 'col-span-1 md:col-span-1',
+    rowSpan: 'row-span-1 md:row-span-1',
     type: 'image',
   },
   {
     src: '/assets/images/rafting/4.jpeg',
     title: 'Bersama Tim',
     tag: 'Keluarga',
-    colSpan: 'md:col-span-1',
-    rowSpan: 'md:row-span-1',
+    colSpan: 'col-span-1 md:col-span-1',
+    rowSpan: 'row-span-1 md:row-span-1',
     type: 'image',
   },
   {
     src: '/assets/images/rafting/7.jpeg',
     title: 'Arus Deras',
     tag: 'Aktivitas',
-    colSpan: 'md:col-span-2',
-    rowSpan: 'md:row-span-1',
+    colSpan: 'col-span-2 md:col-span-2',
+    rowSpan: 'row-span-1 md:row-span-1',
     type: 'image',
   },
   {
     src: '/assets/images/rafting/6.jpeg',
     title: 'Petualangan Seru',
     tag: 'Aktivitas',
-    colSpan: 'md:col-span-2',
-    rowSpan: 'md:row-span-1',
+    colSpan: 'col-span-2 md:col-span-2',
+    rowSpan: 'row-span-1 md:row-span-1',
     type: 'image',
   },
   {
     src: '/assets/images/rafting/1.jpeg',
     title: 'Aksi di Rapids',
     tag: 'Aktivitas',
-    colSpan: 'md:col-span-1',
-    rowSpan: 'md:row-span-1',
+    colSpan: 'col-span-1 md:col-span-1',
+    rowSpan: 'row-span-1 md:row-span-1',
     type: 'image',
   },
   {
     src: '/assets/images/rafting/5.jpeg',
     title: 'Mengayuh Bersama',
     tag: 'Aktivitas',
-    colSpan: 'md:col-span-1',
-    rowSpan: 'md:row-span-1',
+    colSpan: 'col-span-1 md:col-span-1',
+    rowSpan: 'row-span-1 md:row-span-1',
     type: 'image',
   },
 ]
@@ -765,11 +775,11 @@ function GallerySection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-4 auto-rows-[300px] gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 auto-rows-[250px] md:auto-rows-[300px] gap-2 sm:gap-4"
         >
           {/* Item 1: The Slideshow (2x2 Tile) */}
           <div 
-            className="relative group overflow-hidden rounded-3xl md:col-span-2 md:row-span-2 shadow-lg bg-black cursor-pointer"
+            className="relative group overflow-hidden rounded-2xl md:rounded-3xl col-span-2 row-span-2 shadow-lg bg-black cursor-pointer"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -830,7 +840,7 @@ function GallerySection() {
           {bentoItemsLayout.map((item, i) => (
             <div
               key={i}
-              className={`relative group cursor-pointer overflow-hidden rounded-3xl shadow-md ${item.colSpan} ${item.rowSpan}`}
+              className={`relative group cursor-pointer overflow-hidden rounded-2xl md:rounded-3xl shadow-md ${item.colSpan} ${item.rowSpan}`}
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setSelectedImg(item.src)}
@@ -892,7 +902,7 @@ function GallerySection() {
         </motion.div>
 
         {/* Uncropped Videos Showcase */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
           {videoItems.map((item, i) => (
             <motion.div
               key={`vid-${i}`}
