@@ -26,11 +26,6 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/ui/sheet'
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -46,7 +41,6 @@ import {
   MapPin,
   Clock,
   ChevronRight,
-  Menu,
   Heart,
   Award,
   Camera,
@@ -55,7 +49,6 @@ import {
   Zap,
   Trophy,
   CalendarDays,
-  ArrowUp,
   HelpCircle,
   LifeBuoy,
   Play,
