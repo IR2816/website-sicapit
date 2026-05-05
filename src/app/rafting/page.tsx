@@ -365,7 +365,7 @@ function PackagesSection() {
 
   const handleBooking = (pkgName: string) => {
     const text = encodeURIComponent(`Halo Kampung Sicapit! Saya ingin booking paket ${pkgName}. Mohon info jadwal dan ketersediaannya. Terima kasih!`)
-    window.open(`https://wa.me/6285773246998?text=${text}`, '_blank')
+    window.open(`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}?text=${text}`, '_blank')
   }
 
   return (
@@ -1268,7 +1268,7 @@ function CTASection() {
                 Booking Sekarang 🚀
               </Button>
             </a>
-            <a href="https://wa.me/6285773246998" target="_blank" rel="noopener noreferrer">
+            <a href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}`} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="border-white/50 text-white hover:bg-white/20 bg-transparent font-semibold px-8 py-4 text-base rounded-xl">
                 Hubungi via WhatsApp
               </Button>
@@ -1554,7 +1554,7 @@ export default function Home() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/6285773246998?text=Halo%20Rafting%20Kampung%20SiCapit%2C%20saya%20ingin%20booking%20rafting!"
+        href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}?text=Halo%20Rafting%20Kampung%20SiCapit%2C%20saya%20ingin%20booking%20rafting!`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-green-500/40 transition-all duration-300 hover:scale-105 group"

@@ -64,7 +64,9 @@ export function SiteFooter() {
                   </div>
                   <div>
                     <p className="text-white text-sm font-bold tracking-wide">{contact.name}</p>
-                    <p className="text-slate-400 text-sm">{contact.phone}</p>
+                    <a href={`https://wa.me/62${contact.phone?.replace(/^0|\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-orange-400 text-sm transition-colors">
+                      Chat via WhatsApp
+                    </a>
                   </div>
                 </li>
               ))}
@@ -92,8 +94,8 @@ export function SiteFooter() {
         <div className="pt-8 border-t border-line flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-400 text-sm">&copy; {new Date().getFullYear()} Kampung Wisata Sicapit. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-slate-400">
-            <a href="#" className="hover:text-brand transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-brand transition-colors">Terms of Service</a>
+            <a href="/privacy-policy" className="hover:text-brand transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="hover:text-brand transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

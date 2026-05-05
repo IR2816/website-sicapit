@@ -28,6 +28,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Kampung Wisata Sicapit" }],
   creator: "Kampung Wisata Sicapit",
   publisher: "Kampung Wisata Sicapit",
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://sicapit.vercel.app/",
+    siteName: "Kampung Wisata Sicapit",
+    title: "Kampung Wisata Sicapit | Pesona Alam & Edukasi Budaya",
+    description: "Rasakan ketenangan alam, pacu adrenalin dengan rafting, dan pelajari budaya lokal di Kampung Wisata Sicapit.",
+    images: [{ url: "https://sicapit.vercel.app/hero-kampung.png", width: 1200, height: 630, alt: "Kampung Wisata Sicapit" }],
+  },
   formatDetection: {
     email: false,
     address: false,
