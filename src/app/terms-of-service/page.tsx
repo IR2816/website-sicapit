@@ -1,4 +1,4 @@
-import SiteNav from '@/sections/site-nav'
+import { SiteNav } from '@/app/sections/site-nav'
 import { SiteFooter as Footer } from '@/components/Footer'
 
 export const metadata = {
