@@ -33,7 +33,6 @@ import {
   Clock,
   Phone,
   Mail,
-  Instagram,
   ChevronUp,
   Landmark,
   GraduationCap,
