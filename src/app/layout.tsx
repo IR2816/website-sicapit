@@ -42,14 +42,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  openGraph: {
-    title: "Kampung Wisata Sicapit | Pesona Alam & Edukasi Budaya Bogor",
-    description: "Rasakan ketenangan alam, pacu adrenalin dengan rafting, dan pelajari budaya lokal di Kampung Wisata Sicapit.",
-    url: "https://sicapit.com", // Ganti dengan domain asli nanti
-    siteName: "Kampung Wisata Sicapit",
-    locale: "id_ID",
-    type: "website",
-  },
   twitter: {
     card: "summary_large_image",
     title: "Kampung Wisata Sicapit | Pesona Alam & Edukasi Budaya",
