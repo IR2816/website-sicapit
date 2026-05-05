@@ -8,7 +8,6 @@ import { ArrowRight, TreePine, BookOpen, MapPin, Heart, Sparkles, Leaf, ChevronR
 import Image from 'next/image'
 import Link from 'next/link'
 import { SiteNav } from '@/app/sections/site-nav'
-import { SiteFooter as Footer } from '@/components/Footer'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -181,8 +180,6 @@ export default function AgrowisataHome() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   )
 }
