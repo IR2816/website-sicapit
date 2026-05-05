@@ -37,7 +37,7 @@ export function HeroSlider() {
               index === currentIndex ? "scale-100" : ""
             }`}
             priority={index === 0}
-            quality={90}
+            quality={75}
           />
         </div>
       ))}

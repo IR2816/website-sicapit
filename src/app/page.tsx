@@ -346,7 +346,7 @@ export default function Home() {
                   <h3 className="font-heading font-bold text-2xl mb-2">Buka Setiap Hari</h3>
                   <p className="text-muted-foreground mb-8">08:00 - 17:00 WIB. Disarankan booking terlebih dahulu untuk kegiatan kelompok besar.</p>
                   
-                  <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20">
+                    <a href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20">
                     Hubungi WhatsApp
                   </a>
                 </div>
