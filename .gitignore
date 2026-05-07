@@ -1,55 +1,103 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# ========== DEPENDENCIES ==========
 /node_modules
 /.pnp
-<<<<<<< HEAD
 .pnp.*
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
-.pnp.js
 !.yarn/versions
-=======
 .pnp.js
->>>>>>> 465b1fee1ba8dc12998e40f1af3a39bfd50e773e
 
-# testing
-/coverage
+# ========== ENVIRONMENT VARIABLES ==========
+.env
+.env.local
+.env.*.local
+.env*.local
 
-# next.js
+# ========== BUILD & NEXT.JS ==========
 /.next/
 /out/
-
-# production
 /build
+/.next/cache
 
-# misc
-.DS_Store
-*.pem
+# ========== PRISMA ==========
+/prisma/migrations/
+.prisma/client
 
-# debug
+# ========== TESTING ==========
+/coverage
+*.lcov
+
+# ========== LOGS ==========
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
 .pnpm-debug.log*
+lerna-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
-.env*
-=======
+# ========== OS FILES ==========
+.DS_Store
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
-# local env files
-.env*.local
-.env
->>>>>>> 465b1fee1ba8dc12998e40f1af3a39bfd50e773e
+# ========== IDE & EDITOR ==========
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.idea_modules/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+.vscode-test
+*.code-workspace
+.env.test.local
 
-# vercel
+# ========== TEMPORARY & DEVELOPMENT ==========
+tmp/
+temp/
+*.tmp
+.cache/
+dist/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# ========== CERTIFICATES & KEYS ==========
+*.pem
+*.key
+*.crt
+
+# ========== VERCEL ==========
 .vercel
+.vercel/output
 
-# typescript
+# ========== LOCAL SCRIPTS & TEST DATA ==========
+scripts/fixes/fix-*.js
+scripts/**/*-temp.js
+scripts/**/*-test.js
+test-data/
+*.backup
+*.bak
+
+# ========== ASSET DOWNLOADS ==========
+/assets/**/*.mp4
+/assets/**/*.webm
+/public/assets/videos/*
+/public/media/*
+
+# ========== TYPESCRIPT & NEXT.JS GENERATED ==========
 *.tsbuildinfo
 next-env.d.ts
-
 /src/generated/prisma
