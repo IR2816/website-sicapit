@@ -1,11 +1,19 @@
+<div align="center">
+  <img src="./public/assets/images/Icon.jpg" alt="Sicapit Icon" width="120" height="120" style="border-radius: 20px;">
+</div>
+
 # 🏘️ Website Sicapit - Agro Wisata
+
+<div align="center">
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org)
 [![Prisma](https://img.shields.io/badge/Prisma-7.7-lightblue?logo=prisma)](https://www.prisma.io)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4-06B6D4?logo=tailwindcss)](https://tailwindcss.com)
 
-Website resmi Sicapit - destinasi wisata pertanian dan agro-tourism yang menawarkan pengalaman unik di tengah keindahan alam pedesaan.
+**Website resmi Sicapit** - destinasi wisata pertanian dan agro-tourism yang menawarkan pengalaman unik di tengah keindahan alam pedesaan.
+
+</div>
 
 ---
 
