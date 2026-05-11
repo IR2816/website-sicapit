@@ -1377,7 +1377,7 @@ function ContactSection() {
             {/* Google Maps Embed */}
             <div className="mt-6 rounded-xl overflow-hidden border h-52">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.716050768899!2d106.8158!3d-6.5831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c8b8d8d8d8d7%3A0x1234567890abcdef!2sKampung%20Wisata%20Sicapit!5e0!3m2!1sen!2sid!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.5089799999998!2d106.7610574!3d-6.5550739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58883fd0c4b%3A0x1d1d63d311d2bea9!2sKampung%20Wisata%20SiCapit!5e0!3m2!1sen!2sid!4v1234567890"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
