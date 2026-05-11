@@ -340,7 +340,7 @@ export default function Home() {
 
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 bg-surface p-2 md:p-4 rounded-3xl border border-line shadow-shadow">
                 <div className="lg:col-span-3 rounded-2xl overflow-hidden h-[400px] border border-line relative">
-                  <iframe title="Peta Lokasi Kampung Sicapit" src="https://maps.google.com/maps?q=Kampung%20Wisata%20SiCapit&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe title="Peta Lokasi Kampung Sicapit" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.716050768899!2d106.8158!3d-6.5831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c8b8d8d8d8d7%3A0x1234567890abcdef!2sKampung%20Wisata%20Sicapit!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div className="lg:col-span-2 flex flex-col justify-center p-6 lg:px-8">
                   <h3 className="font-heading font-bold text-2xl mb-2">Buka Setiap Hari</h3>
