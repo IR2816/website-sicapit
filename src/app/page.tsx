@@ -340,7 +340,7 @@ export default function Home() {
 
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 bg-surface p-2 md:p-4 rounded-3xl border border-line shadow-shadow">
                 <div className="lg:col-span-3 rounded-2xl overflow-hidden h-[400px] border border-line relative">
-                  <iframe title="Peta Lokasi Kampung Sicapit" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.5089799999998!2d106.7610574!3d-6.5550739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58883fd0c4b%3A0x1d1d63d311d2bea9!2sKampung%20Wisata%20SiCapit!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe title="Peta Lokasi Kampung Sicapit" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.5089799999998!2d106.7610574!3d-6.5550739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58883fd0c4b%3A0x1d1d63d311d2bea9!2sKampung%20Wisata%20SiCapit!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
                 </div>
                 <div className="lg:col-span-2 flex flex-col justify-center p-6 lg:px-8">
                   <h3 className="font-heading font-bold text-2xl mb-2">Buka Setiap Hari</h3>
