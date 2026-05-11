@@ -22,6 +22,8 @@
 /out/
 /build
 /.next/cache
+/src/bones
+*.bones.json
 
 # ========== PRISMA ==========
 /prisma/migrations/
