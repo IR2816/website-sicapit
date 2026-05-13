@@ -1,5 +1,8 @@
 import { TransitionScreen } from "@/components/TransitionScreen";
 import { SiteFooter } from "@/components/Footer";
+import { JsonLdScripts } from "@/components/JsonLdScripts";
+import { Providers } from "@/components/Providers";
+import { ThemeInitializer } from "@/components/ThemeInitializer";
 import NextTopLoader from "nextjs-toploader";
 import type { Metadata } from "next";
 import { Inter, Montserrat, Geist } from "next/font/google";
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Sicapit",
   },
   description: "Rasakan ketenangan alam, pacu adrenalin dengan rafting, dan pelajari budaya lokal di Kampung Wisata Sicapit. Destinasi wisata terpadu terbaik di Bogor.",
-  keywords: ["Wisata Bogor", "Kampung Wisata", "Kampung Sicapit", "Rafting Cisadane", "Wisata Edukasi", "Agrowisata", "Liburan Alam Bogor"],
+  keywords: ["Wisata Bogor", "Kampung Wisata", "Kampung Sicapit", "Rafting Cisadane", "Wisata Edukasi", "Agrowisata", "Liburan Alam Bogor", "Sungai Cisadane", "BUMDES Semplak"],
   authors: [{ name: "Kampung Wisata Sicapit" }],
   creator: "Kampung Wisata Sicapit",
   publisher: "Kampung Wisata Sicapit",
@@ -69,12 +72,18 @@ export default function RootLayout({
     <html
       lang="id"
       className={cn("h-full", "antialiased", "scroll-smooth", inter.variable, montserrat.variable, "font-sans", geist.variable)}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#0a0a0a] text-slate-100">
-        <NextTopLoader color="#10b981" showSpinner={false} />
-        <TransitionScreen />
-        {children}
-        <SiteFooter />
+      <body className="min-h-full flex flex-col font-sans bg-surface text-foreground transition-colors duration-300">
+        <Providers>
+          <ThemeInitializer>
+            <NextTopLoader color="#dc2626" showSpinner={false} />
+            <JsonLdScripts />
+            <TransitionScreen />
+            {children}
+            <SiteFooter />
+          </ThemeInitializer>
+        </Providers>
       </body>
     </html>
   );

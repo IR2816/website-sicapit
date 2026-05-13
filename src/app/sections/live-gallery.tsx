@@ -10,7 +10,7 @@ const items = [
   { id: "gazebo", title: "Spot Kampung Sicapit", caption: "Gazebo dan ruang santai untuk menikmati suasana kampung.", src: "/assets/images/7.jpg", fallback: "https://images.unsplash.com/photo-1510798831971-661eb04b3739" },
   { id: "jembatan", title: "Jembatan Kampung", caption: "Jalur kecil yang sering dipakai untuk menikmati lanskap desa.", src: "/assets/images/4.jpg", fallback: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
   { id: "sudut-siang", title: "Sudut Siang Hari", caption: "Nuansa kampung saat cahaya siang jatuh ke taman dan jalan setapak.", src: "/assets/images/6.jpg", fallback: "https://images.unsplash.com/photo-1460317442991-0ec209397118" },
-  { id: "sunset", title: "Sunset di Sicapit", caption: "Momen sore dengan langit hangat yang cocok untuk penutup kunjungan.", src: "/assets/images/Sunset Image.jpg", fallback: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21" }
+  { id: "sunset", title: "Sunset di Sicapit", caption: "Momen sore dengan langit hangat yang cocok untuk penutup kunjungan.", src: "/assets/images/sunset-image.jpg", fallback: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21" }
 ];
 
 export function LiveGallery() {

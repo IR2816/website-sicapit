@@ -10,25 +10,26 @@ import { HeroSlider } from "./sections/hero-slider";
 import { FaqAccordion } from "./sections/faq-accordion";
 import { VillageStory } from "./sections/village-story";
 import { VillageAwards } from "./sections/village-awards";
+import { BUSINESS_HOURS, formatBusinessHours } from "@/lib/data/business-info";
 
 const guidePoints = [
   {
     title: "Alam Asri Seadanya",
-    text: "Hamparan hijau, aliran sungai yang jernih, dan udara yang masih segar untuk sekadar menjernihkan napas dari kepenatan kota.",
+    text: "Hamparan hijau, udara yang masih segar, dan keindahan panorama alam untuk menjernihkan pikiran dari kepenatan kota.",
   },
   {
-    title: "Keseharian Lokal",
-    text: "Tiada yang di-setting. Anda bebas berbaur dengan warga dan melihat sendiri aktivitas kampung atau sekadar ngobrol santai.",
+    title: "Interaksi Masyarakat",
+    text: "Anda dapat berbaur dengan masyarakat dan melihat keseharian aktivitas masyarakat di kampung wisata Sicapit dan atau sekedar ngobrol santai mempelajari sosial perkampungan dari masyarakat itu sendiri.",
   },
   {
-    title: "Sederhana tapi Membekas",
-    text: "Taman pintu masuk yang hijau atau jembatan bambu sekadarnya bisa menjadi titik rekam gambar kecil bersama keluarga tercinta.", 
+    title: "Edukasi Budaya Perkampungan",
+    text: "Berkunjung ke kampung wisata Sicapit bukan hanya menikmati suasana perkampungan dengan konsep wisata, tetapi anda akan mendapatkan edukasi tata cara kemasyarakatan baik sosial hingga ekonomi di masyarakat perkampungan Sicapit", 
   },
 ];
 
 const travelTips = [
   "Datang pada waktu pagi hari untuk mendapatkan pencahayaan terbaik saat di lokasi.",
-  "Gunakan alas kaki anti selip untuk area pinggir sungai dan taman berbatu.",
+  "Gunakan alas kaki anti slip untuk wahana Tirta arung jeram, obat pribadi, dan perlengkapan pribadi lainnya.",
   "Hubungi kontak kami terlebih dahulu untuk koordinasi jika datang bersama rombongan besar.",
 ];
 
@@ -40,7 +41,7 @@ const reviews = [
       rating: 5,
       time: "2024",
       text: "Kampung sicapit, kampung yang lingkungannya sudah di jaga oleh para pengurus sicapit dan warga nya.",
-      attachedImage: "/assets/images/Rating D' Suroso.jpg",
+      attachedImage: "/assets/images/rating-d-suroso.jpg",
     },
     {
       author: "abdullah hilmi",
@@ -84,13 +85,13 @@ const videoHighlights = [
   },
   {
     title: "Rafting Sicapit",
-    desc: "Kegiatan air menantang adrenalin untuk Anda yang mencari pengalaman aktif.",   
+    desc: "Kegiatan wahana Tirta yang menantang adrenalin untuk anda di sungai Cisadane sepanjang 7km dengan panorama hutan Cifor dan jeram bagol yang menjadi icon jeram di sungai Cisadane. Di pandu oleh skipper dari masyarakat yang dilatih secara kompeten oleh pelatih profesional dan bersertifikasi. Kegiatan wahana Tirta ini sudah dilindungi asuransi yang memadai untuk keamanan rafting sicapit di sungai Cisadane.",   
     src: "/assets/videos/Rafting_1.webm",
     poster: "/assets/images/4.jpg",
   },
   {
     title: "Jeram Sicapit",
-    desc: "Aksi manuver dan keseruan bermain air di aliran sungai desa wisata.",
+    desc: "Aliran sungai Cisadane yang melintasi di perkampungan Sicapit.",
     src: "/assets/videos/Rafting_2.webm",
     poster: "/assets/images/6.jpg",
   },
@@ -114,12 +115,12 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand"></span>
               </span>
-              <span className="text-white/90 text-xs md:text-sm font-bold tracking-[0.15em] uppercase">
+              <span className="text-foreground/80 dark:text-white/90 text-xs md:text-sm font-bold tracking-[0.15em] uppercase">
                 Selamat Datang di Bogor
               </span>
             </div>
             
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-[5.5rem] font-extrabold text-white leading-[1.1] md:leading-[1.15] mb-8 max-w-5xl mx-auto tracking-tight drop-shadow-2xl">
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-[5.5rem] font-extrabold text-foreground dark:text-white leading-[1.1] md:leading-[1.15] mb-8 max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)] dark:drop-shadow-2xl">
               Lepaskan Penatmu di <br className="hidden md:block" />
               <span className="relative inline-block mt-2">
                 Kampung <span className="text-brand">Sicapit.</span>
@@ -130,16 +131,16 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-base md:text-xl lg:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed md:leading-loose mb-12 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-              Kami tak tawarkan kemewahan, hanya udara yang lebih sejuk, air sungai yang mengalir jernih, dan warga yang menyambut hangat. Mampirlah sekadar untuk rehat dari hiruk pikuk kota.
+            <p className="text-base md:text-xl lg:text-2xl text-foreground/75 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed md:leading-loose mb-12 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              Kami menawarkan pengalaman autentik berbaur dengan masyarakat lokal, udara yang sejuk, dan suasana kampung yang menyambut hangat. Berkunjunglah untuk menemukan kedamaian dan edukasi dari kehidupan perkampungan yang sesungguhnya.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto px-4">
-              <a href="#kisah" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-[#15803d] text-white font-bold text-sm tracking-wide rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(22,163,74,0.4)] hover:shadow-[0_8px_40px_rgba(22,163,74,0.6)] hover:-translate-y-1 overflow-hidden">
+              <a href="#kisah" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand/90 text-white font-bold text-sm tracking-wide rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(220,38,38,0.4)] hover:shadow-[0_8px_40px_rgba(220,38,38,0.6)] hover:-translate-y-1 overflow-hidden">
                 <span className="relative z-10">Kenali Kami</span>
                 <div className="absolute inset-0 h-full w-0 bg-white/20 transition-all duration-500 ease-out group-hover:w-full z-0"></div>
               </a>
-              <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-[#111111]/60 hover:bg-[#222222]/80 text-white backdrop-blur-xl border border-white/20 hover:border-brand/50 font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
+              <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-surface-strong/60 dark:bg-[#111111]/60 hover:bg-surface-strong/80 dark:hover:bg-[#222222]/80 text-foreground dark:text-white backdrop-blur-xl border border-line dark:border-white/20 hover:border-brand/50 font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
                 Jelajahi Layanan
                 <svg className="w-4 h-4 text-brand group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
@@ -156,7 +157,7 @@ export default function Home() {
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Tentang Profil Kami</span>
-                <h2 className="font-heading text-3xl md:text-5xl font-bold mt-4 text-white">Sejarah & Transformasi Sicapit</h2>
+                <h2 className="font-heading text-3xl md:text-5xl font-bold mt-4 text-foreground dark:text-white">Sejarah & Transformasi Sicapit</h2>
                 <p className="text-muted-foreground mt-4 leading-relaxed max-w-2xl mx-auto text-lg">Dari predikat kampung terkumuh menjadi rujukan wisata hijau tingkat nasional. Inilah dedikasi panjang kami menghidupkan harmoni manusia, sungai, dan alam.</p>
               </div>
             </ScrollReveal>
@@ -171,7 +172,7 @@ export default function Home() {
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Nilai Utama Kami</span>
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mt-4">Apa yang Kami Tawarkan?</h2>
-                <p className="text-muted-foreground mt-4 leading-relaxed text-lg">Integritas kami membentang dari merawat keseharian lokal yang orisinil, memuliakan alam apa adanya, hingga mengkurasi kesederhanaan menjadi kenangan manis di setiap kunjungan Anda.</p>
+                <p className="text-muted-foreground mt-4 leading-relaxed text-lg">Integritas kami terletak pada pemberdayaan masyarakat lokal, pelestarian alam, dan penyediaan edukasi budaya yang bermakna di setiap pengalaman kunjungan Anda ke Kampung Sicapit.</p>
               </div>
             </ScrollReveal>
 
@@ -183,7 +184,7 @@ export default function Home() {
                     <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-2xl mb-8 transform group-hover:-translate-y-2 transition-transform duration-500">
                       0{i+1}
                     </div>
-                    <h3 className="font-heading text-2xl font-bold mb-4 text-white/90">{point.title}</h3>
+                    <h3 className="font-heading text-2xl font-bold mb-4 text-foreground/90 dark:text-white/90">{point.title}</h3>
                     <p className="text-muted-foreground leading-relaxed text-base">{point.text}</p>
                   </div>
                 </ScrollReveal>
@@ -199,7 +200,7 @@ export default function Home() {
               <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
                 <span className="text-brand font-bold uppercase tracking-wider text-sm">Layanan & Fasilitas Kami</span>
                 <h2 className="font-heading text-3xl md:text-5xl font-bold mt-4">Pilar Wisata Sicapit</h2>
-                <p className="text-muted-foreground mt-4 leading-relaxed text-lg">Sebagai entitas wisata terpadu, kami membagi pengalaman autentik ke dalam dua pilar utama: pemberdayaan agrowisata untuk menumbuhkan kepedulian lingkungan, serta rekreasi adrenalin melintasi derasnya sungai Cisadane.</p>
+                <p className="text-muted-foreground mt-4 leading-relaxed text-lg">Sebagai entitas wisata terpadu, kami membagi pengalaman autentik ke dalam dua pilar utama: pemberdayaan Edu Wisata untuk menumbuhkan kepedulian lingkungan dan edukasi budaya, serta rekreasi adrenalin melintasi derasnya sungai Cisadane.</p>
               </div>
             </ScrollReveal>
 
@@ -214,9 +215,9 @@ export default function Home() {
                       <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand/20 border border-brand/30 text-brand text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
                         Alam & Budaya
                       </span>
-                      <h3 className="font-heading text-3xl font-black text-white mb-2 tracking-tight group-hover:text-brand transition-colors">Agrowisata</h3>
+                      <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-brand transition-colors">Edu Wisata</h3>
                       <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
-                        <p className="text-slate-300 text-sm leading-relaxed mt-2">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed mt-2">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-brand font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
@@ -237,9 +238,9 @@ export default function Home() {
                       <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-[#00f2fe]/20 border border-[#00f2fe]/30 text-[#00f2fe] text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
                         Pacu Adrenalin
                       </span>
-                      <h3 className="font-heading text-3xl font-black text-white mb-2 tracking-tight group-hover:text-[#00f2fe] transition-colors">Rafting</h3>
+                      <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-[#00f2fe] transition-colors">Rafting</h3>
                       <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
-                        <p className="text-slate-300 text-sm leading-relaxed mt-2">Hanyutlah dalam jeram 5km yang seru atau santai mengarung di jalur tubing khusus sejauh 2km.</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed mt-2">Hanyutlah dalam jeram 5km yang seru atau santai mengarung di jalur tubing khusus sejauh 2km.</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-[#00f2fe] font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
@@ -270,8 +271,8 @@ export default function Home() {
         <section id="video" className="py-24">
           <div className="container mx-auto px-6 md:px-12 mb-12">
             <ScrollReveal>
-              <span className="text-brand font-bold uppercase tracking-wider text-sm">Lensa Warga</span>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Sedikit Tayangan</h2>
+              <span className="text-brand font-bold uppercase tracking-wider text-sm">Hiburan Masyarakat</span>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Hiburan Masyarakat</h2>
               <p className="text-muted-foreground mt-4 max-w-2xl">Sedikit kebahagiaan dan tawa yang terekam secara alami di halaman kami. Semoga ikut tersenyum.</p>
             </ScrollReveal>
           </div>
@@ -287,7 +288,7 @@ export default function Home() {
               <ScrollReveal>
                 <div className="flex flex-col h-full justify-center">
                   <span className="text-brand font-bold uppercase tracking-wider text-sm">Persiapan</span>
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2 mb-6">Pesan Sebelum Mampir</h2>
+                  <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2 mb-6">Persiapan Sebelum Berkunjung</h2>
                   <ul className="space-y-4">
                     {travelTips.map((tip, i) => (
                       <li key={i} className="flex items-start gap-4">
@@ -305,7 +306,7 @@ export default function Home() {
                 <div className="bg-surface p-8 md:p-12 rounded-3xl border border-line">
                   <div className="flex items-center gap-3 mb-8">
                     <svg viewBox="0 0 488 512" className="w-8 h-8 shrink-0"><path fill="#4285F4" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
-                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-white shadow-shadow">Ulasan Google Maps</h2>
+                    <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground dark:text-white shadow-shadow">Ulasan Google Maps</h2>
                   </div>
                   <ReviewsCarousel reviews={reviews} />
                 </div>
@@ -340,13 +341,23 @@ export default function Home() {
 
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 bg-surface p-2 md:p-4 rounded-3xl border border-line shadow-shadow">
                 <div className="lg:col-span-3 rounded-2xl overflow-hidden h-[400px] border border-line relative">
-                  <iframe title="Peta Lokasi Kampung Sicapit" src={process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
+                  <iframe 
+                    title="Peta Lokasi Kampung Sicapit" 
+                    src={process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED || 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.509!2d106.7610574!3d-6.5550739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58883fd0c4b%3A0x1d1d63d311d2bea9!2sKampung+Wisata+SiCapit!5e0!3m2!1sen!2sid!4v1747020000000!5m2!1sen!2sid'} 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade" 
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+                  </iframe>
                 </div>
                 <div className="lg:col-span-2 flex flex-col justify-center p-6 lg:px-8">
-                  <h3 className="font-heading font-bold text-2xl mb-2">Buka Setiap Hari</h3>
-                  <p className="text-muted-foreground mb-8">08:00 - 17:00 WIB. Disarankan booking terlebih dahulu untuk kegiatan kelompok besar.</p>
+                  <h3 className="font-heading font-bold text-2xl mb-2">{BUSINESS_HOURS.days}</h3>
+                  <p className="text-muted-foreground mb-8">{formatBusinessHours()} WIB. {BUSINESS_HOURS.description}</p>
                   
-                    <a href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20">
+                    <a href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}?text=Halo%20Kampung%20Sicapit%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20paket%20wisata%20Anda.%20Bisa%20bantu%20saya%3F`} target="_blank" rel="noopener noreferrer" className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20">
                     Hubungi WhatsApp
                   </a>
                 </div>

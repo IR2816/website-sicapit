@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: "Apakah area wisata ini bisa dikunjungi tanpa reservasi?",
-    answer: "Anda bisa datang kapan saja untuk sekadar mampir (walk-in). Namun untuk aktivitas berkelompok seperti rafting, edukasi budaya, atau reservasi kemah, kami sangat menyarankan untuk Booking/Reservasi terlebih dahulu untuk memastikan kesediaan.",
+    answer: "Anda bisa datang kapan saja untuk berkunjung. Namun untuk aktivitas berkelompok seperti rafting, edukasi budaya, atau reservasi kemah, kami sangat menyarankan untuk Booking/Reservasi terlebih dahulu untuk memastikan persiapan pemandu wisata dan tempat.",
   },
   {
     question: "Berapa kapasitas maksimal untuk rombongan besar?",
