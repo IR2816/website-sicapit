@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
+import Image from 'next/image'
 import { SiteNav } from '../sections/site-nav'
 import { useToast } from '@/hooks/use-toast'
+import { raftingPackages } from '@/lib/data/rafting-packages'
+import { BUSINESS_HOURS } from '@/lib/data/business-info'
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
@@ -81,9 +84,12 @@ function HeroSection() {
   return (
     <section id="beranda" className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/assets/images/rafting/2.jpeg"
           alt="Rafting Adventure"
+          fill
+          priority
+          quality={85}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[#0a0a0a]" />
@@ -108,11 +114,11 @@ function HeroSection() {
           </Badge>
         </motion.div>
 
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight mb-6">
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-foreground dark:text-white tracking-tight mb-6">
           Selamat Datang di<br /><span className="text-brand drop-shadow-md">Kampung Sicapit</span>
         </motion.h1>
 
-        <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-sans">
+        <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="text-lg sm:text-xl text-muted-foreground dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-sans">
           Destinasi wisata air terpadu yang memadukan adrenalin dan keasrian alam. Jelajahi keindahan Sungai Cisadane lewat pengalaman edukasi, river tubing, dan rafting terbaik di Kota Bogor.
         </motion.p>
 
@@ -124,17 +130,17 @@ function HeroSection() {
             { icon: Award, label: 'Kesenian Lokal' },
             { icon: TreePine, label: 'Alam Asri' },
           ].map((act, i) => (
-            <span key={i} className="flex items-center gap-2 bg-surface/30 backdrop-blur-xl border border-white/10 text-white text-sm md:text-base px-5 py-2.5 rounded-full hover:bg-surface/50 transition-colors drop-shadow-md">
+            <span key={i} className="flex items-center gap-2 bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-line dark:border-white/10 text-foreground dark:text-white text-sm md:text-base px-5 py-2.5 rounded-full hover:bg-surface/50 dark:hover:bg-surface/50 transition-colors drop-shadow-md">
               <act.icon className="w-4 h-4 text-brand" /> {act.label}
             </span>
           ))}
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-full shadow-[0_0_40px_rgba(22,163,74,0.4)] transition-all font-bold group" onClick={() => document.querySelector('#paket')?.scrollIntoView({ behavior: 'smooth' })}>
+          <Button size="lg" className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-full shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-all font-bold group" onClick={() => document.querySelector('#paket')?.scrollIntoView({ behavior: 'smooth' })}>
             Lihat Paket Rafting <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white px-8 py-7 text-lg rounded-full backdrop-blur-sm font-bold bg-black/20" onClick={() => document.querySelector('#galeri')?.scrollIntoView({ behavior: 'smooth' })}>
+          <Button size="lg" variant="outline" className="border-line dark:border-white/20 text-foreground dark:text-white hover:bg-surface/30 dark:hover:bg-white/10 hover:text-foreground dark:hover:text-white px-8 py-7 text-lg rounded-full backdrop-blur-sm font-bold bg-surface/20 dark:bg-black/20" onClick={() => document.querySelector('#galeri')?.scrollIntoView({ behavior: 'smooth' })}>
             <Camera className="w-5 h-5 mr-2" /> Galeri Foto
           </Button>
         </motion.div>
@@ -152,8 +158,8 @@ function HeroSection() {
                   <stat.icon className="w-6 h-6 text-brand" />
                 </div>
               </div>
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-white mb-2 drop-shadow-lg">{stat.value}</div>
-              <div className="text-sm font-medium text-slate-300">{stat.label}</div>
+              <div className="text-4xl md:text-5xl font-heading font-extrabold text-foreground dark:text-white mb-2 drop-shadow-lg">{stat.value}</div>
+              <div className="text-sm font-medium text-muted-foreground dark:text-slate-300">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -231,7 +237,7 @@ function AboutSection() {
                 </div>
                 <div>
                   <p className="font-bold text-brand text-lg">12+ Tahun</p>
-                  <p className="text-sm text-slate-400">Pengalaman Rafting</p>
+                  <p className="text-sm text-muted-foreground dark:text-slate-400">Pengalaman Rafting</p>
                 </div>
               </div>
             </motion.div>
@@ -246,17 +252,17 @@ function AboutSection() {
             <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
               Tentang Kami
             </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-6">
               Petualangan
               <span className="text-brand"> Kampung Sicapit</span>
             </h2>
-            <p className="text-slate-300 text-lg leading-relaxed mb-4">
+            <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed mb-4">
               Kampung Sicapit adalah wisata air yang berlokasi di Kelurahan Semplak, 
               Kecamatan Bogor Barat, Kota Bogor. Destinasi ini menawarkan aktivitas rafting 
               sepanjang <strong>27 km</strong> dan river tubing di Sungai Cisadane, serta 
               didukung wisata kuliner, kesenian lokal, dan suasana alam yang asri.
             </p>
-            <p className="text-slate-300 text-lg leading-relaxed mb-8">
+            <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed mb-8">
               Kehadiran wisata ini juga membantu meningkatkan perekonomian masyarakat sekitar. 
               Dengan tim pemandu bersertifikat dan peralatan berstandar keselamatan tertinggi, 
               kami menawarkan pengalaman arung jeram yang aman, seru, dan berkesan.
@@ -275,8 +281,8 @@ function AboutSection() {
                     <feature.icon className="w-5 h-5 text-brand" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">{feature.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
+                    <h3 className="font-semibold text-foreground dark:text-white text-sm mb-1">{feature.title}</h3>
+                    <p className="text-muted-foreground dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -288,71 +294,11 @@ function AboutSection() {
   )
 }
 
-// ==================== PACKAGES SECTION ====================
-const packages = [
-  {
-    name: 'Pamili',
-    subtitle: 'Family Fun',
-    icon: Waves,
-    price: 'Rp 150.000',
-    duration: '2-3 Jam',
-    distance: '7 km',
-    difficulty: 'Mudah',
-    difficultyColor: 'bg-emerald-100 text-brand',
-    image: '/assets/images/rafting/4.jpeg',
-    features: [
-      'Nasi Box',
-      'Kopi Break',
-      'Kelapa Muda',
-      'Guide Profesional',
-      'Asuransi',
-      'Transportasi',
-    ],
-    popular: false,
-  },
-  {
-    name: 'Konservasi',
-    subtitle: 'Most Popular',
-    icon: Zap,
-    price: 'Rp 200.000',
-    duration: '3-4 Jam',
-    distance: '12 km',
-    difficulty: 'Sedang',
-    difficultyColor: 'bg-amber-100 text-amber-700',
-    image: '/assets/images/rafting/1.jpeg',
-    features: [
-      'Nasi Box',
-      'Kopi Break',
-      'Kelapa Muda',
-      'Guide Profesional',
-      'Asuransi',
-      'Transportasi',
-    ],
-    popular: true,
-  },
-  {
-    name: 'Petualangan',
-    subtitle: 'Pro Challenge',
-    icon: Trophy,
-    price: 'Rp 350.000',
-    duration: '4-5 Jam',
-    distance: '27 km',
-    difficulty: 'Sulit',
-    difficultyColor: 'bg-red-100 text-red-700',
-    image: '/assets/images/rafting/3.jpeg',
-    features: [
-      'Nasi Box',
-      'Kopi Break',
-      'Kelapa Muda',
-      'Guide Profesional',
-      'Asuransi',
-      'Transportasi',
-    ],
-    popular: false,
-  },
-]
+// Packages imported from lib/data/rafting-packages.ts
+const packages = raftingPackages
 
-function PackagesSection() {
+// Add packages to packages const - aliased from imported raftingPackages
+const PackagesSection = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
@@ -377,7 +323,7 @@ function PackagesSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Pilih Paket <span className="text-brand">Petualangan</span> Anda
           </h2>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-6">
+          <p className="text-muted-foreground dark:text-slate-300 text-lg max-w-2xl mx-auto mb-6">
             Tersedia berbagai pilihan paket rafting yang disesuaikan untuk setiap tingkat 
             keahlian, dari yang baru pertama kali hingga yang sudah berpengalaman.
           </p>
@@ -385,7 +331,7 @@ function PackagesSection() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <div className="flex items-center gap-2 bg-brand/10 border border-brand/50 text-brand px-4 py-2 rounded-full text-sm font-medium">
               <Clock className="w-4 h-4" />
-              <span>Jam Operasional: Buka Setiap Hari 08.00 – 17.00 WIB</span>
+              <span>Jam Operasional: {BUSINESS_HOURS.label}</span>
             </div>
             <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium">
               <Users className="w-4 h-4" />
@@ -434,10 +380,10 @@ function PackagesSection() {
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-2 mb-1">
                     <pkg.icon className="w-5 h-5 text-brand" />
-                    <span className="text-sm text-slate-400">{pkg.subtitle}</span>
+                    <span className="text-sm text-muted-foreground dark:text-slate-400">{pkg.subtitle}</span>
                   </div>
-                  <CardTitle className="text-2xl text-white">{pkg.name}</CardTitle>
-                  <div className="flex items-center gap-4 text-sm text-slate-400 mt-1">
+                  <CardTitle className="text-2xl text-foreground dark:text-white">{pkg.name}</CardTitle>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-slate-400 mt-1">
                     <span className="flex items-center gap-1">
                       <Clock className="w-4 h-4" /> {pkg.duration}
                     </span>
@@ -450,11 +396,11 @@ function PackagesSection() {
                 <CardContent className="pb-4">
                   <div className="mb-4">
                     <span className="text-3xl font-bold text-brand">{pkg.price}</span>
-                    <span className="text-slate-400 text-sm"> /orang</span>
+                    <span className="text-muted-foreground dark:text-slate-400 text-sm"> /orang</span>
                   </div>
                   <div className="space-y-2">
                     {pkg.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm text-slate-300">
+                      <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-slate-300">
                         <CheckCircle2 className="w-4 h-4 text-brand shrink-0" />
                         {feature}
                       </div>
@@ -488,22 +434,22 @@ function PackagesSection() {
 const slideshowImages = [
   '/assets/images/rafting/image.png',
   '/assets/images/rafting/imagee.png',
-  '/assets/images/rafting/image copy.png',
-  '/assets/images/rafting/image copy 2.png',
-  '/assets/images/rafting/image copy 3.png',
-  '/assets/images/rafting/image copy 4.png',
-  '/assets/images/rafting/image copy 5.png',
-  '/assets/images/rafting/image copy 6.png',
-  '/assets/images/rafting/image copy 7.png',
-  '/assets/images/rafting/image copy 8.png',
-  '/assets/images/rafting/image copy 9.png',
-  '/assets/images/rafting/image copy 10.png',
-  '/assets/images/rafting/image copy 11.png',
-  '/assets/images/rafting/image copy 12.png',
-  '/assets/images/rafting/image copy 13.png',
-  '/assets/images/rafting/image copy 14.png',
-  '/assets/images/rafting/image copy 15.png',
-  '/assets/images/rafting/image copy 16.png',
+  '/assets/images/rafting/image-copy.png',
+  '/assets/images/rafting/image-copy-2.png',
+  '/assets/images/rafting/image-copy-3.png',
+  '/assets/images/rafting/image-copy-4.png',
+  '/assets/images/rafting/image-copy-5.png',
+  '/assets/images/rafting/image-copy-6.png',
+  '/assets/images/rafting/image-copy-7.png',
+  '/assets/images/rafting/image-copy-8.png',
+  '/assets/images/rafting/image-copy-9.png',
+  '/assets/images/rafting/image-copy-10.png',
+  '/assets/images/rafting/image-copy-11.png',
+  '/assets/images/rafting/image-copy-12.png',
+  '/assets/images/rafting/image-copy-13.png',
+  '/assets/images/rafting/image-copy-14.png',
+  '/assets/images/rafting/image-copy-15.png',
+  '/assets/images/rafting/image-copy-16.png',
   '/assets/images/rafting/1.jpeg',
   '/assets/images/rafting/2.jpeg',
   '/assets/images/rafting/5.jpeg',
@@ -565,7 +511,7 @@ const bentoItemsLayout = [
 
 const videoItems = [
   {
-    src: '/assets/videos/Jeram Bagol.webm',
+    src: '/assets/videos/jeram-bagol.webm',
     title: 'Jeram Bagol',
     tag: 'Video',
   },
@@ -1251,8 +1197,8 @@ function CTASection() {
           <div className="inline-flex items-center gap-3 bg-white/15 border border-white/30 backdrop-blur-sm rounded-2xl px-6 py-4 mb-8">
             <Clock className="w-5 h-5 text-emerald-200 shrink-0" />
             <div className="text-left">
-              <p className="text-white font-semibold text-sm">Buka Setiap Hari</p>
-              <p className="text-emerald-200 text-sm">Jam 08.00 – 17.00 WIB</p>
+              <p className="text-white font-semibold text-sm">{BUSINESS_HOURS.days}</p>
+              <p className="text-emerald-200 text-sm">Jam {BUSINESS_HOURS.open} – {BUSINESS_HOURS.close} {BUSINESS_HOURS.timezone}</p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1326,7 +1272,7 @@ function ContactSection() {
     {
       icon: Clock,
       label: 'Jam Operasional',
-      value: 'Setiap Hari, 08:00 - 17:00 WIB',
+      value: `${BUSINESS_HOURS.days}, ${BUSINESS_HOURS.open} - ${BUSINESS_HOURS.close} ${BUSINESS_HOURS.timezone}`,
       desc: 'Termasuk hari libur nasional',
     },
   ]
@@ -1377,11 +1323,11 @@ function ContactSection() {
             {/* Google Maps Embed */}
             <div className="mt-6 rounded-xl overflow-hidden border h-52">
               <iframe
-                src={process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED}
+                src={process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED || 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.509!2d106.7610574!3d-6.5550739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58883fd0c4b%3A0x1d1d63d311d2bea9!2sKampung+Wisata+SiCapit!5e0!3m2!1sen!2sid!4v1747020000000!5m2!1sen!2sid'}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

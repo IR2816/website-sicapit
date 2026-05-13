@@ -1,10 +1,11 @@
 export const metadata = {
-  title: 'Rafting Sicapit - Pacu Adrenalin Anda',
-  description: 'Tantang nyali Anda di jeram Cisadane bersama paket Rafting Sicapit. Terjamin aman dengan pemandu profesional dan fasilitas lengkap untuk rombongan.',
+  title: 'Rafting Cisadane - Arung Jeram Sicapit Bogor',
+  description: 'Pacu adrenalin Anda di jeram Cisadane dengan paket rafting profesional. Termasuk guide berpengalaman, peralatan safety lengkap, dan snack untuk rombongan.',
+  keywords: 'Rafting Cisadane, River Tubing Bogor, Arung Jeram Bogor, Paket Rafting Murah, Rafting Semplak, Water Sports Bogor',
   openGraph: {
-    title: 'Rafting Sicapit - Pacu Adrenalin',
-    description: 'Tantang nyali Anda di jeram Cisadane bersama paket Rafting Sicapit.',
-    images: [{ url: 'https://sicapit.vercel.app/assets/images/Rafting/Jeram%20Bagol.jpg', width: 1200, height: 630 }],
+    title: 'Rafting Cisadane - Arung Jeram Sicapit',
+    description: 'Pacu adrenalin Anda di jeram Cisadane bersama Sicapit.',
+    images: [{ url: 'https://sicapit.vercel.app/assets/images/rafting/jeram-bagol.jpg', width: 1200, height: 630 }],
   }
 }
 

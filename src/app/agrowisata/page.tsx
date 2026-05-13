@@ -63,18 +63,18 @@ export default function AgrowisataHome() {
               className="space-y-6"
             >
               <motion.div variants={itemVariants} className="flex justify-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/10 dark:bg-white/10 backdrop-blur-md border border-line dark:border-white/20 text-foreground/90 dark:text-white/90">
                   <Leaf className="w-4 h-4 text-emerald-400" />
                   <span className="text-sm font-medium tracking-wide">Pusat Informasi Agrowisata</span>
                 </div>
               </motion.div>
 
-              <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+              <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground dark:text-white tracking-tight leading-[1.1]">
                 Menyatu dengan <br className="hidden sm:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Alam Tradisi</span>
               </motion.h1>
 
-              <motion.p variants={itemVariants} className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+              <motion.p variants={itemVariants} className="text-lg sm:text-xl text-foreground/80 dark:text-white/80 max-w-2xl mx-auto leading-relaxed">
                 Jelajahi keindahan budaya, sistem pertanian berkelanjutan, dan kearifan lokal pedesaan Indonesia secara interaktif.
               </motion.p>
 
