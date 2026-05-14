@@ -1315,10 +1315,10 @@ function ContactSection() {
           <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
             Kontak & Booking
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
             Rafting Kampung<span className="text-brand">siCapit</span>
           </h2>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+          <p className="text-foreground dark:text-slate-300 text-lg max-w-2xl mx-auto">
             Hubungi kami untuk informasi lebih lanjut atau langsung booking paket rafting 
             impian Anda. Tim kami siap membantu!
           </p>
@@ -1338,9 +1338,9 @@ function ContactSection() {
                   <info.icon className="w-5 h-5 text-brand" />
                 </div>
                 <div>
-                  <p className="text-sm text-slate-400 mb-0.5">{info.label}</p>
-                  <p className="font-semibold text-white">{info.value}</p>
-                  <p className="text-xs text-slate-400 mt-0.5">{info.desc}</p>
+                  <p className="text-sm text-muted-foreground dark:text-slate-400 mb-0.5">{info.label}</p>
+                  <p className="font-semibold text-foreground dark:text-white">{info.value}</p>
+                  <p className="text-xs text-muted-foreground dark:text-slate-400 mt-0.5">{info.desc}</p>
                 </div>
               </div>
             ))}
@@ -1377,9 +1377,9 @@ function ContactSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="lg:col-span-3"
           >
-            <Card className="border-white/10 shadow-sm">
+            <Card className="border-line dark:border-white/10 shadow-sm">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-bold text-white mb-6">Formulir Booking</h3>
+                <h3 className="text-xl font-bold text-foreground dark:text-white mb-6">Formulir Booking</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
