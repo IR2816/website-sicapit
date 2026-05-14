@@ -1,0 +1,43 @@
+export const reviews = [
+  {
+    author: "D' Suroso",
+    avatar: "https://ui-avatars.com/api/?name=D+Suroso&background=0D8ABC&color=fff",
+    isLocalGuide: true,
+    rating: 5,
+    time: "2024",
+    text: "Kampung sicapit, kampung yang lingkungannya sudah di jaga oleh para pengurus sicapit dan warga nya.",
+    attachedImage: "/assets/images/rating-d-suroso.jpg",
+  },
+  {
+    author: "abdullah hilmi",
+    avatar: "https://ui-avatars.com/api/?name=abdullah+hilmi&background=D83A64&color=fff",
+    isLocalGuide: true,
+    rating: 5,
+    time: "2024",
+    text: "Good..",
+  },
+  {
+    author: "ranti Cantik",
+    avatar: "https://ui-avatars.com/api/?name=ranti+Cantik&background=3A8A2F&color=fff",
+    isLocalGuide: false,
+    rating: 5,
+    time: "2024",
+    text: "Nice place.",
+  },
+  {
+    author: "Ramadhan Ramadhan",
+    avatar: "https://ui-avatars.com/api/?name=Ramadhan+Ramadhan&background=F0A500&color=fff",
+    isLocalGuide: false,
+    rating: 5,
+    time: "2024",
+    text: "Mantul",
+  },
+  {
+    author: "heri yanto",
+    avatar: "https://ui-avatars.com/api/?name=heri+yanto&background=8B3A8A&color=fff",
+    isLocalGuide: true,
+    rating: 5,
+    time: "2024",
+    text: "Tak akan terlupakan mantap tempatnya.",
+  },
+];
