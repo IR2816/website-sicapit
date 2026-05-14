@@ -117,14 +117,14 @@ function VideoCard({ item }: { item: VideoItem }) {
           />
         </div>
 
-        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_40px_hsla(0,0%,0%<0.5)] z-10 duration-500 group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%<0.7)]"></div>
+        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_40px_hsla(0,0%,0%,0.3)] dark:shadow-[inset_0_0_40px_hsla(0,0%,0%,0.5)] z-10 duration-500 group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.4)] dark:group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.7)]"></div>
       </div>
       
       <div className="p-6 md:p-8 flex flex-col flex-grow relative overflow-hidden z-20">
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         
-        <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-brand transition-colors drop-shadow-sm">{item.title}</h3>
-        <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-grow group-hover:text-slate-300 transition-colors">{item.desc}</p>
+        <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 text-foreground dark:text-white group-hover:text-brand transition-colors drop-shadow-sm">{item.title}</h3>
+        <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-grow group-hover:text-foreground dark:group-hover:text-slate-300 transition-colors">{item.desc}</p>
       </div>
     </article>
   );
