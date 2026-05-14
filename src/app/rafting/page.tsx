@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 import { SiteNav } from '../sections/site-nav'
 import { useToast } from '@/hooks/use-toast'
 import { raftingPackages } from '@/lib/data/rafting-packages'
@@ -67,6 +68,14 @@ import {
 // ==================== HERO SECTION ====================
 function HeroSection() {
   const [particles, setParticles] = useState<{initialX: number, animX: string, duration: number, delay: number}[]>([]);
+  const [mounted, setMounted] = useState(false);
+  const { theme, systemTheme } = useTheme ? useTheme() : { theme: 'dark', systemTheme: 'dark' };
+
+  const isLight = theme === 'light' || (theme === 'system' && systemTheme === 'light');
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   useEffect(() => {
     // Gunakan timeout kecil agar setState tidak berjalan synchronoulsy tepat saat rendering cycle
@@ -92,7 +101,13 @@ function HeroSection() {
           quality={85}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[#0a0a0a]" />
+        {mounted && (
+          <div className={`absolute inset-0 ${
+            isLight 
+              ? 'bg-gradient-to-b from-white/70 via-white/50 to-white/30' 
+              : 'bg-gradient-to-b from-black/80 via-black/50 to-[#0a0a0a]'
+          }`} />
+        )}
       </div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
