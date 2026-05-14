@@ -209,7 +209,7 @@ export default function Home() {
               <ScrollReveal>
                 <Link href="/agrowisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line dark:border-white/5 hover:border-brand/40 transition-all duration-500 shadow-shadow bg-surface">
                   <Image src="/assets/images/2.jpg" alt="Agrowisata Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-white/20 to-transparent dark:from-[#050505] dark:via-[#050505]/60 dark:to-transparent z-10 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-[#050505] dark:via-[#050505]/60 dark:to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
                       <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand/20 border border-brand/30 text-brand text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
@@ -232,7 +232,7 @@ export default function Home() {
               <ScrollReveal>
                 <Link href="/rafting" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line dark:border-white/5 hover:border-[#00f2fe]/40 transition-all duration-500 shadow-shadow bg-surface md:mt-12">
                   <Image src="/assets/images/4.jpg" alt="Rafting Sungai Cisadane Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-white/20 to-transparent dark:from-[#050505] dark:via-[#050505]/60 dark:to-transparent z-10 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-[#050505] dark:via-[#050505]/60 dark:to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
                       <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-[#00f2fe]/20 border border-[#00f2fe]/30 text-[#00f2fe] text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
