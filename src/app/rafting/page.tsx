@@ -1002,10 +1002,10 @@ function SafetySection() {
             <Shield className="w-3 h-3 mr-1" />
             Keselamatan
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
             Tips <span className="text-brand">Keselamatan</span> Rafting
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Keselamatan adalah prioritas utama kami. Berikut hal-hal penting yang wajib 
             diketahui sebelum mengikuti aktivitas arung jeram.
           </p>
@@ -1027,8 +1027,8 @@ function SafetySection() {
                       <tip.icon className={`w-6 h-6 ${tip.iconColor}`} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-white text-base mb-2">{tip.title}</h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">{tip.desc}</p>
+                      <h3 className="font-bold text-foreground dark:text-white text-base mb-2">{tip.title}</h3>
+                      <p className="text-muted-foreground dark:text-slate-400 text-sm leading-relaxed">{tip.desc}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -1049,7 +1049,7 @@ function SafetySection() {
           </div>
           <div>
             <h4 className="font-bold text-brand mb-1">Keselamatan Adalah Prioritas Kami</h4>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-foreground dark:text-slate-300 text-sm leading-relaxed">
               Di Rafting Kampung SiCapit, keselamatan peserta adalah yang utama. Setiap pemandu 
               terlatih dalam pertolongan pertama serta water rescue. 
               Tim rescue kami selalu siaga di setiap titik jalur rafting untuk memastikan 
@@ -1128,10 +1128,10 @@ function FAQSection() {
           <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
             FAQ
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
             Pertanyaan <span className="text-brand">Umum</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Hal-hal penting yang perlu kamu tahu sebelum rafting. Supaya lebih siap dan pede!
           </p>
         </motion.div>
@@ -1152,15 +1152,15 @@ function FAQSection() {
                 <AccordionTrigger className="text-left hover:no-underline py-4">
                   <div className="flex items-center gap-3 text-left">
                     <item.icon className="w-5 h-5 text-brand shrink-0" />
-                    <span className="font-semibold text-white text-sm sm:text-base">{item.q}</span>
+                    <span className="font-semibold text-foreground dark:text-white text-sm sm:text-base">{item.q}</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pb-4 pt-0">
                   <div className="ml-8 pl-4 border-l-2 border-brand/50">
-                    <span className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2 ${tagColors[item.tag] || 'bg-surface/50 text-slate-300'}`}>
+                    <span className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2 ${tagColors[item.tag] || 'bg-surface/50 text-muted-foreground dark:text-slate-300'}`}>
                       {item.tag}
                     </span>
-                    <p className="text-slate-300 text-sm leading-relaxed">
+                    <p className="text-foreground dark:text-slate-300 text-sm leading-relaxed">
                       {item.a}
                     </p>
                   </div>
@@ -1177,7 +1177,7 @@ function FAQSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center mt-10"
         >
-          <p className="text-slate-400 text-sm mb-4">Masih ada pertanyaan lain?</p>
+          <p className="text-muted-foreground dark:text-slate-400 text-sm mb-4">Masih ada pertanyaan lain?</p>
           <Button
             className="bg-brand text-white hover:bg-brand/80 text-white text-white rounded-lg"
             onClick={() => document.querySelector('#kontak')?.scrollIntoView({ behavior: 'smooth' })}
