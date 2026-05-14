@@ -42,14 +42,14 @@ export function FaqAccordion() {
               onClick={() => toggleAccordion(index)}
               className="w-full py-6 flex items-center justify-between text-left group"
             >
-              <h3 className={`font-heading text-lg font-bold pr-6 transition-colors duration-300 ${openIndex === index ? 'text-brand' : 'text-slate-200 group-hover:text-brand/80'}`}>
+              <h3 className={`font-heading text-lg font-bold pr-6 transition-colors duration-300 ${openIndex === index ? 'text-brand' : 'text-foreground dark:text-slate-200 group-hover:text-brand/80'}`}>
                 {faq.question}
               </h3>
               <div
                 className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
                   openIndex === index 
-                    ? 'border-brand bg-brand text-white rotate-180 shadow-[0_0_15px_rgba(22,163,74,0.5)]' 
-                    : 'border-line text-slate-400 group-hover:border-brand/40 group-hover:text-brand'
+                    ? 'border-brand bg-brand text-white rotate-180 shadow-[0_0_15px_rgba(220,38,38,0.5)]' 
+                    : 'border-line text-muted-foreground dark:text-slate-400 group-hover:border-brand/40 group-hover:text-brand'
                 }`}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
