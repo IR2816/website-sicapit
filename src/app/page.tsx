@@ -217,7 +217,7 @@ export default function Home() {
                       </span>
                       <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-brand transition-colors">Edu Wisata</h3>
                       <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
-                        <p className="text-muted-foreground text-sm leading-relaxed mt-2">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
+                        <p className="text-foreground dark:text-muted-foreground text-sm leading-relaxed mt-2">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-brand font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
@@ -240,7 +240,7 @@ export default function Home() {
                       </span>
                       <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-[#00f2fe] transition-colors">Rafting</h3>
                       <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
-                        <p className="text-muted-foreground text-sm leading-relaxed mt-2">Hanyutlah dalam jeram 5km yang seru atau santai mengarung di jalur tubing khusus sejauh 2km.</p>
+                        <p className="text-foreground dark:text-muted-foreground text-sm leading-relaxed mt-2">Hanyutlah dalam jeram 5km yang seru atau santai mengarung di jalur tubing khusus sejauh 2km.</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-[#00f2fe] font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
