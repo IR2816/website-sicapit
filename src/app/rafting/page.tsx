@@ -824,23 +824,23 @@ function TestimonialsSection() {
           <Badge className="bg-brand/10 text-brand border-brand/20 px-4 py-1.5 mb-6 text-sm">
             Testimoni & Pengalaman
           </Badge>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground dark:text-white mb-6">
             Apa Kata <span className="text-brand">Mereka</span>?
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Ulasan asli dari para petualang yang telah menjajal keseruan rafting dan menikmati asrinya Kampung Wisata Sicapit.
           </p>
           
           {/* Google Rating Summary */}
-          <div className="flex items-center justify-center gap-3 mt-8 bg-surface-strong/50 border border-white/5 py-4 px-6 rounded-full inline-flex mx-auto">
+          <div className="flex items-center justify-center gap-3 mt-8 bg-surface-strong/50 dark:bg-surface-strong/50 border border-line dark:border-white/5 py-4 px-6 rounded-full inline-flex mx-auto">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-6 h-6 text-amber-400 fill-amber-400 drop-shadow-sm" />
               ))}
             </div>
             <div className="w-px h-6 bg-white/20 mx-2" />
-            <span className="text-2xl font-bold text-white font-heading">4.9</span>
-            <span className="text-slate-400 text-sm font-medium">Berdasarkan ulasan asli di Google</span>
+            <span className="text-2xl font-bold text-foreground dark:text-white font-heading">4.9</span>
+            <span className="text-muted-foreground dark:text-slate-400 text-sm font-medium">Berdasarkan ulasan asli di Google</span>
           </div>
         </motion.div>
 
@@ -855,12 +855,12 @@ function TestimonialsSection() {
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           >
             {duplicatedReviews.map((review, i) => (
-              <Card key={i} className="shrink-0 w-[350px] md:w-[450px] border-white/5 bg-surface-strong shadow-lg hover:border-brand/30 transition-all duration-300">
+              <Card key={i} className="shrink-0 w-[350px] md:w-[450px] border-line dark:border-white/5 bg-surface dark:bg-surface-strong shadow-lg hover:border-brand/30 transition-all duration-300">
                 <CardContent className="p-6 md:p-8 flex flex-col h-full justify-between">
                   <div>
                     {/* Top row: source badge + stars */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center gap-2 text-xs text-slate-400 font-medium bg-black/20 px-3 py-1.5 rounded-full border border-white/5">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground dark:text-slate-400 font-medium bg-black/20 dark:bg-black/20 px-3 py-1.5 rounded-full border border-line dark:border-white/5">
                         <svg className="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
@@ -870,26 +870,26 @@ function TestimonialsSection() {
                         {[...Array(5)].map((_, j) => (
                           <Star
                             key={j}
-                            className={`w-4 h-4 ${j < review.rating ? "text-amber-400 fill-amber-400" : "text-slate-600 fill-slate-600"}`}
+                            className={`w-4 h-4 ${j < review.rating ? "text-amber-400 fill-amber-400" : "text-muted-foreground dark:text-slate-600 fill-muted-foreground dark:fill-slate-600"}`}
                           />
                         ))}
                       </div>
                     </div>
 
                     {/* Review text */}
-                    <p className="text-slate-300 text-base leading-relaxed mb-8 italic">
+                    <p className="text-foreground dark:text-slate-300 text-base leading-relaxed mb-8 italic">
                       &quot;{review.text}&quot;
                     </p>
                   </div>
 
                   {/* Author row */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
+                  <div className="flex items-center gap-4 pt-4 border-t border-line dark:border-white/10 mt-auto">
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${review.bgColor || "bg-brand/20"} shadow-inner`}>
-                      <span className="text-white font-bold text-lg">{review.avatar}</span>
+                      <span className="text-white dark:text-white font-bold text-lg">{review.avatar}</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-heading font-bold text-white text-base truncate">{review.name}</p>
-                      <p className="text-sm text-slate-400">{review.date}</p>
+                      <p className="font-heading font-bold text-foreground dark:text-white text-base truncate">{review.name}</p>
+                      <p className="text-sm text-muted-foreground dark:text-slate-400">{review.date}</p>
                     </div>
                   </div>
                 </CardContent>
