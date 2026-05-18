@@ -11,10 +11,6 @@ export function SiteFooter() {
       name: process.env.NEXT_PUBLIC_CONTACT_2_NAME,
       phone: process.env.NEXT_PUBLIC_CONTACT_2_PHONE,
     },
-    {
-      name: process.env.NEXT_PUBLIC_CONTACT_3_NAME,
-      phone: process.env.NEXT_PUBLIC_CONTACT_3_PHONE,
-    },
   ];
 
   // Alamat dari env
