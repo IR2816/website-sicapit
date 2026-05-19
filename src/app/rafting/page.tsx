@@ -648,10 +648,11 @@ const bentoItemsLayout = [
 ]
 
 const videoItems = [
-  { src: '/assets/videos/jeram-bagol.webm', title: 'Jeram Bagol', tag: 'Video' },
-  { src: '/assets/videos/Konservasi.webm', title: 'Konservasi', tag: 'Video' },
-  { src: '/assets/videos/Rafting.webm', title: 'Aksi di Air', tag: 'Video' },
-  { src: '/assets/videos/Video.webm', title: 'Keseruan Rafting', tag: 'Video' },
+  // Hapus "/rafting" karena di struktur Anda, folder videos langsung di bawah public/assets/
+  { src: '/assets/rafting/videos/Jeram-Bagol.webm', title: 'Jeram Bagol', tag: 'Video' },
+  { src: '/assets/rafting/videos/Konservasi.webm', title: 'Konservasi', tag: 'Video' },
+  { src: '/assets/rafting/videos/Rafting.webm', title: 'Aksi di Air', tag: 'Video' },
+  { src: '/assets/rafting/videos/Video.webm', title: 'Keseruan Rafting', tag: 'Video' },
 ]
 
 function GallerySection() {
