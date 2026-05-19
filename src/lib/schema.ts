@@ -9,7 +9,7 @@ export const organizationSchema = {
   "@id": "https://sicapit.vercel.app",
   name: "Kampung Wisata Sicapit",
   alternateName: ["Sicapit", "Kampung Sicapit", "Wisata Sicapit"],
-  description: "Destinasi wisata terpadu di Bogor yang menawarkan pengalaman rafting, agrowisata, dan edukasi budaya lokal.",
+  description: "Destinasi wisata terpadu di Bogor yang menawarkan pengalaman rafting, edu-wisata, dan edukasi budaya lokal.",
   url: "https://sicapit.vercel.app",
   image: "https://sicapit.vercel.app/hero-kampung.png",
   telephone: "+62-813-1825-1218",
@@ -77,8 +77,8 @@ export const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "Agrowisata",
-      item: "https://sicapit.vercel.app/agrowisata"
+      name: "Edu Wisata",
+      item: "https://sicapit.vercel.app/edu-wisata"
     },
     {
       "@type": "ListItem",

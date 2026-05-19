@@ -16,7 +16,7 @@ export default function TermsOfService() {
           <p>Dengan mengakses atau menggunakan situs web dan layanan Kampung Wisata Sicapit, Anda setuju untuk terikat oleh Syarat dan Ketentuan ini.</p>
           
           <h2 className="text-2xl font-bold text-foreground dark:text-white mt-8 mb-4">1. Layanan Kami</h2>
-          <p>Kampung Wisata Sicapit menyediakan informasi publik tentang aktivitas rekreasi, edukasi, agrowisata, dan rafting. Aktivitas fisik tertentu mungkin memiliki batasan usia dan memerlukan persetujuan risiko sebelum pelaksanaan.</p>
+          <p>Kampung Wisata Sicapit menyediakan informasi publik tentang aktivitas rekreasi, edukasi, edu-wisata, dan rafting. Aktivitas fisik tertentu mungkin memiliki batasan usia dan memerlukan persetujuan risiko sebelum pelaksanaan.</p>
 
           <h2 className="text-2xl font-bold text-foreground dark:text-white mt-8 mb-4">2. Reservasi & Pembatalan</h2>
           <p>Reservasi untuk aktivitas wisata (termasuk rafting, camping, dll.) bergantung pada ketersediaan. Pengembalian uang untuk pembatalan acara dapat tunduk pada kebijakan khusus yang akan disampaikan pada saat reservasi bersama tim kami.</p>

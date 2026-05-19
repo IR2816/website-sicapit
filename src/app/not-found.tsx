@@ -81,11 +81,11 @@ export default function NotFound() {
               </p>
             </Link>
             <Link
-              href="/agrowisata"
+              href="/edu-wisata"
               className="group p-4 rounded-xl border border-line hover:border-brand/50 hover:bg-brand/5 transition-all text-center"
             >
               <p className="text-sm font-semibold text-malam group-hover:text-brand transition-colors">
-                Agrowisata
+                Edu Wisata
               </p>
               <p className="text-xs text-muted-foreground mt-1">
                 Wisata alam & edukasi

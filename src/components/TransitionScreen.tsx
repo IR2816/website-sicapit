@@ -15,7 +15,7 @@ export function TransitionScreen() {
     let word = "Sicapit";
     if (pathname === "/education") word = "Edukasi";
     else if (pathname === "/farm") word = "Farm";
-    else if (pathname === "/agrowisata") word = "Agrowisata";
+    else if (pathname === "/edu-wisata") word = "Edu Wisata";
     else if (pathname === "/rafting") word = "Rafting";
     
     setDisplayPath(word);

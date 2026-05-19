@@ -162,10 +162,10 @@ export default function Home() {
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* Agrowisata Card */}
+              {/* Edu Wisata Card */}
               <ScrollReveal>
-                <Link href="/agrowisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line dark:border-white/5 hover:border-brand/40 transition-all duration-500 shadow-shadow bg-surface">
-                  <Image src="/assets/images/2.jpg" alt="Agrowisata Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
+                <Link href="/edu-wisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line dark:border-white/5 hover:border-brand/40 transition-all duration-500 shadow-shadow bg-surface">
+                  <Image src="/assets/images/2.jpg" alt="Edu Wisata Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-[#050505] dark:via-[#050505]/60 dark:to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
@@ -178,7 +178,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-brand font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
-                      Buka Laman Agrowisata 
+                      Buka Laman Edu Wisata 
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </div>
                   </div>

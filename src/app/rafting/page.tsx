@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { SiteNav } from '../sections/site-nav'
-import { useToast } from '@/hooks/use-toast'
 import { raftingPackages } from '@/lib/data/rafting-packages'
 import { BUSINESS_HOURS } from '@/lib/data/business-info'
 
@@ -35,13 +34,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+
+// Icon yang dipakai saja (bebas dari unused warning)
 import {
   Waves,
-  Shield,
   Users,
   Star,
   Phone,
-  Mail,
   MapPin,
   Clock,
   ChevronRight,
@@ -50,49 +49,57 @@ import {
   Camera,
   TreePine,
   CheckCircle2,
-  Zap,
   Trophy,
   CalendarDays,
   HelpCircle,
-  LifeBuoy,
   Play,
   Droplets,
-  UserCheck,
-  BaggageClaim,
-  HardHat,
-  AlertTriangle,
-  Info,
-  BookOpen,
 } from 'lucide-react'
 import { reviews } from '@/lib/data/reviews'
 
 // ==================== HERO SECTION ====================
-function HeroSection() {
-  const [particles, setParticles] = useState<{initialX: number, animX: string, duration: number, delay: number}[]>([]);
-  const [mounted, setMounted] = useState(false);
-  const { theme, systemTheme } = useTheme ? useTheme() : { theme: 'dark', systemTheme: 'dark' };
 
-  const isLight = theme === 'light' || (theme === 'system' && systemTheme === 'light');
-  
+function HeroSection() {
+  const [particles, setParticles] = useState<
+    {
+      initialX: number
+      animX: string
+      duration: number
+      delay: number
+    }[]
+  >([])
+
+  const [mounted, setMounted] = useState(false)
+  const { theme, systemTheme } = useTheme()
+
+  const isLight =
+    mounted &&
+    (theme === 'light' ||
+      (theme === 'system' && systemTheme === 'light'))
+
   useEffect(() => {
-    setMounted(true);
-  }, []);
-  
-  useEffect(() => {
-    // Gunakan timeout kecil agar setState tidak berjalan synchronoulsy tepat saat rendering cycle
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setMounted(true)
     const timeout = setTimeout(() => {
-      setParticles([...Array(6)].map(() => ({
-        initialX: Math.random() * 1440,
-        animX: `+=${Math.random() * 200 - 100}`,
-        duration: 8 + Math.random() * 6,
-        delay: Math.random() * 5
-      })));
-    }, 0);
-    return () => clearTimeout(timeout);
-  }, []);
+      setParticles(
+        [...Array(6)].map(() => ({
+          initialX: Math.random() * 1440,
+          animX: `+=${Math.random() * 200 - 100}`,
+          duration: 8 + Math.random() * 6,
+          delay: Math.random() * 5,
+        }))
+      )
+    }, 0)
+
+    return () => clearTimeout(timeout)
+  }, [])
 
   return (
-    <section id="beranda" className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden">
+    <section
+      id="beranda"
+      className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/images/rafting/2.jpeg"
@@ -102,43 +109,80 @@ function HeroSection() {
           quality={85}
           className="w-full h-full object-cover"
         />
+
         {mounted && (
-          <div className={`absolute inset-0 ${
-            isLight 
-              ? 'bg-gradient-to-b from-white/70 via-white/50 to-white/30' 
-              : 'bg-gradient-to-b from-black/80 via-black/50 to-[#0a0a0a]'
-          }`} />
+          <div
+            className={`absolute inset-0 ${
+              isLight
+                ? 'bg-gradient-to-b from-black/60 via-black/45 to-black/70'
+                : 'bg-gradient-to-b from-black/80 via-black/50 to-[#0a0a0a]'
+            }`}
+          />
         )}
       </div>
 
+      {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {particles.map((p, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-brand/30 rounded-full"
+            className="absolute w-2 h-2 bg-brand/40 dark:bg-brand/30 rounded-full"
             initial={{ x: p.initialX, y: 900 }}
             animate={{ y: -100, x: p.animX }}
-            transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'linear' }}
+            transition={{
+              duration: p.duration,
+              repeat: Infinity,
+              delay: p.delay,
+              ease: 'linear',
+            }}
           />
         ))}
       </div>
 
+      {/* Content */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-20">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <Badge className="bg-brand/10 text-brand border-brand/20 px-4 py-2 text-sm mb-6 backdrop-blur-md rounded-full shadow-lg">
-            <MapPin className="w-3.5 h-3.5 mr-1.5" /> Kelurahan Semplak, Bogor Barat
+            <MapPin className="w-3.5 h-3.5 mr-1.5" />
+            Kelurahan Semplak, Bogor Barat
           </Badge>
         </motion.div>
 
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-foreground dark:text-white tracking-tight mb-6">
-          Selamat Datang di<br /><span className="text-brand drop-shadow-md">Kampung Sicapit</span>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+        >
+          Selamat Datang di
+          <br />
+          <span className="text-brand drop-shadow-md">
+            Kampung Sicapit
+          </span>
         </motion.h1>
 
-        <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="text-lg sm:text-xl text-muted-foreground dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-sans">
-          Destinasi wisata air terpadu yang memadukan adrenalin dan keasrian alam. Jelajahi keindahan Sungai Cisadane lewat pengalaman edukasi, river tubing, dan rafting terbaik di Kota Bogor.
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-lg sm:text-xl text-muted-foreground dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-sans"
+        >
+          Destinasi wisata air terpadu yang memadukan adrenalin dan
+          keasrian alam. Jelajahi keindahan Sungai Cisadane lewat
+          pengalaman edukasi, river tubing, dan rafting terbaik di Kota
+          Bogor.
         </motion.p>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex flex-wrap items-center justify-center gap-3 mb-10"
+        >
           {[
             { icon: Waves, label: 'Rafting' },
             { icon: Droplets, label: 'River Tubing' },
@@ -146,23 +190,57 @@ function HeroSection() {
             { icon: Award, label: 'Kesenian Lokal' },
             { icon: TreePine, label: 'Alam Asri' },
           ].map((act, i) => (
-            <span key={i} className="flex items-center gap-2 bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-line dark:border-white/10 text-foreground dark:text-white text-sm md:text-base px-5 py-2.5 rounded-full hover:bg-surface/50 dark:hover:bg-surface/50 transition-colors drop-shadow-md">
-              <act.icon className="w-4 h-4 text-brand" /> {act.label}
+            <span
+              key={i}
+              className="flex items-center gap-2 bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/10 text-foreground dark:text-white text-sm md:text-base px-5 py-2.5 rounded-full hover:bg-surface/50 dark:hover:bg-surface/50 transition-colors drop-shadow-md"
+            >
+              <act.icon className="w-4 h-4 text-brand" />
+              {act.label}
             </span>
           ))}
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-full shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-all font-bold group" onClick={() => document.querySelector('#paket')?.scrollIntoView({ behavior: 'smooth' })}>
-            Lihat Paket Rafting <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <Button
+            size="lg"
+            className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-full shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-all font-bold group"
+            onClick={() =>
+              document
+                .querySelector('#paket')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            Lihat Paket Rafting
+            <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button size="lg" variant="outline" className="border-line dark:border-white/20 text-foreground dark:text-white hover:bg-surface/30 dark:hover:bg-white/10 hover:text-foreground dark:hover:text-white px-8 py-7 text-lg rounded-full backdrop-blur-sm font-bold bg-surface/20 dark:bg-black/20" onClick={() => document.querySelector('#galeri')?.scrollIntoView({ behavior: 'smooth' })}>
-            <Camera className="w-5 h-5 mr-2" /> Galeri Foto
+
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-line dark:border-white/20 text-foreground dark:text-white hover:bg-surface/30 dark:hover:bg-white/10 hover:text-foreground dark:hover:text-white px-8 py-7 text-lg rounded-full backdrop-blur-sm font-bold bg-white/70 dark:bg-black/20"
+            onClick={() =>
+              document
+                .querySelector('#galeri')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            <Camera className="w-5 h-5 mr-2" />
+            Galeri Foto
           </Button>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.1 }} className="mt-16 sm:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-white/10 pt-12 pb-16">
-          {[
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+          className="mt-16 sm:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-black/10 dark:border-white/10 pt-12 pb-16"
+        >
+{[
             { icon: Users, value: '15,000+', label: 'Peserta Puas' },
             { icon: Trophy, value: '12+', label: 'Tahun Pengalaman' },
             { icon: Star, value: '4.9', label: 'Rating Google' },
@@ -174,8 +252,14 @@ function HeroSection() {
                   <stat.icon className="w-6 h-6 text-brand" />
                 </div>
               </div>
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-foreground dark:text-white mb-2 drop-shadow-lg">{stat.value}</div>
-              <div className="text-sm font-medium text-muted-foreground dark:text-slate-300">{stat.label}</div>
+              {/* SEKARANG SELALU PUTIH PEKAT */}
+              <div className="text-4xl md:text-5xl font-heading font-extrabold text-white mb-2 drop-shadow-lg">
+                {stat.value}
+              </div>
+              {/* SEKARANG SELALU PUTIH LEMBUT (AGAR MUDAH DIBACA) */}
+              <div className="text-sm font-medium text-slate-200">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>
@@ -183,7 +267,9 @@ function HeroSection() {
     </section>
   )
 }
+
 // ==================== ABOUT SECTION ====================
+
 function AboutSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -225,7 +311,6 @@ function AboutSection() {
     <section id="tentang" className="py-20 lg:py-28 bg-surface" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -240,7 +325,6 @@ function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/30 to-transparent" />
             </div>
-            {/* Floating card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -248,7 +332,7 @@ function AboutSection() {
               className="absolute -bottom-6 -right-6 bg-surface rounded-xl shadow-xl p-4 lg:p-5 border"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
                   <Award className="w-6 h-6 text-brand" />
                 </div>
                 <div>
@@ -259,13 +343,12 @@ function AboutSection() {
             </motion.div>
           </motion.div>
 
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
+            <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
               Tentang Kami
             </Badge>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-6">
@@ -293,7 +376,7 @@ function AboutSection() {
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                   className="flex gap-3 p-4 rounded-xl hover:bg-brand/10 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors">
                     <feature.icon className="w-5 h-5 text-brand" />
                   </div>
                   <div>
@@ -310,18 +393,38 @@ function AboutSection() {
   )
 }
 
-// Packages imported from lib/data/rafting-packages.ts
-const packages = raftingPackages
+// ==================== PACKAGES SECTION ====================
 
-// Add packages to packages const - aliased from imported raftingPackages
-const PackagesSection = () => {
+interface PackagesSectionProps {
+  onSelectPackage: (pkgName: string) => void
+}
+
+const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [isOpenNow, setIsOpenNow] = useState(true)
 
-  const handleBooking = (pkgName: string) => {
-    const text = encodeURIComponent(`Halo Kampung Sicapit! Saya ingin booking paket ${pkgName}. Mohon info jadwal dan ketersediaannya. Terima kasih!`)
-    window.open(`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}?text=${text}`, '_blank')
-  }
+  // Real-time Business Hours Status Detector
+  useEffect(() => {
+    const checkStatus = () => {
+      try {
+        const now = new Date()
+        const currentHour = now.getHours()
+        // Default rafting hours usually 08:00 - 17:00
+        if (currentHour >= 8 && currentHour < 17) {
+          setIsOpenNow(true)
+        } else {
+          setIsOpenNow(false)
+        }
+      } catch (e) {
+        // Abaikan error parse jika terjadi di browser tua, default true
+        setIsOpenNow(true) 
+      }
+    }
+    checkStatus()
+    const interval = setInterval(checkStatus, 60000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section id="paket" className="py-20 lg:py-28 bg-surface-strong" ref={ref}>
@@ -333,7 +436,7 @@ const PackagesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
+          <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
             Paket Rafting
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -343,95 +446,113 @@ const PackagesSection = () => {
             Tersedia berbagai pilihan paket rafting yang disesuaikan untuk setiap tingkat 
             keahlian, dari yang baru pertama kali hingga yang sudah berpengalaman.
           </p>
-          {/* Info Badges */}
+          
+          {/* Info Badges & Real-time Status */}
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <div className="flex items-center gap-2 bg-brand/10 border border-brand/50 text-brand px-4 py-2 rounded-full text-sm font-medium">
-              <Clock className="w-4 h-4" />
-              <span>Jam Operasional: {BUSINESS_HOURS.label}</span>
+            <div className="flex items-center gap-2 bg-background/80 backdrop-blur-md border px-4 py-2 rounded-full text-sm font-medium text-foreground shadow-sm">
+              {isOpenNow ? (
+                <>
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Buka Sekarang</span>
+                </>
+              ) : (
+                <>
+                  <span className="h-2 w-2 rounded-full bg-destructive"></span>
+                  <span className="text-destructive font-bold">Tutup Sementara</span>
+                </>
+              )}
+              <span className="text-muted-foreground">| {BUSINESS_HOURS.label}</span>
             </div>
-            <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-700 px-4 py-2 rounded-full text-sm font-medium">
+            
+            <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-500 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md">
               <Users className="w-4 h-4" />
               <span>Kapasitas: Minimal 10 Orang</span>
             </div>
           </div>
         </motion.div>
 
-        {/* Cards */}
+        {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {packages.map((pkg, i) => (
+          {raftingPackages.map((pkg, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className={`relative ${pkg.popular ? 'md:-mt-4 md:mb-4' : ''}`}
+              whileHover={{ y: -8 }}
+              className={`relative h-full group ${pkg.popular ? 'md:-mt-4 md:mb-4' : ''}`}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <Badge className="bg-amber-500 text-white px-4 py-1 shadow-lg">
+                  <Badge className="bg-amber-500 text-white px-4 py-1 shadow-lg border-none animate-pulse">
                     Paling Populer
                   </Badge>
                 </div>
               )}
-              <Card className={`h-full overflow-hidden transition-all duration-300 hover:shadow-xl ${
+              <Card className={`h-full overflow-hidden transition-all duration-300 flex flex-col justify-between bg-background/60 backdrop-blur-md ${
                 pkg.popular
-                  ? 'border-brand/50 shadow-lg ring-2 ring-emerald-100'
+                  ? 'border-brand shadow-xl ring-2 ring-brand/20'
                   : 'border-white/10 hover:border-brand/50'
               }`}>
-                {/* Card Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={pkg.image}
-                    alt={pkg.name}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <Badge className={`${pkg.difficultyColor} border-0 px-3 py-1`}>
-                      {pkg.difficulty}
-                    </Badge>
+                <div>
+                  {/* Card Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={pkg.image}
+                      alt={pkg.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <Badge className={`${pkg.difficultyColor} border-0 px-3 py-1 text-white`}>
+                        {pkg.difficulty}
+                      </Badge>
+                    </div>
                   </div>
+
+                  <CardHeader className="pb-2">
+                    <div className="flex items-center gap-2 mb-1">
+                      <pkg.icon className="w-5 h-5 text-brand" />
+                      <span className="text-sm text-muted-foreground dark:text-slate-400">{pkg.subtitle}</span>
+                    </div>
+                    <CardTitle className="text-2xl text-foreground dark:text-white group-hover:text-brand transition-colors">{pkg.name}</CardTitle>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-slate-400 mt-1">
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" /> {pkg.duration}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MapPin className="w-4 h-4" /> {pkg.distance}
+                      </span>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent className="pb-4">
+                    <div className="mb-4">
+                      <span className="text-3xl font-extrabold text-brand">{pkg.price}</span>
+                      <span className="text-muted-foreground dark:text-slate-400 text-sm"> /orang</span>
+                    </div>
+                    <div className="space-y-2">
+                      {pkg.features.map((feature, j) => (
+                        <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-slate-300">
+                          <CheckCircle2 className="w-4 h-4 text-brand shrink-0" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
                 </div>
 
-                <CardHeader className="pb-2">
-                  <div className="flex items-center gap-2 mb-1">
-                    <pkg.icon className="w-5 h-5 text-brand" />
-                    <span className="text-sm text-muted-foreground dark:text-slate-400">{pkg.subtitle}</span>
-                  </div>
-                  <CardTitle className="text-2xl text-foreground dark:text-white">{pkg.name}</CardTitle>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-slate-400 mt-1">
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" /> {pkg.duration}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" /> {pkg.distance}
-                    </span>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="pb-4">
-                  <div className="mb-4">
-                    <span className="text-3xl font-bold text-brand">{pkg.price}</span>
-                    <span className="text-muted-foreground dark:text-slate-400 text-sm"> /orang</span>
-                  </div>
-                  <div className="space-y-2">
-                    {pkg.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-brand shrink-0" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-
-                <CardFooter>
+                <CardFooter className="pt-0">
                   <Button
-                    className={`w-full rounded-xl py-5 font-semibold text-base transition-all ${
+                    className={`w-full rounded-xl py-5 font-bold text-base transition-all ${
                       pkg.popular
-                        ? 'bg-brand text-white hover:bg-brand/80 text-white text-white shadow-lg shadow-emerald-200'
-                        : 'bg-gray-900 hover:bg-gray-800 text-white'
+                        ? 'bg-brand text-white hover:bg-brand/90 shadow-lg shadow-brand/20'
+                        : 'bg-foreground text-background hover:bg-foreground/90'
                     }`}
-                    onClick={() => handleBooking(pkg.name)}
+                    onClick={() => onSelectPackage(pkg.name)}
                   >
                     Pesan Paket {pkg.name}
                     <ChevronRight className="w-4 h-4 ml-1" />
@@ -446,7 +567,8 @@ const PackagesSection = () => {
   )
 }
 
-// ==================== GALLERY SECTION (BENTO LAYOUT) ====================
+// ==================== GALLERY SECTION ====================
+
 const slideshowImages = [
   '/assets/images/rafting/image.png',
   '/assets/images/rafting/imagee.png',
@@ -526,26 +648,10 @@ const bentoItemsLayout = [
 ]
 
 const videoItems = [
-  {
-    src: '/assets/videos/jeram-bagol.webm',
-    title: 'Jeram Bagol',
-    tag: 'Video',
-  },
-  {
-    src: '/assets/videos/Konservasi.webm',
-    title: 'Konservasi',
-    tag: 'Video',
-  },
-  {
-    src: '/assets/videos/Rafting.webm',
-    title: 'Aksi di Air',
-    tag: 'Video',
-  },
-  {
-    src: '/assets/videos/Video.webm',
-    title: 'Keseruan Rafting',
-    tag: 'Video',
-  },
+  { src: '/assets/videos/jeram-bagol.webm', title: 'Jeram Bagol', tag: 'Video' },
+  { src: '/assets/videos/Konservasi.webm', title: 'Konservasi', tag: 'Video' },
+  { src: '/assets/videos/Rafting.webm', title: 'Aksi di Air', tag: 'Video' },
+  { src: '/assets/videos/Video.webm', title: 'Keseruan Rafting', tag: 'Video' },
 ]
 
 function GallerySection() {
@@ -556,7 +662,6 @@ function GallerySection() {
   const [slideIndex, setSlideIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
-  // Auto-advance slideshow
   useEffect(() => {
     if (isPaused) return
     const interval = setInterval(() => {
@@ -566,11 +671,11 @@ function GallerySection() {
   }, [isPaused])
 
   const tagColors: Record<string, string> = {
-    'Aktivitas': 'bg-brand/100/90 text-white',
-    'Lanskap': 'bg-amber-500/90 text-white',
-    'Tim Kami': 'bg-sky-500/90 text-white',
-    'Keluarga': 'bg-rose-500/90 text-white',
-    'Video': 'bg-purple-500/90 text-white',
+    'Aktivitas': 'bg-brand text-white',
+    'Lanskap': 'bg-amber-500 text-white',
+    'Tim Kami': 'bg-sky-500 text-white',
+    'Keluarga': 'bg-rose-500 text-white',
+    'Video': 'bg-purple-500 text-white',
   }
 
   return (
@@ -583,26 +688,28 @@ function GallerySection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
+          <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
             Galeri Foto
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          {/* UBAH DI BARIS INI: Menggunakan text-foreground agar gelap di light mode, dan putih di dark mode */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
             Momen <span className="text-brand">Tak Terlupakan</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          {/* UBAH JUGA DI SINI: text-muted-foreground agar teks deskripsi adaptif */}
+          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Lihat keindahan dan keseruan petualangan rafting kami melalui galeri foto.
             Setiap momen adalah kenangan berharga.
           </p>
         </motion.div>
 
-        {/* Modern Bento Grid */}
+        {/* Bento Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="grid grid-cols-2 md:grid-cols-4 auto-rows-[250px] md:auto-rows-[300px] gap-2 sm:gap-4"
         >
-          {/* Item 1: The Slideshow (2x2 Tile) */}
+          {/* Slideshow Card */}
           <div 
             className="relative group overflow-hidden rounded-2xl md:rounded-3xl col-span-2 row-span-2 shadow-lg bg-black cursor-pointer"
             onMouseEnter={() => setIsPaused(true)}
@@ -624,35 +731,27 @@ function GallerySection() {
                 )}
               </AnimatePresence>
             ))}
-
-            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
-            
-            {/* Tag Badge */}
             <div className="absolute top-4 left-4 z-10">
               <span className="text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md bg-white/20 text-white border border-white/30">
                 Sorotan Utama
               </span>
             </div>
-
-            {/* Navigation arrows */}
             <button
               onClick={(e) => { e.stopPropagation(); setSlideIndex((prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length) }}
               className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/50 transition-colors z-10"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              ❮
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); setSlideIndex((prev) => (prev + 1) % slideshowImages.length) }}
               className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/50 transition-colors z-10"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              ❯
             </button>
-
-            {/* Progress bar */}
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-10">
               <motion.div
-                className="h-full bg-emerald-400"
+                className="h-full bg-brand"
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 3.5, ease: 'linear' }}
@@ -670,435 +769,133 @@ function GallerySection() {
               onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setSelectedImg(item.src)}
             >
-              {/* Media */}
-              {item.type === 'video' ? (
-                <video
-                  src={item.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out ${
-                    hoveredIdx === i ? 'scale-110 brightness-90' : 'scale-100 brightness-100'
-                  }`}
-                />
-              ) : (
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out ${
-                    hoveredIdx === i ? 'scale-110 brightness-90' : 'scale-100 brightness-100'
-                  }`}
-                />
-              )}
-
-              {/* Tag Badge */}
+              <img
+                src={item.src}
+                alt={item.title}
+                className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out ${
+                  hoveredIdx === i ? 'scale-105 brightness-90' : 'scale-100 brightness-100'
+                }`}
+              />
               <div className="absolute top-4 left-4 z-10">
-                <span className={`text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md border border-white/20 ${tagColors[item.tag] || 'bg-black/40 text-white'}`}>
+                <span className={`text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10 ${tagColors[item.tag] || 'bg-black/40 text-white'}`}>
                   {item.tag}
                 </span>
               </div>
-
-              {/* Overlay gradient */}
-              <div className={`absolute inset-0 transition-opacity duration-500 ${
-                hoveredIdx === i ? 'opacity-100' : 'opacity-0'
-              }`}>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              </div>
-
-              {/* Content overlay */}
-              <div
-                className={`absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 ${
-                  hoveredIdx === i
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-4 opacity-0'
-                }`}
-              >
-                <h3 className="text-white font-bold text-lg leading-tight mb-1">
-                  {item.title}
-                </h3>
-                <div className="flex items-center gap-2 text-emerald-300">
-                  {item.type === 'video' ? <Play className="w-4 h-4" /> : <Camera className="w-4 h-4" />}
-                  <span className="text-sm font-medium">{item.type === 'video' ? 'Putar Video' : 'Lihat Detail'}</span>
+              <div className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t from-black/80 via-black/20 to-transparent ${hoveredIdx === i ? 'opacity-100' : 'opacity-0'}`} />
+              <div className={`absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 ${hoveredIdx === i ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                <h3 className="text-white font-bold text-lg mb-1">{item.title}</h3>
+                <div className="flex items-center gap-2 text-brand">
+                  <Camera className="w-4 h-4" />
+                  <span className="text-sm font-medium">Lihat Detail</span>
                 </div>
               </div>
             </div>
           ))}
         </motion.div>
 
-        {/* Uncropped Videos Showcase */}
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
+        {/* Video Showcase */}
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {videoItems.map((item, i) => (
             <motion.div
-              key={`vid-${i}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              className="relative group w-full aspect-[4/5] cursor-pointer rounded-2xl overflow-hidden shadow-lg bg-black flex items-center justify-center"
+              key={i}
+              className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-md aspect-video bg-black"
               onClick={() => setSelectedImg(item.src)}
+              whileHover={{ scale: 1.02 }}
             >
-              <video
-                src={item.src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Tag Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="text-[10px] sm:text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md bg-purple-500/90 text-white border border-white/20 shadow-sm">
-                  {item.tag}
-                </span>
-              </div>
-              {/* Overlay for text */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none">
-                <h3 className="text-white font-bold text-lg lg:text-xl mb-1 leading-tight">
-                  {item.title}
-                </h3>
-                <div className="flex items-center gap-1.5 text-emerald-400">
-                  <Play className="w-4 h-4" />
-                  <span className="text-sm font-medium">Putar</span>
+              <video src={item.src} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" muted loop playsInline autoPlay />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-brand/90 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                  <Play className="w-5 h-5 fill-white ml-0.5" />
                 </div>
+              </div>
+              <div className="absolute bottom-2 left-3 text-white font-bold text-sm bg-black/60 px-2 py-1 rounded backdrop-blur-sm">
+                {item.title}
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Dialog Preview */}
+        <Dialog open={!!selectedImg} onOpenChange={(open) => !open && setSelectedImg(null)}>
+          <DialogContent className="max-w-4xl bg-black/95 border-none text-white p-2">
+            <DialogHeader className="sr-only">
+              <DialogTitle>Preview</DialogTitle>
+              <DialogDescription>Media Preview</DialogDescription>
+            </DialogHeader>
+            {selectedImg && (
+              <div className="relative w-full flex items-center justify-center">
+                {selectedImg.endsWith('.mp4') || selectedImg.endsWith('.webm') ? (
+                  <video src={selectedImg} controls autoPlay className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
+                ) : (
+                  <img src={selectedImg} alt="Preview" className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
+                )}
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
-
-      {/* Lightbox */}
-      <Dialog open={!!selectedImg} onOpenChange={() => setSelectedImg(null)}>
-        <DialogContent className="max-w-5xl p-0 bg-transparent border-0 shadow-none overflow-hidden flex items-center justify-center">
-          <DialogHeader className="sr-only">
-            <DialogTitle>Galeri Momen Rafting</DialogTitle>
-            <DialogDescription>Preview momen rafting</DialogDescription>
-          </DialogHeader>
-          {selectedImg && (
-            <div className="relative w-full flex items-center justify-center bg-transparent">
-              {selectedImg.endsWith('.mp4') || selectedImg.endsWith('.webm') ? (
-                <video
-                  src={selectedImg}
-                  controls
-                  autoPlay
-                  className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
-                />
-              ) : (
-                <img
-                  src={selectedImg}
-                  alt="Preview"
-                  className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
-                />
-              )}
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   )
 }
 
 // ==================== TESTIMONIALS SECTION ====================
-// Map homepage reviews to match the display format needed for marquee
-const customerReviews = reviews.map((review) => ({
-  name: review.author,
-  rating: review.rating,
-  text: review.text,
-  date: review.time,
-  avatar: review.author.charAt(0),
-  bgColor: 'bg-brand/20',
-  source: 'Google Reviews'
-}));
+
 function TestimonialsSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  // Duplicate for seamless marquee
-  const duplicatedReviews = [...customerReviews, ...customerReviews]
+  const customerReviews = reviews.map((review) => ({
+    name: review.author,
+    rating: review.rating,
+    text: review.text,
+    date: review.time,
+    avatar: review.author.charAt(0),
+    bgColor: 'bg-brand/20',
+    source: 'Google Reviews',
+  }))
 
   return (
-    <section id="testimoni" className="py-24 lg:py-32 bg-surface overflow-hidden relative" ref={ref}>
-      {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <Badge className="bg-brand/10 text-brand border-brand/20 px-4 py-1.5 mb-6 text-sm">
-            Testimoni & Pengalaman
-          </Badge>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground dark:text-white mb-6">
-            Apa Kata <span className="text-brand">Mereka</span>?
-          </h2>
-          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
-            Ulasan asli dari para petualang yang telah menjajal keseruan rafting dan menikmati asrinya Kampung Wisata Sicapit.
-          </p>
-          
-          {/* Google Rating Summary */}
-          <div className="flex items-center justify-center gap-3 mt-8 bg-surface-strong/50 dark:bg-surface-strong/50 border border-line dark:border-white/5 py-4 px-6 rounded-full inline-flex mx-auto">
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-amber-400 fill-amber-400 drop-shadow-sm" />
-              ))}
-            </div>
-            <div className="w-px h-6 bg-white/20 mx-2" />
-            <span className="text-2xl font-bold text-foreground dark:text-white font-heading">4.9</span>
-            <span className="text-muted-foreground dark:text-slate-400 text-sm font-medium">Berdasarkan ulasan asli di Google</span>
-          </div>
-        </motion.div>
-
-        {/* Marquee Carousel (inspired by sliding testimonials) */}
-        <div 
-          className="relative w-full flex overflow-hidden group pb-8"
-          style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
-        >
-          <motion.div
-            className="flex gap-6 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          >
-            {duplicatedReviews.map((review, i) => (
-              <Card key={i} className="shrink-0 w-[350px] md:w-[450px] border-line dark:border-white/5 bg-surface dark:bg-surface-strong shadow-lg hover:border-brand/30 transition-all duration-300">
-                <CardContent className="p-6 md:p-8 flex flex-col h-full justify-between">
-                  <div>
-                    {/* Top row: source badge + stars */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground dark:text-slate-400 font-medium bg-black/20 dark:bg-black/20 px-3 py-1.5 rounded-full border border-line dark:border-white/5">
-                        <svg className="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        Ulasan Google Maps
-                      </div>
-                      <div className="flex gap-0.5">
-                        {[...Array(5)].map((_, j) => (
-                          <Star
-                            key={j}
-                            className={`w-4 h-4 ${j < review.rating ? "text-amber-400 fill-amber-400" : "text-muted-foreground dark:text-slate-600 fill-muted-foreground dark:fill-slate-600"}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Review text */}
-                    <p className="text-foreground dark:text-slate-300 text-base leading-relaxed mb-8 italic">
-                      &quot;{review.text}&quot;
-                    </p>
-                  </div>
-
-                  {/* Author row */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-line dark:border-white/10 mt-auto">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${review.bgColor || "bg-brand/20"} shadow-inner`}>
-                      <span className="text-white dark:text-white font-bold text-lg">{review.avatar}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-heading font-bold text-foreground dark:text-white text-base truncate">{review.name}</p>
-                      <p className="text-sm text-muted-foreground dark:text-slate-400">{review.date}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <a 
-             href="https://www.google.com/maps/search/?api=1&query=Kampung+Wisata+Sicapit" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             className="inline-flex items-center justify-center h-12 md:h-14 px-8 py-3 rounded-full text-base font-bold bg-white text-black hover:bg-slate-200 transition-colors shadow-lg hover:shadow-xl group"
-          >
-            <svg className="w-5 h-5 mr-3 text-blue-600 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            Lihat Semua Ulasan di Google Maps
-          </a>
-        </motion.div>
+    <section id="testimoni" className="py-20 bg-surface overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+        <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
+          Testimoni
+        </Badge>
+        <h2 className="text-3xl font-bold text-foreground dark:text-white">Apa Kata Mereka?</h2>
       </div>
-    </section>
-  )
-}
-
-// ==================== SAFETY SECTION ====================
-const safetyTips = [
-  {
-    icon: LifeBuoy,
-    title: 'Wajib Pakai Pelampung',
-    desc: 'Selalu kenakan life jacket (pelampung) yang disediakan. Pastikan ukuran pas dan buckle terkunci rapat sebelum memulai rafting. Pelampung berstandar internasional dan telah diuji kelayakannya.',
-    color: 'from-blue-500 to-cyan-500',
-    bgLight: 'bg-blue-50',
-    iconColor: 'text-blue-600',
-  },
-  {
-    icon: HardHat,
-    title: 'Helm Wajib Dipakai',
-    desc: 'Gunakan helm yang disediakan sepanjang aktivitas rafting. Helm melindungi kepala dari benturan batu atau benda lain. Pastikan tali helm terikat kencang dan tidak bergeser.',
-    color: 'from-amber-500 to-orange-500',
-    bgLight: 'bg-amber-50',
-    iconColor: 'text-amber-600',
-  },
-  {
-    icon: Users,
-    title: 'Dengarkan Pemandu',
-    desc: 'Ikuti semua instruksi pemandu tanpa terkecuali. Pemandu kami bersertifikat SAFI dan berpengalaman. Mereka akan memberikan briefing teknik mendayung, posisi duduk, dan apa yang harus dilakukan saat rafting.',
-    color: 'from-emerald-500 to-green-500',
-    bgLight: 'bg-brand/10',
-    iconColor: 'text-brand',
-  },
-  {
-    icon: AlertTriangle,
-    title: 'Patuhi Batasan Arus',
-    desc: 'Jangan melebih batas kemampuan Anda. Pilih paket sesuai level pengalaman. Peserta pemula wajib mengikuti rute Grade II-III. Jika merasa tidak nyaman, segera beritahu pemandu.',
-    color: 'from-red-500 to-rose-500',
-    bgLight: 'bg-red-50',
-    iconColor: 'text-red-600',
-  },
-  {
-    icon: BookOpen,
-    title: 'Ikuti Briefing dengan Seksama',
-    desc: 'Perhatikan baik-baik saat briefing sebelum rafting dimulai. Pemandu akan menjelaskan teknik mendayung yang benar, cara menahan dayung, posisi aman di rakit, dan prosedur evakuasi darurat.',
-    color: 'from-violet-500 to-purple-500',
-    bgLight: 'bg-violet-50',
-    iconColor: 'text-violet-600',
-  },
-  {
-    icon: Info,
-    title: 'Kondisi Fisik Harus Sehat',
-    desc: 'Pastikan dalam kondisi fisik yang sehat dan tidak sedang mengonsumsi alkohol. Peserta dengan riwayat jantung, epilepsy, atau kondisi medis tertentu wajib konsultasi dokter terlebih dahulu.',
-    color: 'from-teal-500 to-emerald-500',
-    bgLight: 'bg-teal-50',
-    iconColor: 'text-teal-600',
-  },
-]
-
-function SafetySection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  return (
-    <section id="keselamatan" className="py-20 lg:py-28 bg-surface" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <Badge className="bg-red-100 text-red-600 border-red-200 px-3 py-1 mb-4">
-            <Shield className="w-3 h-3 mr-1" />
-            Keselamatan
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
-            Tips <span className="text-brand">Keselamatan</span> Rafting
-          </h2>
-          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
-            Keselamatan adalah prioritas utama kami. Berikut hal-hal penting yang wajib 
-            diketahui sebelum mengikuti aktivitas arung jeram.
-          </p>
-        </motion.div>
-
-        {/* Safety Tips Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {safetyTips.map((tip, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <Card className="h-full border-white/5 hover:shadow-lg transition-all duration-300 hover:border-brand/50 group overflow-hidden">
-                <CardContent className="pt-6 pb-6">
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-xl ${tip.bgLight} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
-                      <tip.icon className={`w-6 h-6 ${tip.iconColor}`} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-foreground dark:text-white text-base mb-2">{tip.title}</h3>
-                      <p className="text-muted-foreground dark:text-slate-400 text-sm leading-relaxed">{tip.desc}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Bottom Note */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-10 p-6 bg-brand/10 border border-brand/50 rounded-2xl flex items-start gap-4"
-        >
-          <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
-            <Shield className="w-5 h-5 text-brand" />
-          </div>
-          <div>
-            <h4 className="font-bold text-brand mb-1">Keselamatan Adalah Prioritas Kami</h4>
-            <p className="text-foreground dark:text-slate-300 text-sm leading-relaxed">
-              Di Rafting Kampung SiCapit, keselamatan peserta adalah yang utama. Setiap pemandu 
-              terlatih dalam pertolongan pertama serta water rescue. 
-              Tim rescue kami selalu siaga di setiap titik jalur rafting untuk memastikan 
-              pengalaman petualangan Anda aman dan menyenangkan.
-            </p>
-          </div>
-        </motion.div>
+      <div className="flex gap-6 animate-marquee whitespace-nowrap w-max px-4">
+        {customerReviews.map((rev, i) => (
+          <Card key={i} className="w-[300px] shrink-0 inline-block whitespace-normal p-5 border border-muted/50 bg-background/50 backdrop-blur-md">
+            <div className="flex items-center gap-3 mb-3">
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-brand ${rev.bgColor}`}>
+                {rev.avatar}
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-foreground">{rev.name}</h4>
+                <p className="text-xs text-muted-foreground">{rev.date}</p>
+              </div>
+            </div>
+            <div className="flex gap-0.5 text-amber-500 mb-2">
+              {[...Array(rev.rating)].map((_, idx) => <Star key={idx} className="w-4 h-4 fill-amber-500" />)}
+            </div>
+            <p className="text-sm text-muted-foreground line-clamp-4 leading-relaxed">&quot;{rev.text}&quot;</p>
+          </Card>
+        ))}
       </div>
     </section>
   )
 }
 
 // ==================== FAQ SECTION ====================
-const faqItems = [
+
+const faqs = [
   {
-    q: 'Apakah saya harus bisa berenang untuk ikut rafting?',
-    a: 'Tidak perlu bisa berenang! Semua peserta akan diberikan life jacket (pelampung) berkualitas tinggi. Pemandu kami juga sudah terlatih untuk menangani berbagai situasi di air. Yang penting Anda tidak takut air dan siap untuk seru-seruan!',
-    icon: LifeBuoy,
+    q: 'Apakah aman untuk pemula yang tidak bisa berenang?',
+    a: 'Sangat aman! Setiap peserta wajib memakai perlengkapan keselamatan standar (Pelampung, Helm) dan akan didampingi oleh pemandu profesional bersertifikat sepanjang jalur.',
+    icon: HelpCircle,
     tag: 'Keamanan',
   },
   {
-    q: 'Sebaiknya membawa apa saja saat rafting?',
-    a: 'Cukup bawa pakaian ganti, handuk, dan sunblock. Gunakan kaos dan celana pendek yang tidak kebesaran (hindari jeans). Sepatu atau sandal gunung yang melekat di kaki. Hindari membawa barang bawaan berlebihan karena akan mengganggu aktivitas di rakit.',
-    icon: BaggageClaim,
-    tag: 'Persiapan',
-  },
-  {
-    q: 'Apakah rafting aman untuk anak-anak?',
-    a: 'Untuk Paket Pamili (7 km), anak usia minimal 5 tahun sudah bisa ikut dengan pendampingan orang tua. Arus pada rute ini relatif tenang dan cocok untuk keluarga. Untuk Paket Konservasi dan Petualangan, minimal usia 12 tahun dengan kondisi fisik sehat.',
-    icon: UserCheck,
-    tag: 'Usia',
-  },
-  {
-    q: 'Bagaimana jika cuaca hujan pada hari H?',
-    a: 'Rafting tetap berlangsung saat hujan karena Anda akan basah anyway! Hujan justru membuat arus sungai lebih seru. Aktivitas hanya akan ditunda atau dibatalkan jika terjadi banjir besar atau kondisi sungai berbahaya. Keputusan ada di pihak pemandu untuk keselamatan semua peserta.',
-    icon: Droplets,
-    tag: 'Cuaca',
-  },
-  {
-    q: 'Saya pemula total, paket mana yang cocok?',
-    a: 'Untuk pemula, sangat direkomendasikan Paket Pamili dengan jarak 7 km. Arusnya tergolong ringan dan pemandu akan memberikan briefing lengkap tentang teknik mendayung dan posisi tubuh sebelum mulai. Yang penting ikuti instruksi pemandu dan nikmati perjalanannya!',
-    icon: HelpCircle,
-    tag: 'Kesulitan',
-  },
-  {
-    q: 'Bagaimana cara booking dan pembayarannya?',
-    a: 'Booking bisa langsung melalui WhatsApp kami di +62 857-7324-6998. Setelah konfirmasi jadwal, Anda bisa melakukan DP 50% dan pelunasan di tempat sebelum keberangkatan. Kami menerima transfer bank dan e-wallet.',
+    q: 'Berapa jumlah minimal peserta untuk booking?',
+    a: 'Kapasitas per perahu karet idealnya diisi 4-6 orang peserta plus 1 pemandu. Namun pemesanan paket disarankan minimal kelompok 10 orang untuk efisiensi akomodasi.',
     icon: CalendarDays,
-    tag: 'Booking',
+    tag: 'Persiapan',
   },
 ]
 
@@ -1106,445 +903,224 @@ function FAQSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
-  const tagColors: Record<string, string> = {
-    'Keamanan': 'bg-red-100 text-red-600',
-    'Persiapan': 'bg-blue-100 text-blue-600',
-    'Usia': 'bg-purple-100 text-purple-600',
-    'Cuaca': 'bg-sky-100 text-sky-600',
-    'Kesulitan': 'bg-orange-100 text-orange-600',
-    'Booking': 'bg-teal-100 text-teal-600',
-  }
-
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-surface" ref={ref}>
+    <section id="faq" className="py-20 bg-surface" ref={ref}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {} }
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
-            FAQ
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
-            Pertanyaan <span className="text-brand">Umum</span>
-          </h2>
-          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
-            Hal-hal penting yang perlu kamu tahu sebelum rafting. Supaya lebih siap dan pede!
-          </p>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-14">
+          <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">FAQ</Badge>
+          <h2 className="text-3xl font-bold text-foreground dark:text-white">Pertanyaan Umum</h2>
         </motion.div>
-
-        {/* Accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {} }
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqItems.map((item, i) => (
-              <AccordionItem
-                key={i}
-                value={`faq-${i}`}
-                className="bg-surface-strong border border-white/10 rounded-xl px-5 data-[state=open]:bg-surface data-[state=open]:border-brand/50 data-[state=open]:shadow-sm transition-all"
-              >
-                <AccordionTrigger className="text-left hover:no-underline py-4">
-                  <div className="flex items-center gap-3 text-left">
-                    <item.icon className="w-5 h-5 text-brand shrink-0" />
-                    <span className="font-semibold text-foreground dark:text-white text-sm sm:text-base">{item.q}</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-4 pt-0">
-                  <div className="ml-8 pl-4 border-l-2 border-brand/50">
-                    <span className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full mb-2 ${tagColors[item.tag] || 'bg-surface/50 text-muted-foreground dark:text-slate-300'}`}>
-                      {item.tag}
-                    </span>
-                    <p className="text-foreground dark:text-slate-300 text-sm leading-relaxed">
-                      {item.a}
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {} }
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-10"
-        >
-          <p className="text-muted-foreground dark:text-slate-400 text-sm mb-4">Masih ada pertanyaan lain?</p>
-          <Button
-            className="bg-brand text-white hover:bg-brand/80 text-white text-white rounded-lg"
-            onClick={() => document.querySelector('#kontak')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            <Phone className="w-4 h-4 mr-2" />
-            Hubungi Kami
-          </Button>
-        </motion.div>
+        <Accordion type="single" collapsible className="w-full space-y-4">
+          {faqs.map((faq, i) => (
+            <AccordionItem key={i} value={`item-${i}`} className="border rounded-xl px-4 bg-background/50">
+              <AccordionTrigger className="hover:no-underline font-bold text-foreground">
+                <div className="flex items-center gap-3 text-left">
+                  <faq.icon className="w-5 h-5 text-brand shrink-0" />
+                  {faq.q}
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   )
 }
 
-// ==================== CTA SECTION ====================
-function CTASection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
-  return (
-    <section className="py-20 lg:py-28 bg-brand text-white relative overflow-hidden" ref={ref}>
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-surface rounded-full -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-surface rounded-full translate-x-1/2 translate-y-1/2" />
-      </div>
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="inline-block bg-white/20 text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-white/30">
-            🌊 Rafting Kampung SiCapit
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            Siap Berpetualangan<br className="hidden sm:block" /> dengan <span className="text-emerald-200">Seru?</span>
-          </h2>
-          <p className="text-emerald-100 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-            Jangan tunda lagi! Bergabunglah bersama ribuan peserta yang sudah merasakan 
-            serunya menantang arus sungai bersama SiCapit. Dijamin seru, aman, dan penuh kenangan!
-          </p>
-          {/* Opening Hours Badge */}
-          <div className="inline-flex items-center gap-3 bg-white/15 border border-white/30 backdrop-blur-sm rounded-2xl px-6 py-4 mb-8">
-            <Clock className="w-5 h-5 text-emerald-200 shrink-0" />
-            <div className="text-left">
-              <p className="text-white font-semibold text-sm">{BUSINESS_HOURS.days}</p>
-              <p className="text-emerald-200 text-sm">Jam {BUSINESS_HOURS.open} – {BUSINESS_HOURS.close} {BUSINESS_HOURS.timezone}</p>
-            </div>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#kontak">
-              <Button className="bg-surface text-brand hover:bg-brand/10 font-bold px-8 py-4 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-200">
-                Booking Sekarang 🚀
-              </Button>
-            </a>
-            <a href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}`} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="border-white/50 text-white hover:bg-white/20 bg-transparent font-semibold px-8 py-4 text-base rounded-xl">
-                Hubungi via WhatsApp
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
+// ==================== MAIN PAGE COMPONENT ====================
 
-// ==================== CONTACT / BOOKING SECTION ====================
-function ContactSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = useState(false)
+export default function Page() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     package: '',
+    pax: 10,
     date: '',
-    participants: '',
-    message: '',
+    notes: '',
+    documentation: false,
   })
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  // Derived state untuk kalkulator biaya langsung (Tanpa useEffect)
+  const selectedPkgData = raftingPackages.find(
+    (p) => p.name.toLowerCase().includes(formData.package.toLowerCase()) || 
+           formData.package.toLowerCase().includes(p.name.toLowerCase())
+  )
+  
+  const basePrice = selectedPkgData ? parseInt(selectedPkgData.price.replace(/\D/g, '')) || 185000 : 185000
+  const paxCount = Math.max(1, formData.pax)
+  const docPrice = formData.documentation ? 150000 : 0
+  
+  const estimatedTotal = (basePrice * paxCount) + docPrice
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    setIsSubmitting(false)
-    toast({
-      title: 'Booking Berhasil Dikirim!',
-      description: `Terima kasih ${formData.name}! Tim kami akan menghubungi Anda dalam 1x24 jam untuk konfirmasi.`,
-    })
-    setFormData({ name: '', phone: '', email: '', package: '', date: '', participants: '', message: '' })
+  const handleSelectPackageDirectly = (pkgName: string) => {
+    setFormData((prev) => ({ ...prev, package: pkgName }))
+    document.querySelector('#booking-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: 'Telepon / WhatsApp',
-      value: '+62 857-7324-6998',
-      desc: 'Respons cepat di jam kerja',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'Kampungwisatasicapit382@gmail.com',
-      desc: 'Respon dalam 24 jam',
-    },
-    {
-      icon: MapPin,
-      label: 'Lokasi',
-      value: 'Kampung Wisata SiCapit, Gg. Flamboyan I No.1, Semplak, Bogor Barat',
-      desc: 'Kota Bogor, Jawa Barat',
-    },
-    {
-      icon: Clock,
-      label: 'Jam Operasional',
-      value: `${BUSINESS_HOURS.days}, ${BUSINESS_HOURS.open} - ${BUSINESS_HOURS.close} ${BUSINESS_HOURS.timezone}`,
-      desc: 'Termasuk hari libur nasional',
-    },
-  ]
+const handleSubmitBooking = (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    const formattedTotal = estimatedTotal.toLocaleString('id-ID')
+    const docText = formData.documentation ? 'Ya (Premium DSLR/Action Cam)' : 'Tidak'
+
+    const text = encodeURIComponent(
+      `Halo Wisata Air Kampung Sicapit!\n\n` +
+      `Saya ingin mengajukan booking petualangan dengan data berikut:\n` +
+      `• Nama: ${formData.name}\n` +
+      `• No. WA: ${formData.phone}\n` +
+      `• Email: ${formData.email}\n` +
+      `• Paket Pilihan: ${formData.package || 'Belum Memilih'}\n` +
+      `• Jumlah Peserta: ${formData.pax} Pax\n` +
+      `• Tanggal Trip: ${formData.date}\n` +
+      `• Tambah Dokumentasi: ${docText}\n` +
+      `• Catatan Tambahan: ${formData.notes || '-'}\n\n` +
+      `*Estimasi Total Live Perhitungan:* Rp ${formattedTotal}\n\n` +
+      `Mohon info ketersediaan slot jadwalnya. Terima kasih!`
+    )
+    
+// ==================== PENGGANTINYA: Murni mengambil dari .env tanpa ada hardcode nomor cadangan ====================
+    const rawPhone = process.env.NEXT_PUBLIC_CONTACT_1_PHONE
+    
+    if (!rawPhone) {
+      console.error("Error: Variabel NEXT_PUBLIC_CONTACT_1_PHONE belum diisi di file .env!")
+      alert("Terjadi kesalahan konfigurasi sistem. Silakan hubungi admin.")
+      return
+    }
+
+    const cleanPhone = rawPhone.replace(/\D/g, '') // Hanya menyisakan angka saja
+    window.open(`https://wa.me/${cleanPhone}?text=${text}`, '_blank')
+  }
 
   return (
-    <section id="kontak" className="py-20 lg:py-28 bg-surface" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <Badge className="bg-emerald-100 text-brand border-brand/50 px-3 py-1 mb-4">
-            Kontak & Booking
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
-            Rafting Kampung<span className="text-brand">siCapit</span>
-          </h2>
-          <p className="text-foreground dark:text-slate-300 text-lg max-w-2xl mx-auto">
-            Hubungi kami untuk informasi lebih lanjut atau langsung booking paket rafting 
-            impian Anda. Tim kami siap membantu!
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-background text-foreground antialiased selection:bg-brand selection:text-white">
+      <SiteNav brand="Sicapit" />
+      <HeroSection />
+      <AboutSection />
+      <PackagesSection onSelectPackage={handleSelectPackageDirectly} />
+      <GallerySection />
+      <TestimonialsSection />
+      <FAQSection />
 
-        <div className="grid lg:grid-cols-5 gap-10 lg:gap-12">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2 space-y-6"
-          >
-            {contactInfo.map((info, i) => (
-              <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-brand/10 transition-colors group">
-                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors">
-                  <info.icon className="w-5 h-5 text-brand" />
+      {/* Booking Form Section with Live Calculator */}
+      <section id="booking-form" className="py-20 bg-surface border-t">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="bg-brand/10 text-brand mb-3 px-3 py-1">Online Booking</Badge>
+            <h2 className="text-3xl font-bold text-foreground">Formulir Reservasi Praktis</h2>
+            <p className="text-muted-foreground mt-2">Hitung estimasi pengeluaran kelompok Anda secara instan dan rapi di bawah ini.</p>
+          </div>
+
+          <Card className="p-6 md:p-8 shadow-xl border border-muted/60 bg-background/80 backdrop-blur-md">
+            <form onSubmit={handleSubmitBooking} className="space-y-6">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Nama Lengkap</Label>
+                  <Input id="name" placeholder="Masukkan nama Anda" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground dark:text-slate-400 mb-0.5">{info.label}</p>
-                  <p className="font-semibold text-foreground dark:text-white">{info.value}</p>
-                  <p className="text-xs text-muted-foreground dark:text-slate-400 mt-0.5">{info.desc}</p>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">No. WhatsApp</Label>
+                  <Input id="phone" type="tel" placeholder="08xxxxxxxxxx" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} required />
                 </div>
               </div>
-            ))}
 
-            {/* Google Maps Embed */}
-            <div className="mt-6 rounded-xl overflow-hidden border h-52">
-              <iframe
-                src={process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED || 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.509!2d106.7610574!3d-6.5550739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58883fd0c4b%3A0x1d1d63d311d2bea9!2sKampung+Wisata+SiCapit!5e0!3m2!1sen!2sid!4v1747020000000!5m2!1sen!2sid'}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Lokasi Kampung Sicapit"
-              />
-            </div>
-            <a
-              href="https://maps.app.goo.gl/fibsTokQEMytXsGRA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-3 text-sm text-brand hover:text-brand font-medium transition-colors"
-            >
-              <MapPin className="w-4 h-4" />
-              Buka di Google Maps
-            </a>
-          </motion.div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" placeholder="email@contoh.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="package">Pilih Paket Wisata</Label>
+                  <Select value={formData.package} onValueChange={(val) => setFormData({ ...formData, package: val })} required>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Pilih paket rafting" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {raftingPackages.map((p, idx) => (
+                        <SelectItem key={idx} value={p.name}>{p.name} ({p.price})</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
 
-          {/* Booking Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="lg:col-span-3"
-          >
-            <Card className="border-line dark:border-white/10 shadow-sm">
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-bold text-foreground dark:text-white mb-6">Formulir Booking</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Nama Lengkap</Label>
-                      <Input
-                        id="name"
-                        placeholder="Masukkan nama Anda"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">No. WhatsApp</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="08xxxxxxxxxx"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        required
-                      />
-                    </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="pax">Jumlah Peserta (Pax - Min. 10 Disarankan)</Label>
+                  <Input id="pax" type="number" min={1} value={formData.pax} onChange={(e) => setFormData({ ...formData, pax: parseInt(e.target.value) || 1 })} required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="date">Tanggal Kegiatan</Label>
+                  <Input id="date" type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} required />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between rounded-xl border p-4 shadow-sm bg-muted/20">
+                <div className="space-y-0.5 pr-4">
+                  <Label htmlFor="doc" className="text-sm font-bold cursor-pointer">Tambah Paket Dokumentasi Premium (+Rp 150.000 flat)</Label>
+                  <p className="text-xs text-muted-foreground">Kamera DSLR/Action Cam anti air, file foto/video google drive beresolusi penuh untuk seluruh tim.</p>
+                </div>
+                <input
+                  id="doc"
+                  type="checkbox"
+                  checked={formData.documentation}
+                  onChange={(e) => setFormData({ ...formData, documentation: e.target.checked })}
+                  className="h-5 w-5 accent-brand rounded cursor-pointer"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="notes">Catatan Tambahan (Opsional)</Label>
+                <Textarea id="notes" placeholder="Tulis instruksi khusus atau kebutuhan menu kuliner tambahan di sini..." value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} />
+              </div>
+
+              {/* LIVE PRICING CALCULATOR BOARD */}
+              <div className="bg-brand/5 dark:bg-brand/10 p-5 rounded-2xl space-y-2 border border-brand/20">
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>Subtotal Paket ({formData.pax} Orang)</span>
+                  <span className="font-medium text-foreground">
+                    Rp {((estimatedTotal - (formData.documentation ? 150000 : 0))).toLocaleString('id-ID')}
+                  </span>
+                </div>
+                {formData.documentation && (
+                  <div className="flex justify-between text-sm text-muted-foreground">
+                    <span>Dokumentasi DSLR Premium (Flat rate)</span>
+                    <span className="font-medium text-foreground">Rp 150.000</span>
                   </div>
+                )}
+                <div className="flex justify-between text-base font-extrabold border-t pt-3 text-foreground">
+                  <span>Estimasi Total Pembayaran:</span>
+                  <span className="text-xl text-brand">Rp {estimatedTotal.toLocaleString('id-ID')}</span>
+                </div>
+              </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="email@contoh.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="package">Pilih Paket</Label>
-                      <Select
-                        value={formData.package}
-                        onValueChange={(val) => setFormData({ ...formData, package: val })}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Pilih paket rafting" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="pamili">Paket Pamili - Rp 150.000</SelectItem>
-                          <SelectItem value="konservasi">Paket Konservasi - Rp 200.000</SelectItem>
-                          <SelectItem value="petualangan">Paket Petualangan - Rp 350.000 (Min. 10 Orang)</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="date">Tanggal Keberangkatan</Label>
-                      <Input
-                        id="date"
-                        type="date"
-                        value={formData.date}
-                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="participants">Jumlah Peserta</Label>
-                      <Input
-                        id="participants"
-                        type="number"
-                        min="1"
-                        max="100"
-                        placeholder="Jumlah orang"
-                        value={formData.participants}
-                        onChange={(e) => setFormData({ ...formData, participants: e.target.value })}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Catatan Tambahan</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Ada permintaan khusus? (opsional)"
-                      rows={3}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-brand text-white hover:bg-brand/80 text-white text-white py-5 rounded-xl font-semibold text-base"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
-                        Mengirim...
-                      </>
-                    ) : (
-                      <>
-                        Kirim Booking
-                        <ChevronRight className="w-4 h-4 ml-2" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
+              <Button type="submit" className="w-full bg-brand text-white hover:bg-brand/90 py-6 text-lg font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                <Phone className="w-5 h-5 fill-white" />
+                Kirim Registrasi Langsung ke WhatsApp
+              </Button>
+            </form>
+          </Card>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
 
-// ==================== MAIN PAGE ====================
-export default function Home() {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <SiteNav brand="Sicapit" />
-      <main className="flex-1">
-        <HeroSection />
-        <AboutSection />
-        <PackagesSection />
-        <GallerySection />
-        <TestimonialsSection />
-        <SafetySection />
-        <FAQSection />
-        <CTASection />
-        <ContactSection />
-      </main>
-      
-
-      {/* Floating WhatsApp Button */}
+      {/* Floating Action Button for WhatsApp */}
       <a
-        href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}?text=Halo%20Rafting%20Kampung%20SiCapit%2C%20saya%20ingin%20booking%20rafting!`}
+        href="https://wa.me/6285773246998"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-green-500/40 transition-all duration-300 hover:scale-105 group"
-        aria-label="Chat via WhatsApp"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all group"
+        aria-label="Hubungi WhatsApp"
       >
-        {/* WhatsApp Icon */}
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className="w-6 h-6 fill-white shrink-0"
+          className="w-7 h-7 fill-white transition-transform group-hover:rotate-12"
         >
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <span className="font-semibold text-sm whitespace-nowrap">Booking via WhatsApp</span>
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full animate-ping bg-[#25D366] opacity-30 pointer-events-none" />
       </a>
     </div>
   )
 }
-
-
-
-
-
-
-
-

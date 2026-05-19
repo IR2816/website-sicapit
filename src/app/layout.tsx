@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Sicapit",
   },
   description: "Rasakan ketenangan alam, pacu adrenalin dengan rafting, dan pelajari budaya lokal di Kampung Wisata Sicapit. Destinasi wisata terpadu terbaik di Bogor.",
-  keywords: ["Wisata Bogor", "Kampung Wisata", "Kampung Sicapit", "Rafting Cisadane", "Wisata Edukasi", "Agrowisata", "Liburan Alam Bogor", "Sungai Cisadane", "BUMDES Semplak"],
+  keywords: ["Wisata Bogor", "Kampung Wisata", "Kampung Sicapit", "Rafting Cisadane", "Wisata Edukasi", "Edu Wisata", "Liburan Alam Bogor", "Sungai Cisadane", "BUMDES Semplak"],
   authors: [{ name: "Kampung Wisata Sicapit" }],
   creator: "Kampung Wisata Sicapit",
   publisher: "Kampung Wisata Sicapit",

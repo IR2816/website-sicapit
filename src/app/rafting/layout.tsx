@@ -1,14 +1,24 @@
-export const metadata = {
-  title: 'Rafting Cisadane - Arung Jeram Sicapit Bogor',
-  description: 'Pacu adrenalin Anda di jeram Cisadane dengan paket rafting profesional. Termasuk guide berpengalaman, peralatan safety lengkap, dan snack untuk rombongan.',
-  keywords: 'Rafting Cisadane, River Tubing Bogor, Arung Jeram Bogor, Paket Rafting Murah, Rafting Semplak, Water Sports Bogor',
-  openGraph: {
-    title: 'Rafting Cisadane - Arung Jeram Sicapit',
-    description: 'Pacu adrenalin Anda di jeram Cisadane bersama Sicapit.',
-    images: [{ url: 'https://sicapit.vercel.app/assets/images/rafting/jeram-bagol.jpg', width: 1200, height: 630 }],
-  }
-}
+import type { Metadata } from 'next';
 
-export default function RaftingLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: 'Kampung Sicapit - Wisata Rafting & River Tubing Bogor',
+  description: 'Wisata air Kampung Sicapit di Bogor - Rafting & River Tubing di Sungai Cisadane. Lokasi strategis di Kelurahan Semplak, hanya 10 km dari pusat kota. Pesan sekarang!',
+  keywords: ['rafting', 'arung jeram', 'river tubing', 'wisata bogor', 'kampung sicapit', 'sungai cisadane', 'wisata air', 'adventure'],
+  authors: [{ name: 'Kampung Sicapit' }],
+  icons: {
+    icon: '/assets/images/Icon.jpg',
+  },
+  openGraph: {
+    title: 'Kampung Sicapit - Wisata Rafting Bogor',
+    description: 'Wisata rafting & river tubing di Sungai Cisadane, Bogor',
+    type: 'website',
+  },
+};
+
+export default function RaftingLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return <>{children}</>;
 }
