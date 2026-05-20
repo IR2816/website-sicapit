@@ -1,12 +1,2 @@
-import { PrismaClient } from '../generated/prisma/client'
-
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
-}
-
-export const db =
-  globalForPrisma.prisma ??
-  // @ts-expect-error - Prisma client initialization
-  new PrismaClient()
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
+// This is a pure frontend website with no backend database, so the Prisma database client is disabled.
+export const db = null as any;
