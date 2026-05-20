@@ -495,7 +495,7 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
               <Card className={`h-full overflow-hidden transition-all duration-300 flex flex-col justify-between bg-background/60 backdrop-blur-md ${
                 pkg.popular
                   ? 'border-brand shadow-xl ring-2 ring-brand/20'
-                  : 'border-white/10 hover:border-brand/50'
+                  : 'border-black/10 dark:border-white/10 hover:border-brand/50'
               }`}>
                 <div>
                   {/* Card Image */}
@@ -653,6 +653,8 @@ const videoItems = [
   { src: '/assets/rafting/videos/Konservasi.webm', title: 'Konservasi', tag: 'Video' },
   { src: '/assets/rafting/videos/Rafting.webm', title: 'Aksi di Air', tag: 'Video' },
   { src: '/assets/rafting/videos/Video.webm', title: 'Keseruan Rafting', tag: 'Video' },
+  { src: '/assets/rafting/videos/Rafting_1.webm', title: 'Petualangan Sungai', tag: 'Video' },
+  { src: '/assets/rafting/videos/Rafting_2.webm', title: 'Tantangan Arus', tag: 'Video' },
 ]
 
 function GallerySection() {
@@ -778,7 +780,7 @@ function GallerySection() {
                 }`}
               />
               <div className="absolute top-4 left-4 z-10">
-                <span className={`text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10 ${tagColors[item.tag] || 'bg-black/40 text-white'}`}>
+                <span className={`text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md border border-black/10 dark:border-white/10 ${tagColors[item.tag] || 'bg-black/40 text-white'}`}>
                   {item.tag}
                 </span>
               </div>

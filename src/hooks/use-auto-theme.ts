@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
  * User bisa juga override dengan manual toggle
  */
 export function useAutoTheme() {
-  const { theme, setTheme, systemTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [autoTheme, setAutoTheme] = useState<'light' | 'dark' | null>(null);
 
@@ -25,7 +25,7 @@ export function useAutoTheme() {
 
   // Initialize theme on mount
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
     
     // Cek apakah user sudah manually set theme
     const savedTheme = localStorage.getItem('theme');

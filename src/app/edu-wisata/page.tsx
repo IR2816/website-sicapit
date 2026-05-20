@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -30,7 +30,7 @@ const itemVariants = {
 
 export default function EduWisataHome() {
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-emerald-50 dark:bg-emerald-900/200/30">
+    <div className="min-h-screen bg-background font-sans selection:bg-emerald-50 dark:bg-emerald-900/30">
       <SiteNav brand="Sicapit" />
       
       <main className="flex flex-col pt-16">
@@ -81,7 +81,7 @@ export default function EduWisataHome() {
               <motion.div variants={itemVariants} className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
                   size="lg"
-                  className="bg-emerald-600 hover:bg-emerald-50 dark:bg-emerald-900/200 text-white px-8 py-6 text-lg rounded-full shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all hover:scale-105 w-full sm:w-auto font-semibold group"
+                  className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-8 py-6 text-lg rounded-full shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all hover:scale-105 w-full sm:w-auto font-semibold group"
                   asChild
                 >
                   <Link href="/edu-wisata/pertanian">
@@ -111,7 +111,7 @@ export default function EduWisataHome() {
         <section id="informasi" className="py-24 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <Badge variant="outline" className="mb-6 px-4 py-1.5 text-emerald-600 dark:text-emerald-400 border-emerald-600/30 bg-emerald-50 dark:bg-emerald-900/200/10 rounded-full font-medium">
+              <Badge variant="outline" className="mb-6 px-4 py-1.5 text-emerald-600 dark:text-emerald-400 border-emerald-600/30 bg-emerald-50 dark:bg-emerald-900/20 rounded-full font-medium">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Daya Tarik Edu Wisata
               </Badge>
@@ -157,7 +157,7 @@ export default function EduWisataHome() {
 
         {/* --- CTA SECTION --- */}
         <section className="py-32 relative overflow-hidden bg-emerald-950/20 mt-10 rounded-t-[3rem] sm:rounded-t-[5rem] mx-2 sm:mx-6 mb-6 border border-emerald-900/30">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-50 dark:bg-emerald-900/200/10 rounded-full blur-[100px]" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-[100px]" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-[100px]" />
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -169,7 +169,7 @@ export default function EduWisataHome() {
             </p>
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-50 dark:bg-emerald-900/200 text-white px-10 py-7 text-lg rounded-full shadow-[0_10px_30px_rgba(16,185,129,0.3)] transition-all hover:scale-105 group"
+              className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-10 py-7 text-lg rounded-full shadow-[0_10px_30px_rgba(16,185,129,0.3)] transition-all hover:scale-105 group"
               asChild
             >
               <Link href="/edu-wisata/wisata-alam">

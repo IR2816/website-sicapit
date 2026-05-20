@@ -136,7 +136,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {guidePoints.map((point, i) => (
                 <ScrollReveal key={point.title}>
-                  <div className="group h-full p-10 rounded-3xl bg-gradient-to-b from-surface to-surface-strong border border-white/5 hover:border-brand/40 transition-all duration-500 shadow-xl overflow-hidden relative">
+                  <div className="group h-full p-10 rounded-3xl bg-gradient-to-b from-surface to-surface-strong border border-black/5 dark:border-white/5 hover:border-brand/40 transition-all duration-500 shadow-xl overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 ease-out"></div>
                     <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-2xl mb-8 transform group-hover:-translate-y-2 transition-transform duration-500">
                       0{i+1}
