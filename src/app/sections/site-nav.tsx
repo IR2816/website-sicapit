@@ -64,12 +64,12 @@ export function SiteNav({ brand }: SiteNavProps) {
             ))}
           </div>
           <ThemeToggle />
-          <a
+          <Link
             href="/#lokasi"
             className="px-6 py-2.5 bg-brand hover:bg-brand/90 text-white border-none text-[13px] font-bold rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(220,38,38,0.4)] hover:shadow-[0_4px_20px_rgba(220,38,38,0.5)]"
           >
             Rencanakan Trip
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -103,13 +103,13 @@ export function SiteNav({ brand }: SiteNavProps) {
               <span className="text-base font-bold text-foreground dark:text-white">Tema</span>
               <ThemeToggle />
             </div>
-            <a
+            <Link
               href="/#lokasi"
               className="mt-4 px-6 py-4 bg-brand hover:bg-brand/90 text-white text-center font-bold rounded-xl shadow-[0_0_20px_rgba(220,38,38,0.4)]"
               onClick={() => setOpen(false)}
             >
               Rencanakan Trip Sekarang
-            </a>
+            </Link>
           </div>
         </div>
       )}

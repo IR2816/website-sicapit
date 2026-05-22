@@ -141,7 +141,7 @@ export function PackagesSection() {
 
   const handleBooking = (pkgName: string) => {
     const text = encodeURIComponent(`Halo Kampung Sicapit! Saya ingin booking paket ${pkgName}. Mohon info jadwal dan ketersediaannya. Terima kasih!`)
-    window.open(`https://wa.me/6285773246998?text=${text}`, '_blank')
+    window.location.href = `https://wa.me/6285773246998?text=${text}`
   }
 
   return (

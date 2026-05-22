@@ -985,17 +985,12 @@ const handleSubmitBooking = (e: React.FormEvent) => {
       `Mohon info ketersediaan slot jadwalnya. Terima kasih!`
     )
     
-// ==================== PENGGANTINYA: Murni mengambil dari .env tanpa ada hardcode nomor cadangan ====================
-    const rawPhone = process.env.NEXT_PUBLIC_CONTACT_1_PHONE
+    // Gunakan variabel env atau fallback ke nomor default jika env gagal termuat di client
+    const rawPhone = process.env.NEXT_PUBLIC_CONTACT_1_PHONE || "6281318251218"
     
-    if (!rawPhone) {
-      console.error("Error: Variabel NEXT_PUBLIC_CONTACT_1_PHONE belum diisi di file .env!")
-      alert("Terjadi kesalahan konfigurasi sistem. Silakan hubungi admin.")
-      return
-    }
-
     const cleanPhone = rawPhone.replace(/\D/g, '') // Hanya menyisakan angka saja
-    window.open(`https://wa.me/${cleanPhone}?text=${text}`, '_blank')
+    // Menggunakan window.location.href alih-alih window.open untuk mencegah pemblokiran popup (popup blocker) di mobile/safari
+    window.location.href = `https://wa.me/${cleanPhone}?text=${text}`
   }
 
   return (
@@ -1037,7 +1032,7 @@ const handleSubmitBooking = (e: React.FormEvent) => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="package">Pilih Paket Wisata</Label>
-                  <Select value={formData.package} onValueChange={(val) => setFormData({ ...formData, package: val })} required>
+                  <Select value={formData.package} onValueChange={(val) => setFormData({ ...formData, package: val })}>
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih paket rafting" />
                     </SelectTrigger>

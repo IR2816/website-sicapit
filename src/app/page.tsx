@@ -43,13 +43,13 @@ const videoHighlights = [
   {
     title: "Rafting Sicapit",
     desc: "Kegiatan wahana Tirta yang menantang adrenalin untuk anda di sungai Cisadane sepanjang 7km dengan panorama hutan Cifor dan jeram bagol yang menjadi icon jeram di sungai Cisadane. Di pandu oleh skipper dari masyarakat yang dilatih secara kompeten oleh pelatih profesional dan bersertifikasi. Kegiatan wahana Tirta ini sudah dilindungi asuransi yang memadai untuk keamanan rafting sicapit di sungai Cisadane.",   
-    src: "/assets/videos/Rafting_1.webm",
+    src: "/assets/rafting/videos/Rafting_1.webm",
     poster: "/assets/images/4.jpg",
   },
   {
     title: "Jeram Sicapit",
     desc: "Aliran sungai Cisadane yang melintasi di perkampungan Sicapit.",
-    src: "/assets/videos/Rafting_2.webm",
+    src: "/assets/rafting/videos/Rafting_2.webm",
     poster: "/assets/images/6.jpg",
   },
 ];

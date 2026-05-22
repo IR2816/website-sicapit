@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,7 +8,7 @@ import Image from "next/image";
 const images = [
   { src: "/assets/images/1.jpg", alt: "Pemandangan Kampung Wisata Sicapit" },
   { src: "/assets/images/5.jpg", alt: "Suasana Asri Alam Sicapit" },
-  { src: "/assets/images/7.jpg", alt: "Keseharian Warga Lokal" },
+  { src: "/assets/images/rafting/8.jpeg", alt: "Aktivitas rafting di Kampung Wisata Sicapit" },
 ];
 
 export function HeroSlider() {
