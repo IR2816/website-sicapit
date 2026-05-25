@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { normalizePhoneForWhatsApp } from "@/lib/validation";
 
 export function SiteFooter() {
   // Kontak dari env
@@ -57,19 +58,31 @@ export function SiteFooter() {
           <div className="flex flex-col">
             <h3 className="font-heading font-bold text-xl mb-6">Hubungi Kami</h3>
             <ul className="space-y-5">
-              {contacts.map((contact, idx) => (
-                <li key={idx} className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
-                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                  </div>
-                  <div>
-                    <p className="text-foreground dark:text-white text-sm font-bold tracking-wide">{contact.name}</p>
-                    <a href={`https://wa.me/${contact.phone?.replace(/^0/, '62')}?text=Halo%2C%20saya%20ingin%20menghubungi%20Kampung%20Sicapit.%20Bisa%20membantu%20saya%3F`} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-orange-400 text-sm transition-colors">
-                      💬 Chat via WhatsApp
-                    </a>
-                  </div>
-                </li>
-              ))}
+              {contacts.map((contact, idx) => {
+                // SECURITY: Safely normalize phone number for WhatsApp links
+                const whatsappPhone = contact.phone ? normalizePhoneForWhatsApp(contact.phone) : null;
+                const whatsappUrl = whatsappPhone 
+                  ? `https://wa.me/${whatsappPhone}?text=Halo%2C%20saya%20ingin%20menghubungi%20Kampung%20Sicapit.%20Bisa%20membantu%20saya%3F`
+                  : null;
+                
+                return (
+                  <li key={idx} className="flex items-center gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0 border border-brand/20 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                      <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    </div>
+                    <div>
+                      <p className="text-foreground dark:text-white text-sm font-bold tracking-wide">{contact.name}</p>
+                      {whatsappUrl ? (
+                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-orange-400 text-sm transition-colors">
+                          💬 Chat via WhatsApp
+                        </a>
+                      ) : (
+                        <span className="text-muted-foreground text-sm">Nomor tidak tersedia</span>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

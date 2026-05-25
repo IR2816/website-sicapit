@@ -12,6 +12,8 @@ import { VillageStory } from "./sections/village-story";
 import { VillageAwards } from "./sections/village-awards";
 import { BUSINESS_HOURS, formatBusinessHours } from "@/lib/data/business-info";
 import { reviews } from "@/lib/data/reviews";
+// SECURITY: Import validation utilities
+import { normalizePhoneForWhatsApp } from "@/lib/validation";
 
 const guidePoints = [
   {
@@ -314,9 +316,17 @@ export default function Home() {
                   <h3 className="font-heading font-bold text-2xl mb-2">{BUSINESS_HOURS.days}</h3>
                   <p className="text-muted-foreground mb-8">{formatBusinessHours()} WIB. {BUSINESS_HOURS.description}</p>
                   
-                    <a href={`https://wa.me/62${process.env.NEXT_PUBLIC_CONTACT_1_PHONE?.replace(/^0|\D/g, '')}?text=Halo%20Kampung%20Sicapit%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20paket%20wisata%20Anda.%20Bisa%20bantu%20saya%3F`} target="_blank" rel="noopener noreferrer" className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20">
-                    Hubungi WhatsApp
-                  </a>
+                  {/* SECURITY: Use validated phone number from environment variables */}
+                  {process.env.NEXT_PUBLIC_CONTACT_1_PHONE && (
+                    <a 
+                      href={`https://wa.me/${normalizePhoneForWhatsApp(process.env.NEXT_PUBLIC_CONTACT_1_PHONE)}?text=Halo%20Kampung%20Sicapit%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20paket%20wisata%20Anda.%20Bisa%20bantu%20saya%3F`} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20"
+                    >
+                      Hubungi WhatsApp
+                    </a>
+                  )}
                 </div>
               </div>
             </ScrollReveal>
