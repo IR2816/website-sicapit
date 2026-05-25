@@ -81,7 +81,7 @@ export default function EduWisataHome() {
               <motion.div variants={itemVariants} className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
                   size="lg"
-                  className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-8 py-6 text-lg rounded-full shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all hover:scale-105 w-full sm:w-auto font-semibold group"
+                  className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-8 py-6 text-lg rounded-full transition-all hover:scale-105 w-full sm:w-auto font-semibold group"
                   asChild
                 >
                   <Link href="/edu-wisata/pertanian">
@@ -169,7 +169,7 @@ export default function EduWisataHome() {
             </p>
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-10 py-7 text-lg rounded-full shadow-[0_10px_30px_rgba(16,185,129,0.3)] transition-all hover:scale-105 group"
+              className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-10 py-7 text-lg rounded-full transition-all hover:scale-105 group"
               asChild
             >
               <Link href="/edu-wisata/wisata-alam">

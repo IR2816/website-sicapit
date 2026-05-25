@@ -65,21 +65,20 @@ export default function Home() {
       <header className="relative min-h-[95vh] md:min-h-screen flex items-center justify-center pt-24 overflow-hidden" id="home">
         <HeroSlider />
         {/* Gradient overlay untuk transisi lebih mulus */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-[#050505] z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface z-10 pointer-events-none"></div>
 
         <div className="relative z-20 container mx-auto px-4 md:px-12 flex flex-col items-center text-center mt-12 md:mt-24">
           <ScrollReveal>
-            <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-10 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+            <div className="inline-flex items-center justify-center gap-3 mb-10">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand"></span>
+                <span className="h-[1px] w-8 bg-brand"></span>
               </span>
-              <span className="text-foreground/80 dark:text-white/90 text-xs md:text-sm font-bold tracking-[0.15em] uppercase">
+              <span className="font-mono text-brand text-xs md:text-sm font-medium tracking-[0.2em] uppercase">
                 Selamat Datang di Bogor
               </span>
             </div>
             
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-[5.5rem] font-extrabold text-foreground dark:text-white leading-[1.1] md:leading-[1.15] mb-8 max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)] dark:drop-shadow-2xl">
+            <h1 className="font-heading italic text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-8 max-w-4xl mx-auto tracking-normal">
               Lepaskan Penatmu di <br className="hidden md:block" />
               <span className="relative inline-block mt-2">
                 Kampung <span className="text-brand">Sicapit.</span>
@@ -90,16 +89,16 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-base md:text-xl lg:text-2xl text-foreground/75 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed md:leading-loose mb-12 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.05)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-base md:text-xl lg:text-2xl text-foreground/75 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed md:leading-loose mb-12 font-medium">
               Kami menawarkan pengalaman autentik berbaur dengan masyarakat lokal, udara yang sejuk, dan suasana kampung yang menyambut hangat. Berkunjunglah untuk menemukan kedamaian dan edukasi dari kehidupan perkampungan yang sesungguhnya.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto px-4">
-              <a href="#kisah" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand/90 text-white font-bold text-sm tracking-wide rounded-full transition-all duration-300 shadow-[0_8px_32px_rgba(220,38,38,0.4)] hover:shadow-[0_8px_40px_rgba(220,38,38,0.6)] hover:-translate-y-1 overflow-hidden">
+              <a href="#kisah" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand/90 text-white font-bold text-sm tracking-wide rounded-full transition-all duration-300  hover:-translate-y-1 overflow-hidden">
                 <span className="relative z-10">Kenali Kami</span>
                 <div className="absolute inset-0 h-full w-0 bg-white/20 transition-all duration-500 ease-out group-hover:w-full z-0"></div>
               </a>
-              <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-surface-strong/60 dark:bg-[#111111]/60 hover:bg-surface-strong/80 dark:hover:bg-[#222222]/80 text-foreground dark:text-white backdrop-blur-xl border border-line dark:border-white/20 hover:border-brand/50 font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
+              <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-transparent border border-line hover:border-brand text-foreground font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
                 Jelajahi Layanan
                 <svg className="w-4 h-4 text-brand group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
@@ -111,7 +110,12 @@ export default function Home() {
       <main className="relative z-20">
         
         {/* Profile & History Section - DIPINDAH KE ATAS UNTUK ALUR COMPANY PROFILE COHESIVE */}
-        <section id="kisah" className="py-24 bg-surface-strong/50 border-t border-b border-line">
+        <div className="w-full overflow-hidden leading-none rotate-180 text-surface rotate-180 -mb-1 relative z-30">
+          <svg viewBox="0 0 1200 60" preserveAspectRatio="none" className="w-full h-[60px] fill-current">
+            <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z"></path>
+          </svg>
+        </div>
+        <section id="kisah" className="py-24 bg-surface-strong border-b border-line">
           <div className="container mx-auto px-6 md:px-12">
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto mb-16">
@@ -138,7 +142,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {guidePoints.map((point, i) => (
                 <ScrollReveal key={point.title}>
-                  <div className="group h-full p-10 rounded-3xl bg-gradient-to-b from-surface to-surface-strong border border-black/5 dark:border-white/5 hover:border-brand/40 transition-all duration-500 shadow-xl overflow-hidden relative">
+                  <div className="group h-full p-10 rounded-3xl bg-surface border border-line hover:border-brand/40 transition-all duration-300 relative rounded-2xl">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 ease-out"></div>
                     <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-2xl mb-8 transform group-hover:-translate-y-2 transition-transform duration-500">
                       0{i+1}
@@ -166,9 +170,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {/* Edu Wisata Card */}
               <ScrollReveal>
-                <Link href="/edu-wisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line dark:border-white/5 hover:border-brand/40 transition-all duration-500 shadow-shadow bg-surface">
+                <Link href="/edu-wisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line hover:border-brand/40 transition-all duration-500 bg-surface">
                   <Image src="/assets/images/2.jpg" alt="Edu Wisata Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-[#050505] dark:via-[#050505]/60 dark:to-transparent z-10 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-surface dark:via-surface/60 dark:to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
                       <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand/20 border border-brand/30 text-brand text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
@@ -176,7 +180,7 @@ export default function Home() {
                       </span>
                       <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-brand transition-colors">Edu Wisata</h3>
                       <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 bg-surface/80 dark:bg-black/50 rounded-lg p-3 mt-2 backdrop-blur-sm">
-                        <p className="text-foreground/80 dark:text-muted-foreground text-sm leading-relaxed font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:drop-shadow-none">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
+                        <p className="text-foreground/80 dark:text-muted-foreground text-sm leading-relaxed font-medium  ">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-brand font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
@@ -189,9 +193,9 @@ export default function Home() {
 
               {/* Rafting Card */}
               <ScrollReveal>
-                <Link href="/rafting" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line dark:border-white/5 hover:border-[#00f2fe]/40 transition-all duration-500 shadow-shadow bg-surface md:mt-12">
+                <Link href="/rafting" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line hover:border-[#00f2fe]/50 transition-all duration-500 bg-surface md:mt-12">
                   <Image src="/assets/images/4.jpg" alt="Rafting Sungai Cisadane Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-[#050505] dark:via-[#050505]/60 dark:to-transparent z-10 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-surface dark:via-surface/60 dark:to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
                       <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-[#00f2fe]/20 border border-[#00f2fe]/30 text-[#00f2fe] text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
@@ -199,7 +203,7 @@ export default function Home() {
                       </span>
                       <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-[#00f2fe] transition-colors">Rafting</h3>
                       <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 bg-surface/80 dark:bg-black/50 rounded-lg p-3 mt-2 backdrop-blur-sm">
-                        <p className="text-foreground/80 dark:text-muted-foreground text-sm leading-relaxed font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:drop-shadow-none">Hanyutlah dalam jeram 5km yang seru atau santai mengarung di jalur tubing khusus sejauh 2km.</p>
+                        <p className="text-foreground/80 dark:text-muted-foreground text-sm leading-relaxed font-medium  ">Hanyutlah dalam jeram 5km yang seru atau santai mengarung di jalur tubing khusus sejauh 2km.</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-[#00f2fe] font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
@@ -322,7 +326,7 @@ export default function Home() {
                       href={`https://wa.me/${normalizePhoneForWhatsApp(process.env.NEXT_PUBLIC_CONTACT_1_PHONE)}?text=Halo%20Kampung%20Sicapit%2C%20saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20paket%20wisata%20Anda.%20Bisa%20bantu%20saya%3F`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#25D366]/20"
+                      className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg/20"
                     >
                       Hubungi WhatsApp
                     </a>

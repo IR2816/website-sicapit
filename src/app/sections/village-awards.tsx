@@ -38,7 +38,7 @@ export function VillageAwards() {
           <div
             className={`h-full relative overflow-hidden rounded-[24px] p-8 border hover:-translate-y-2 transition-all duration-300 ${
               award.isSpecial 
-                ? 'bg-brand border-brand/50 text-white shadow-[0_10px_30px_rgba(22,163,74,0.3)] hover:shadow-[0_10px_40px_rgba(22,163,74,0.5)]' 
+                ? 'bg-brand border-brand/50 text-white hover:shadow-[0_10px_40px_rgba(22,163,74,0.5)]' 
                 : 'bg-surface border-line hover:border-brand/40 text-slate-300 shadow-shadow'
             }`}
           >

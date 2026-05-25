@@ -162,7 +162,7 @@ function HeroSection() {
         >
           Selamat Datang di
           <br />
-          <span className="text-brand drop-shadow-md">
+          <span className="text-brand">
             Kampung Sicapit
           </span>
         </motion.h1>
@@ -194,7 +194,7 @@ function HeroSection() {
           ].map((act, i) => (
             <span
               key={i}
-              className="flex items-center gap-2 bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/10 text-foreground dark:text-white text-sm md:text-base px-5 py-2.5 rounded-full hover:bg-surface/50 dark:hover:bg-surface/50 transition-colors drop-shadow-md"
+              className="flex items-center gap-2 bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/10 text-foreground dark:text-white text-sm md:text-base px-5 py-2.5 rounded-full hover:bg-surface/50 dark:hover:bg-surface/50 transition-colors"
             >
               <act.icon className="w-4 h-4 text-brand" />
               {act.label}
@@ -210,7 +210,7 @@ function HeroSection() {
         >
           <Button
             size="lg"
-            className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-full shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-all font-bold group"
+            className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-full transition-all font-bold group"
             onClick={() =>
               document
                 .querySelector('#paket')
@@ -255,7 +255,7 @@ function HeroSection() {
                 </div>
               </div>
               {/* SEKARANG SELALU PUTIH PEKAT */}
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-white mb-2 drop-shadow-lg">
+              <div className="text-4xl md:text-5xl font-heading font-extrabold text-white mb-2">
                 {stat.value}
               </div>
               {/* SEKARANG SELALU PUTIH LEMBUT (AGAR MUDAH DIBACA) */}

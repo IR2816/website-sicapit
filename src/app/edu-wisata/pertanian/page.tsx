@@ -12,7 +12,7 @@ export default function PertanianPage() {
           Kembali ke Edu Wisata
         </Link>
         
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6 drop-shadow-md">Edu Wisata (Pertanian)</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6">Edu Wisata (Pertanian)</h1>
         <p className="text-xl text-muted-foreground dark:text-slate-300 mb-12">
           Halaman ini masih dalam tahap persiapan (Template). Detail informasi, rundown acara, dan panduan lengkap akan segera ditambahkan di sini.
         </p>

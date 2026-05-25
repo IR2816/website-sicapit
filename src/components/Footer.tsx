@@ -31,12 +31,12 @@ export function SiteFooter() {
           {/* Kolom 1: Brand & Sosial Media */}
           <div className="flex flex-col">
             <div className="flex items-center gap-4 mb-6">
-              <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-brand/50 shadow-[0_0_20px_rgba(249,115,22,0.4)]">
+              <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-brand/50">
                 <Image src="/assets/images/Icon.jpg" alt="Logo Sicapit" fill sizes="64px" className="object-cover" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xs uppercase font-bold text-brand tracking-[0.2em] drop-shadow-md">Kampung Wisata</span>
-                <span className="font-heading font-black text-2xl md:text-3xl text-foreground dark:text-white tracking-tighter drop-shadow-md">Sicapit</span>
+                <span className="text-xs uppercase font-bold text-brand tracking-[0.2em]">Kampung Wisata</span>
+                <span className="font-heading font-black text-2xl md:text-3xl text-foreground dark:text-white tracking-tighter">Sicapit</span>
               </div>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-8 max-w-sm">Teman Wisata Terbaikmu. Kampung tematik dengan keindahan alam, wisata air menantang, dan kehangatan warga lokal di pinggir Sungai Cisadane.</p>

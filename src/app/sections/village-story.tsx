@@ -29,7 +29,7 @@ export function VillageStory() {
   return (
     <div className="max-w-5xl mx-auto mt-16 md:mt-24">
       <ScrollReveal>
-        <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-brand/10 to-transparent dark:from-brand/10 dark:to-transparent border border-brand/20 dark:border-brand/20 mb-16 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+        <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-brand/10 to-transparent dark:from-brand/10 dark:to-transparent border border-brand/20 dark:border-brand/20 mb-16">
           <svg className="w-10 h-10 text-brand/40 absolute top-6 left-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
           <p className="text-xl md:text-2xl text-center text-foreground dark:text-slate-200 font-medium italic mt-4 mb-4 leading-relaxed relative z-10 px-4 md:px-8">
             &quot;Sicapit adalah bukti nyata bahwa sebuah predikat buruk bukanlah akhir dari segalanya, melainkan awal dari sebuah transformasi besar jika ada kemauan untuk bergerak bersama.&quot;
@@ -45,7 +45,7 @@ export function VillageStory() {
             <ScrollReveal key={index}>
               <div className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 {/* Center dot for desktop, left dot for mobile */}
-                <div className="absolute left-[-5px] md:left-1/2 w-3 h-3 rounded-full bg-brand shadow-[0_0_10px_rgba(22,163,74,0.8)] md:-translate-x-1/2 mt-1.5 md:mt-0 top-0 md:top-auto z-10"></div>
+                <div className="absolute left-[-5px] md:left-1/2 w-3 h-3 rounded-full bg-brand md:-translate-x-1/2 mt-1.5 md:mt-0 top-0 md:top-auto z-10"></div>
                 
                 {/* Content Box */}
                 <div className={`w-full md:w-1/2 pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 text-left md:text-right'}`}>

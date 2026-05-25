@@ -503,7 +503,7 @@ function KategoriEdukasiSection() {
                           <div className="w-8 h-8 bg-emerald-500/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
                             <Flower2 className="w-4 h-4 text-white" />
                           </div>
-                          <h3 className="text-base font-bold text-white drop-shadow-md">{item.name}</h3>
+                          <h3 className="text-base font-bold text-white">{item.name}</h3>
                         </div>
                       </div>
                     </div>
@@ -536,7 +536,7 @@ function KategoriEdukasiSection() {
                           <div className="w-8 h-8 bg-amber-500/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
                             <Landmark className="w-4 h-4 text-white" />
                           </div>
-                          <h3 className="text-base font-bold text-white drop-shadow-md">{item.name}</h3>
+                          <h3 className="text-base font-bold text-white">{item.name}</h3>
                         </div>
                       </div>
                     </div>
@@ -569,7 +569,7 @@ function KategoriEdukasiSection() {
                         <img src={game.image} alt={game.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                         <div className="absolute bottom-2 left-2 right-2">
-                          <h4 className="font-bold text-white text-xs sm:text-sm drop-shadow-md">{game.name}</h4>
+                          <h4 className="font-bold text-white text-xs sm:text-sm">{game.name}</h4>
                         </div>
                       </div>
                       <div className="p-3">
@@ -602,7 +602,7 @@ function KategoriEdukasiSection() {
                           <div className="w-8 h-8 bg-sky-500/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
                             <Bird className="w-4 h-4 text-white" />
                           </div>
-                          <h3 className="text-base font-bold text-white drop-shadow-md">{item.name}</h3>
+                          <h3 className="text-base font-bold text-white">{item.name}</h3>
                         </div>
                       </div>
                     </div>

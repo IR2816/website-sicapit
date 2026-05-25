@@ -5,19 +5,23 @@ import { Providers } from "@/components/Providers";
 import { ThemeInitializer } from "@/components/ThemeInitializer";
 import NextTopLoader from "nextjs-toploader";
 import type { Metadata } from "next";
-import { Inter, Montserrat, Geist } from "next/font/google";
+import { Playfair_Display, Source_Serif_4, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const inter = Inter({
-  variable: "--font-inter",
+const playfair = Playfair_Display({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
+
+const dmMono = DM_Mono({
+  weight: ["400", "500"],
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -71,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={cn("h-full", "antialiased", "scroll-smooth", inter.variable, montserrat.variable, "font-sans", geist.variable)}
+      className={cn("h-full", "antialiased", "scroll-smooth", sourceSerif.variable, playfair.variable, dmMono.variable)}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans bg-surface text-foreground transition-colors duration-300">

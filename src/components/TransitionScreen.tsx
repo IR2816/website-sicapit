@@ -67,7 +67,7 @@ export function TransitionScreen() {
               />
               
               {/* Main Logo Sphere */}
-              <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center bg-slate-900/50 backdrop-blur-xl backdrop-saturate-150 shadow-[0_0_50px_rgba(16,185,129,0.2)] z-10 border border-emerald-400/20">
+              <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center bg-slate-900/50 backdrop-blur-xl backdrop-saturate-150 z-10 border border-emerald-400/20">
                 <motion.svg
                   width="70%"
                   height="70%"
@@ -142,7 +142,7 @@ export function TransitionScreen() {
                 
                 {/* Illuminated foreground that sweeps across */}
                 <motion.span 
-                  className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-600 block drop-shadow-[0_0_15px_rgba(52,211,153,0.5)]"
+                  className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-600 block"
                   initial={{ clipPath: "polygon(0 0, 0% 0, 0% 100%, 0 100%)" }}
                   animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
                   transition={{ duration: 1.5, ease: [0.7, 0, 0.3, 1] }}
@@ -166,7 +166,7 @@ export function TransitionScreen() {
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-emerald-500/60 text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mt-2 shadow-black drop-shadow-md"
+                className="text-emerald-500/60 text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mt-2 shadow-black"
               >
                 Menyiapkan Pelayaran...
               </motion.span>

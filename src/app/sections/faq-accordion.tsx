@@ -48,7 +48,7 @@ export function FaqAccordion() {
               <div
                 className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
                   openIndex === index 
-                    ? 'border-brand bg-brand text-white rotate-180 shadow-[0_0_15px_rgba(220,38,38,0.5)]' 
+                    ? 'border-brand bg-brand text-white rotate-180' 
                     : 'border-line text-muted-foreground dark:text-slate-400 group-hover:border-brand/40 group-hover:text-brand'
                 }`}
               >

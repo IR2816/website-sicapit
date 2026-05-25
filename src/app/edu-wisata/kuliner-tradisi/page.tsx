@@ -12,7 +12,7 @@ export default function KulinerTradisiPage() {
           Kembali ke Edu Wisata
         </Link>
         
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6 drop-shadow-md">Kuliner Tradisi</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6">Kuliner Tradisi</h1>
         <p className="text-xl text-muted-foreground dark:text-slate-300 mb-12">
           Halaman ini masih dalam tahap persiapan (Template). Detail informasi, rundown acara, dan panduan lengkap akan segera ditambahkan di sini.
         </p>

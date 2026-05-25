@@ -50,13 +50,13 @@ function VideoCard({ item }: { item: VideoItem }) {
 
   return (
     <article 
-      className="group flex flex-col bg-surface hover:bg-surface-strong border border-line hover:border-brand/40 rounded-[28px] overflow-hidden transition-all duration-500 shadow-sm hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-2 relative cursor-pointer"
+      className="group flex flex-col bg-surface hover:bg-surface-strong border border-line hover:border-brand/40 rounded-[28px] overflow-hidden transition-all duration-500 shadow-sm  hover:-translate-y-2 relative cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
         ref={shellRef}
-        className="relative w-full aspect-video overflow-hidden bg-[#050505]"
+        className="relative w-full aspect-video overflow-hidden bg-surface dark:bg-[#111111]"
       >
         <video
           ref={videoRef}
@@ -98,7 +98,7 @@ function VideoCard({ item }: { item: VideoItem }) {
         />
         
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
-           <div className="w-16 h-16 rounded-full bg-brand/90 text-white flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_rgba(16,185,129,0.6)] transform scale-90 group-hover:scale-100 transition-all duration-300">
+           <div className="w-16 h-16 rounded-full bg-brand/90 text-white flex items-center justify-center backdrop-blur-md transform scale-90 group-hover:scale-100 transition-all duration-300">
              <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
            </div>
         </div>
@@ -113,17 +113,17 @@ function VideoCard({ item }: { item: VideoItem }) {
         <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#0a0a0a]/50 z-20 overflow-hidden">
           <span 
             id={`progress-${id}`}
-            className="block h-full bg-gradient-to-r from-emerald-300 to-emerald-600 w-0 transition-all duration-75 ease-linear shadow-[0_0_10px_rgba(16,185,129,0.8)]" 
+            className="block h-full bg-gradient-to-r from-emerald-300 to-emerald-600 w-0 transition-all duration-75 ease-linear" 
           />
         </div>
 
-        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_40px_hsla(0,0%,0%,0.3)] dark:shadow-[inset_0_0_40px_hsla(0,0%,0%,0.5)] z-10 duration-500 group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.4)] dark:group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.7)]"></div>
+        <div className="absolute inset-0 pointer-events-none z-10 duration-500 group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.4)] dark:group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.7)]"></div>
       </div>
       
       <div className="p-6 md:p-8 flex flex-col flex-grow relative overflow-hidden z-20">
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         
-        <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 text-foreground dark:text-white group-hover:text-brand transition-colors drop-shadow-sm">{item.title}</h3>
+        <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 text-foreground dark:text-white group-hover:text-brand transition-colors">{item.title}</h3>
         <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-grow group-hover:text-foreground dark:group-hover:text-slate-300 transition-colors">{item.desc}</p>
       </div>
     </article>
