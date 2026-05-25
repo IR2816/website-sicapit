@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
@@ -320,9 +319,13 @@ function AboutSection() {
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src="/assets/images/rafting/4.jpeg"
                 alt="Keindahan Sungai Rafting"
+                width={600}
+                height={500}
+                quality={85}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/30 to-transparent" />
@@ -506,7 +509,7 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
                       src={pkg.image}
                       alt={pkg.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                     loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute bottom-4 left-4">
                       <Badge className={`${pkg.difficultyColor} border-0 px-3 py-1 text-white`}>
@@ -780,7 +783,7 @@ function GallerySection() {
                 className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out ${
                   hoveredIdx === i ? 'scale-105 brightness-90' : 'scale-100 brightness-100'
                 }`}
-              />
+               loading="lazy" />
               <div className="absolute top-4 left-4 z-10">
                 <span className={`text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md border border-black/10 dark:border-white/10 ${tagColors[item.tag] || 'bg-black/40 text-white'}`}>
                   {item.tag}
@@ -832,7 +835,7 @@ function GallerySection() {
                 {selectedImg.endsWith('.mp4') || selectedImg.endsWith('.webm') ? (
                   <video src={selectedImg} controls autoPlay className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
                 ) : (
-                  <img src={selectedImg} alt="Preview" className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
+                  <img src={selectedImg} alt="Preview" className="w-full h-auto max-h-[80vh] object-contain rounded-lg"  loading="lazy" />
                 )}
               </div>
             )}
