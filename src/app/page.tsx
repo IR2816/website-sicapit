@@ -64,8 +64,8 @@ export default function Home() {
       {/* Hero Section */}
       <header className="relative min-h-[95vh] md:min-h-screen flex items-center justify-center pt-24 overflow-hidden" id="home">
         <HeroSlider />
-        {/* Gradient overlay untuk transisi lebih mulus */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface z-10 pointer-events-none"></div>
+        {/* Overlay tipis agar hero menyatu dengan section berikutnya */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface/90 z-10 pointer-events-none"></div>
 
         <div className="relative z-20 container mx-auto px-4 md:px-12 flex flex-col items-center text-center mt-12 md:mt-24">
           <ScrollReveal>
@@ -94,11 +94,10 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto px-4">
-              <a href="#kisah" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand/90 text-white font-bold text-sm tracking-wide rounded-full transition-all duration-300  hover:-translate-y-1 overflow-hidden">
+              <a href="#kisah" className="group relative w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand/90 text-white font-bold text-sm tracking-wide rounded-2xl transition-colors duration-300 overflow-hidden">
                 <span className="relative z-10">Kenali Kami</span>
-                <div className="absolute inset-0 h-full w-0 bg-white/20 transition-all duration-500 ease-out group-hover:w-full z-0"></div>
               </a>
-              <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-transparent border border-line hover:border-brand text-foreground font-bold text-sm tracking-wide rounded-full transition-all duration-300 flex items-center justify-center gap-3 hover:-translate-y-1">
+              <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-transparent border border-line hover:border-brand text-foreground font-bold text-sm tracking-wide rounded-2xl transition-colors duration-300 flex items-center justify-center gap-3">
                 Jelajahi Layanan
                 <svg className="w-4 h-4 text-brand group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
@@ -143,8 +142,8 @@ export default function Home() {
               {guidePoints.map((point, i) => (
                 <ScrollReveal key={point.title}>
                   <div className="group h-full p-10 rounded-3xl bg-surface border border-line hover:border-brand/40 transition-all duration-300 relative rounded-2xl">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 ease-out"></div>
-                    <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-2xl mb-8 transform group-hover:-translate-y-2 transition-transform duration-500">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-bl-full -z-10 opacity-70"></div>
+                      <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-black text-2xl mb-8 transform transition-transform duration-500 group-hover:-translate-y-1">
                       0{i+1}
                     </div>
                     <h3 className="font-heading text-2xl font-bold mb-4 text-foreground/90 dark:text-white/90">{point.title}</h3>
@@ -170,16 +169,16 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {/* Edu Wisata Card */}
               <ScrollReveal>
-                <Link href="/edu-wisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line hover:border-brand/40 transition-all duration-500 bg-surface">
-                  <Image src="/assets/images/2.jpg" alt="Edu Wisata Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-surface dark:via-surface/60 dark:to-transparent z-10 transition-opacity duration-500" />
+                <Link href="/edu-wisata" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line hover:border-brand/30 transition-colors duration-300 bg-surface">
+                  <Image src="/assets/images/2.jpg" alt="Edu Wisata Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.03] opacity-100 dark:opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface/15 to-transparent dark:from-surface dark:via-surface/55 dark:to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
-                      <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand/20 border border-brand/30 text-brand text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
+                      <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-md bg-brand/12 border border-brand/25 text-brand text-[10px] font-black tracking-[0.18em] uppercase mb-4">
                         Alam & Budaya
                       </span>
                       <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-brand transition-colors">Edu Wisata</h3>
-                      <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 bg-surface/80 dark:bg-black/50 rounded-lg p-3 mt-2 backdrop-blur-sm">
+                      <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 bg-surface/90 dark:bg-black/35 rounded-xl p-3 mt-2">
                         <p className="text-foreground/80 dark:text-muted-foreground text-sm leading-relaxed font-medium  ">Menyapa hewan ternak, mempelajari persawahan, hingga mempraktikkan seni kerajinan lokal dalam satu pengalaman seru.</p>
                       </div>
                     </div>
@@ -193,16 +192,16 @@ export default function Home() {
 
               {/* Rafting Card */}
               <ScrollReveal>
-                <Link href="/rafting" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line hover:border-[#00f2fe]/50 transition-all duration-500 bg-surface md:mt-12">
-                  <Image src="/assets/images/4.jpg" alt="Rafting Sungai Cisadane Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-100 dark:opacity-70 group-hover:opacity-100 dark:group-hover:opacity-90" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-surface dark:via-surface/60 dark:to-transparent z-10 transition-opacity duration-500" />
+                <Link href="/rafting" className="group block relative h-[420px] rounded-[32px] overflow-hidden border border-line hover:border-[#00f2fe]/35 transition-colors duration-300 bg-surface md:mt-12">
+                  <Image src="/assets/images/4.jpg" alt="Rafting Sungai Cisadane Sicapit" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.03] opacity-100 dark:opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface/15 to-transparent dark:from-surface dark:via-surface/55 dark:to-transparent z-10 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-20 flex flex-col justify-end h-full">
                     <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
-                      <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-[#00f2fe]/20 border border-[#00f2fe]/30 text-[#00f2fe] text-[10px] font-black tracking-widest uppercase mb-4 backdrop-blur-md">
+                      <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-md bg-[#00f2fe]/12 border border-[#00f2fe]/25 text-[#00f2fe] text-[10px] font-black tracking-[0.18em] uppercase mb-4">
                         Pacu Adrenalin
                       </span>
                       <h3 className="font-heading text-3xl font-black text-foreground dark:text-white mb-2 tracking-tight group-hover:text-[#00f2fe] transition-colors">Rafting</h3>
-                      <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 bg-surface/80 dark:bg-black/50 rounded-lg p-3 mt-2 backdrop-blur-sm">
+                      <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 bg-surface/90 dark:bg-black/35 rounded-xl p-3 mt-2">
                         <p className="text-foreground/80 dark:text-muted-foreground text-sm leading-relaxed font-medium  ">Hanyutlah dalam jeram 5km yang seru atau santai mengarung di jalur tubing khusus sejauh 2km.</p>
                       </div>
                     </div>

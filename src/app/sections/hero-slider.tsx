@@ -34,8 +34,8 @@ export function HeroSlider() {
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 transition-[opacity,transform] duration-[1400ms] ease-out ${
+            index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
           }`}
         >
           <Image
@@ -43,8 +43,8 @@ export function HeroSlider() {
             alt={image.alt}
             fill
             sizes="100vw"
-            className={`object-cover scale-105 transition-transform duration-[10000ms] ${
-              index === currentIndex ? "scale-100" : ""
+            className={`object-cover transition-transform duration-[12000ms] ease-out ${
+              index === currentIndex ? "scale-100" : "scale-[1.03]"
             }`}
             priority={index === 0}
             quality={75}
@@ -55,8 +55,8 @@ export function HeroSlider() {
         <div 
           className={`absolute inset-0 z-10 ${
             isLight 
-              ? 'bg-gradient-to-b from-white/70 via-white/50 to-white/30' 
-              : 'bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/60 to-[#0a0a0a]'
+              ? 'bg-gradient-to-b from-white/55 via-white/30 to-white/10' 
+              : 'bg-gradient-to-b from-[#0a0a0a]/70 via-[#0a0a0a]/45 to-[#0a0a0a]/85'
           }`} 
         />
       )}

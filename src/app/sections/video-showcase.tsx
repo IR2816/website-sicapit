@@ -50,7 +50,7 @@ function VideoCard({ item }: { item: VideoItem }) {
 
   return (
     <article 
-      className="group flex flex-col bg-surface hover:bg-surface-strong border border-line hover:border-brand/40 rounded-[28px] overflow-hidden transition-all duration-500 shadow-sm  hover:-translate-y-2 relative cursor-pointer"
+      className="group flex flex-col bg-surface hover:bg-surface-strong border border-line hover:border-brand/30 rounded-[28px] overflow-hidden transition-colors duration-300 relative cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -66,7 +66,7 @@ function VideoCard({ item }: { item: VideoItem }) {
           playsInline
           preload="none"
           poster={item.poster}
-          className={`w-full h-full object-cover transition-transform duration-700 pointer-events-none ${isHovered ? 'scale-105' : 'scale-100'} ${hasFailed ? 'opacity-0' : 'opacity-100'}`}
+          className={`w-full h-full object-cover transition-[opacity,transform] duration-700 pointer-events-none ${isHovered ? 'scale-[1.02]' : 'scale-100'} ${hasFailed ? 'opacity-0' : 'opacity-100'}`}
           onLoadedMetadata={() => setIsReady(true)}
           onError={() => {
             setHasFailed(true);
@@ -97,14 +97,14 @@ function VideoCard({ item }: { item: VideoItem }) {
           sizes="(max-width: 900px) 100vw, 33vw"
         />
         
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
-           <div className="w-16 h-16 rounded-full bg-brand/90 text-white flex items-center justify-center backdrop-blur-md transform scale-90 group-hover:scale-100 transition-all duration-300">
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+            <div className="w-16 h-16 rounded-full bg-brand/90 text-white flex items-center justify-center transform scale-95 group-hover:scale-100 transition-transform duration-300">
              <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
            </div>
         </div>
 
         <div className="absolute top-4 left-4 z-10 flex gap-2 transition-transform duration-500 group-hover:-translate-y-1">
-           <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-[#0a0a0a]/60 backdrop-blur-md text-white rounded-full border border-white/10 shadow-lg">
+            <span className="px-3 py-1 text-[10px] uppercase tracking-[0.18em] font-bold bg-[#0a0a0a]/60 text-white rounded-md border border-white/10">
              HD 1080p
            </span>
         </div>
@@ -117,14 +117,14 @@ function VideoCard({ item }: { item: VideoItem }) {
           />
         </div>
 
-        <div className="absolute inset-0 pointer-events-none z-10 duration-500 group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.4)] dark:group-hover:shadow-[inset_0_0_60px_hsla(0,0%,0%,0.7)]"></div>
+        <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </div>
       
       <div className="p-6 md:p-8 flex flex-col flex-grow relative overflow-hidden z-20">
-        <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand/20 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+        <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand/10 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         
-        <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 text-foreground dark:text-white group-hover:text-brand transition-colors">{item.title}</h3>
-        <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-grow group-hover:text-foreground dark:group-hover:text-slate-300 transition-colors">{item.desc}</p>
+        <h3 className="font-heading text-xl md:text-2xl font-bold mb-3 text-foreground dark:text-white group-hover:text-brand transition-colors duration-300">{item.title}</h3>
+        <p className="text-muted-foreground text-sm md:text-base leading-relaxed flex-grow group-hover:text-foreground dark:group-hover:text-slate-300 transition-colors duration-300">{item.desc}</p>
       </div>
     </article>
   );

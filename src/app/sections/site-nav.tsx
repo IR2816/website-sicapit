@@ -36,12 +36,12 @@ export function SiteNav({ brand }: SiteNavProps) {
       <div
         className={`flex items-center justify-between transition-all duration-500 overflow-visible ${
           scrolled
-            ? "w-full max-w-4xl bg-surface/80 dark:bg-[#111111]/80 backdrop-blur-xl border border-line py-3 px-6 rounded-full shadow-lg"
-            : "w-full max-w-6xl bg-surface/30 dark:bg-black/30 backdrop-blur-md py-3.5 px-6 md:px-10 border border-line dark:border-white/10 rounded-full shadow-md"
+            ? "w-full max-w-4xl bg-surface/92 dark:bg-[#111111]/92 border border-line py-3 px-6 rounded-2xl shadow-sm"
+            : "w-full max-w-6xl bg-surface/78 dark:bg-black/40 py-3.5 px-6 md:px-10 border border-line dark:border-white/10 rounded-2xl shadow-sm"
         }`}
       >
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-full border-2 border-brand/80 group-hover:scale-105 transition-transform duration-300">
+          <div className="relative w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-xl border border-brand/60 transition-transform duration-300 group-hover:-translate-y-0.5">
             <Image src="/assets/images/Icon.jpg" alt="Logo Sicapit" fill sizes="48px" className="object-cover" />
           </div>
           <div className="flex flex-col">
@@ -57,7 +57,7 @@ export function SiteNav({ brand }: SiteNavProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[13px] font-bold text-foreground dark:text-white hover:text-brand transition-all duration-300 hover:scale-105"
+                className="text-[13px] font-bold text-foreground dark:text-white hover:text-brand transition-colors duration-300 relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-brand after:transition-all hover:after:w-full"
               >
                 {link.label}
               </Link>
@@ -66,7 +66,7 @@ export function SiteNav({ brand }: SiteNavProps) {
           <ThemeToggle />
           <Link
             href="/#lokasi"
-            className="px-6 py-2.5 bg-brand hover:bg-brand/90 text-white border-none text-[13px] font-bold rounded-full transition-all duration-300 hover:shadow-[0_4px_20px_rgba(220,38,38,0.5)]"
+            className="px-6 py-2.5 bg-brand hover:bg-brand/90 text-white border-none text-[13px] font-bold rounded-2xl transition-colors duration-300"
           >
             Rencanakan Trip
           </Link>
@@ -86,7 +86,7 @@ export function SiteNav({ brand }: SiteNavProps) {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden fixed top-[80px] left-4 right-4 bg-surface/95 dark:bg-[#111111]/95 backdrop-blur-xl border border-line dark:border-white/10 rounded-2xl flex flex-col px-6 py-6 shadow-2xl animate-fade-in z-40">
+        <div className="md:hidden fixed top-[80px] left-4 right-4 bg-surface/96 dark:bg-[#111111]/96 border border-line dark:border-white/10 rounded-2xl flex flex-col px-6 py-6 shadow-lg z-40 animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="flex flex-col gap-4">
             {links.map((link) => (
               <Link
@@ -105,7 +105,7 @@ export function SiteNav({ brand }: SiteNavProps) {
             </div>
             <Link
               href="/#lokasi"
-              className="mt-4 px-6 py-4 bg-brand hover:bg-brand/90 text-white text-center font-bold rounded-xl"
+              className="mt-4 px-6 py-4 bg-brand hover:bg-brand/90 text-white text-center font-bold rounded-2xl transition-colors"
               onClick={() => setOpen(false)}
             >
               Rencanakan Trip Sekarang

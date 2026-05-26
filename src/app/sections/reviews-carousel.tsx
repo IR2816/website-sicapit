@@ -36,15 +36,15 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
           return (
             <article 
               key={index} 
-              className={`${isActive ? 'opacity-100 translate-x-0 z-10' : 'opacity-0 translate-x-8 pointer-events-none -z-10'} absolute top-0 left-0 w-full transition-all duration-700 ease-in-out`}
+              className={`${isActive ? 'opacity-100 translate-y-0 z-10' : 'opacity-0 translate-y-4 pointer-events-none -z-10'} absolute top-0 left-0 w-full transition-all duration-700 ease-out`}
             >
-              <div className="flex flex-col sm:flex-row items-start gap-4 p-6 md:p-8 bg-surface-strong/50 dark:bg-surface-strong/50 border border-line dark:border-white/5 rounded-[24px] shadow-shadow hover:border-line dark:hover:border-white/10 transition-colors">
+              <div className="flex flex-col sm:flex-row items-start gap-4 p-6 md:p-8 bg-surface-strong/55 dark:bg-surface-strong/55 border border-line dark:border-white/5 rounded-[24px] shadow-sm hover:border-line dark:hover:border-white/10 transition-colors">
                 <div className="flex-shrink-0 relative">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden relative">
                     <Image src={review.avatar} alt={review.author} fill sizes="56px" className="object-cover" unoptimized />
                   </div>
                   {review.isLocalGuide && (
-                    <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow-sm">
+                    <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow-sm border border-line">
                        <svg className="w-4 h-4 text-[#F4B400]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
                   )}
