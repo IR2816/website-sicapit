@@ -129,7 +129,7 @@ function HeroSection() {
                 <span className="block text-brand mt-3">Sicapit</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white/78 max-w-2xl leading-relaxed">
-                Satu tempat untuk arung jeram, river tubing, kuliner lokal, dan suasana kampung yang hidup. Dibuat untuk menarik perhatian sejak detik pertama, tanpa kehilangan rasa lokalnya.
+                Arung jeram, river tubing, dan suasana kampung yang hidup dalam satu tempat.
               </p>
             </motion.div>
 
@@ -251,7 +251,7 @@ function HeroSection() {
                       <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Cocok untuk</p>
                       <p className="text-white font-heading text-2xl font-bold mt-2">Rombongan</p>
                     </div>
-                    <p className="text-white/70 text-sm leading-relaxed">Paket yang terasa ramai, tapi tetap rapi untuk keluarga, sekolah, dan perusahaan.</p>
+                    <p className="text-white/70 text-sm leading-relaxed">Cocok untuk keluarga, sekolah, dan perusahaan.</p>
                   </div>
 
                   <div className="rounded-[24px] border border-white/10 bg-white/8 backdrop-blur-md p-5 min-h-[150px] flex flex-col justify-between">
@@ -259,13 +259,13 @@ function HeroSection() {
                       <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Kesan utama</p>
                       <p className="text-white font-heading text-2xl font-bold mt-2">Menantang</p>
                     </div>
-                    <p className="text-white/70 text-sm leading-relaxed">Visual kuat, hierarki jelas, dan transisi yang lebih tenang saat pengguna scroll.</p>
+                    <p className="text-white/70 text-sm leading-relaxed">Visual kuat, hierarki jelas, dan alur scroll yang tenang.</p>
                   </div>
 
                   <div className="col-span-2 rounded-[24px] border border-white/10 bg-[#0f0f0f]/70 p-5 flex items-center justify-between gap-4">
                     <div>
                       <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Warna dominan</p>
-                      <p className="text-white font-heading text-xl md:text-2xl font-bold mt-1">Air, tanah, dan merah brand</p>
+                      <p className="text-white font-heading text-xl md:text-2xl font-bold mt-1">Air, tanah, merah</p>
                     </div>
                     <div className="flex -space-x-2">
                       <span className="w-7 h-7 rounded-full bg-[#00f2fe] border border-white/30" />
@@ -374,16 +374,8 @@ function AboutSection() {
               Petualangan
               <span className="text-brand"> Kampung Sicapit</span>
             </h2>
-            <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed mb-4">
-              Kampung Sicapit adalah wisata air yang berlokasi di Kelurahan Semplak,
-              Kecamatan Bogor Barat, Kota Bogor. Destinasi ini menawarkan aktivitas rafting
-              sepanjang <strong>27 km</strong> dan river tubing di Sungai Cisadane, serta
-              didukung wisata kuliner, kesenian lokal, dan suasana alam yang asri.
-            </p>
             <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed mb-8">
-              Kehadiran wisata ini juga membantu meningkatkan perekonomian masyarakat sekitar.
-              Dengan tim pemandu bersertifikat dan peralatan berstandar keselamatan tertinggi,
-              kami menawarkan pengalaman arung jeram yang aman, seru, dan berkesan.
+              Kampung Sicapit menghadirkan rafting, river tubing, dan suasana kampung dalam satu pengalaman yang aman dan berkesan.
             </p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -719,8 +711,7 @@ function GallerySection() {
           </h2>
           {/* UBAH JUGA DI SINI: text-muted-foreground agar teks deskripsi adaptif */}
           <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
-            Lihat keindahan dan keseruan petualangan rafting kami melalui galeri foto.
-            Setiap momen adalah kenangan berharga.
+            Potret singkat petualangan rafting dan suasana kampung.
           </p>
         </motion.div>
 
@@ -879,7 +870,7 @@ function TestimonialsSection() {
         <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
           Testimoni
         </Badge>
-        <h2 className="text-3xl font-bold text-foreground dark:text-white">Apa Kata Mereka?</h2>
+          <h2 className="text-3xl font-bold text-foreground dark:text-white">Ulasan Pengunjung</h2>
       </div>
       <div className="flex gap-6 animate-marquee whitespace-nowrap w-max px-4">
         {customerReviews.map((rev, i) => (
@@ -896,7 +887,7 @@ function TestimonialsSection() {
             <div className="flex gap-0.5 text-amber-500 mb-2">
               {[...Array(rev.rating)].map((_, idx) => <Star key={idx} className="w-4 h-4 fill-amber-500" />)}
             </div>
-            <p className="text-sm text-muted-foreground line-clamp-4 leading-relaxed">&quot;{rev.text}&quot;</p>
+            <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">&quot;{rev.text}&quot;</p>
           </Card>
         ))}
       </div>
@@ -909,13 +900,13 @@ function TestimonialsSection() {
 const faqs = [
   {
     q: 'Apakah aman untuk pemula yang tidak bisa berenang?',
-    a: 'Sangat aman! Setiap peserta wajib memakai perlengkapan keselamatan standar (Pelampung, Helm) dan akan didampingi oleh pemandu profesional bersertifikat sepanjang jalur.',
+    a: 'Sangat aman. Peserta memakai pelampung, helm, dan didampingi pemandu bersertifikat.',
     icon: HelpCircle,
     tag: 'Keamanan',
   },
   {
     q: 'Berapa jumlah minimal peserta untuk booking?',
-    a: 'Kapasitas per perahu karet idealnya diisi 4-6 orang peserta plus 1 pemandu. Namun pemesanan paket disarankan minimal kelompok 10 orang untuk efisiensi akomodasi.',
+    a: 'Ideal 4-6 orang per perahu, dan booking disarankan untuk grup 10 orang atau lebih.',
     icon: CalendarDays,
     tag: 'Persiapan',
   },
@@ -930,7 +921,7 @@ function FAQSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-14">
           <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">FAQ</Badge>
-          <h2 className="text-3xl font-bold text-foreground dark:text-white">Pertanyaan Umum</h2>
+          <h2 className="text-3xl font-bold text-foreground dark:text-white">FAQ Singkat</h2>
         </motion.div>
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, i) => (
@@ -1067,8 +1058,8 @@ const handleSubmitBooking = (e: React.FormEvent) => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <Badge className="bg-brand/10 text-brand mb-3 px-3 py-1">Online Booking</Badge>
-            <h2 className="text-3xl font-bold text-foreground">Formulir Reservasi Praktis</h2>
-            <p className="text-muted-foreground mt-2">Hitung estimasi pengeluaran kelompok Anda secara instan dan rapi di bawah ini.</p>
+            <h2 className="text-3xl font-bold text-foreground">Formulir Reservasi</h2>
+            <p className="text-muted-foreground mt-2">Isi data singkat untuk cek estimasi cepat.</p>
           </div>
 
           <Card className="p-6 md:p-8 shadow-xl border border-muted/60 bg-background/80 backdrop-blur-md">
@@ -1117,8 +1108,8 @@ const handleSubmitBooking = (e: React.FormEvent) => {
 
               <div className="flex items-center justify-between rounded-xl border p-4 shadow-sm bg-muted/20">
                 <div className="space-y-0.5 pr-4">
-                  <Label htmlFor="doc" className="text-sm font-bold cursor-pointer">Tambah Paket Dokumentasi Premium (+Rp 150.000 flat)</Label>
-                  <p className="text-xs text-muted-foreground">Kamera DSLR/Action Cam anti air, file foto/video google drive beresolusi penuh untuk seluruh tim.</p>
+                  <Label htmlFor="doc" className="text-sm font-bold cursor-pointer">Tambah dokumentasi premium (+Rp 150.000)</Label>
+                  <p className="text-xs text-muted-foreground">Foto dan video aksi untuk seluruh tim.</p>
                 </div>
                 <input
                   id="doc"
@@ -1130,8 +1121,8 @@ const handleSubmitBooking = (e: React.FormEvent) => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="notes">Catatan Tambahan (Opsional)</Label>
-                <Textarea id="notes" placeholder="Tulis instruksi khusus atau kebutuhan menu kuliner tambahan di sini..." value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} />
+                <Label htmlFor="notes">Catatan Tambahan</Label>
+                <Textarea id="notes" placeholder="Tulis catatan singkat jika ada." value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} />
               </div>
 
               {/* LIVE PRICING CALCULATOR BOARD */}
