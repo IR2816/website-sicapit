@@ -109,7 +109,7 @@ function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              <Badge className="bg-brand/10 text-brand border-brand/20 px-4 py-2 text-sm mb-6 rounded-md shadow-none tracking-[0.14em] uppercase">
+              <Badge className="bg-brand/12 text-brand border-brand/25 px-4 py-2 text-sm mb-6 rounded-md shadow-none tracking-[0.16em] uppercase">
                 <MapPin className="w-3.5 h-3.5 mr-1.5" />
                 Kelurahan Semplak, Bogor Barat
               </Badge>
@@ -193,22 +193,16 @@ function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.85 }}
-              className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl"
+              className="mt-10 flex flex-wrap gap-3 max-w-2xl"
             >
               {[
-                { icon: Users, value: '15,000+', label: 'Peserta Puas' },
-                { icon: Trophy, value: '12+', label: 'Tahun Pengalaman' },
-                { icon: Star, value: '4.9', label: 'Rating Google' },
+                { value: '15,000+', label: 'Peserta puas' },
+                { value: '12+', label: 'Tahun pengalaman' },
+                { value: '4.9', label: 'Rating Google' },
               ].map((stat, i) => (
-                <div key={i} className="rounded-2xl border border-white/10 bg-white/8 backdrop-blur-md p-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center border border-white/10">
-                      <stat.icon className="w-4.5 h-4.5 text-brand" />
-                    </div>
-                    <div className="text-xs uppercase tracking-[0.18em] text-white/60 font-mono">Statistik</div>
-                  </div>
-                  <div className="text-2xl md:text-3xl font-heading font-extrabold text-white">{stat.value}</div>
-                  <div className="text-sm text-white/68 mt-1">{stat.label}</div>
+                <div key={i} className="rounded-2xl border border-white/10 bg-white/8 backdrop-blur-sm px-4 py-3 min-w-[140px]">
+                  <div className="text-2xl font-heading font-extrabold text-white">{stat.value}</div>
+                  <div className="text-sm text-white/70 mt-1">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -220,8 +214,8 @@ function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative rounded-[32px] border border-white/10 bg-black/20 p-4 md:p-5 shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand/15 via-transparent to-[#00f2fe]/10 pointer-events-none" />
+            <div className="relative rounded-[32px] border border-white/10 bg-black/18 p-4 md:p-5 shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(0,242,254,0.10),transparent_30%)] pointer-events-none" />
               <div className="grid grid-cols-12 gap-3">
                 <div className="col-span-12 md:col-span-8 relative min-h-[320px] md:min-h-[520px] rounded-[28px] overflow-hidden border border-white/10">
                   <Image
@@ -344,7 +338,7 @@ function AboutSection() {
                 alt="Keindahan Sungai Rafting"
                 width={600}
                 height={500}
-                quality={85}
+                quality={75}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />
@@ -381,14 +375,14 @@ function AboutSection() {
               <span className="text-brand"> Kampung Sicapit</span>
             </h2>
             <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed mb-4">
-              Kampung Sicapit adalah wisata air yang berlokasi di Kelurahan Semplak, 
-              Kecamatan Bogor Barat, Kota Bogor. Destinasi ini menawarkan aktivitas rafting 
-              sepanjang <strong>27 km</strong> dan river tubing di Sungai Cisadane, serta 
+              Kampung Sicapit adalah wisata air yang berlokasi di Kelurahan Semplak,
+              Kecamatan Bogor Barat, Kota Bogor. Destinasi ini menawarkan aktivitas rafting
+              sepanjang <strong>27 km</strong> dan river tubing di Sungai Cisadane, serta
               didukung wisata kuliner, kesenian lokal, dan suasana alam yang asri.
             </p>
             <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed mb-8">
-              Kehadiran wisata ini juga membantu meningkatkan perekonomian masyarakat sekitar. 
-              Dengan tim pemandu bersertifikat dan peralatan berstandar keselamatan tertinggi, 
+              Kehadiran wisata ini juga membantu meningkatkan perekonomian masyarakat sekitar.
+              Dengan tim pemandu bersertifikat dan peralatan berstandar keselamatan tertinggi,
               kami menawarkan pengalaman arung jeram yang aman, seru, dan berkesan.
             </p>
 
