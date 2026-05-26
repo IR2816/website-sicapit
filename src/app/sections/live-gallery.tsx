@@ -50,7 +50,7 @@ export function LiveGallery() {
             alt={activeItem.title} 
             fill 
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+            className="object-cover transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:contrast-105" 
             onError={() => setBrokenSources(p => ({...p, [activeItem.id]: true}))} 
           />
           

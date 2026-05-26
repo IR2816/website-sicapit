@@ -103,7 +103,7 @@ function HeroSection() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 lg:pt-36 lg:pb-20">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
-          <div className="text-left max-w-3xl">
+          <div className="text-left max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
@@ -124,35 +124,13 @@ function HeroSection() {
               <p className="font-mono text-xs uppercase tracking-[0.28em] text-white/70">
                 Wisata air, budaya, dan kampung hidup
               </p>
-              <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.95] tracking-tight">
+              <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.95] tracking-tight max-w-2xl">
                 Petualangan
                 <span className="block text-brand mt-3">Sicapit</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-white/78 max-w-2xl leading-relaxed">
                 Arung jeram, river tubing, dan suasana kampung yang hidup dalam satu tempat.
               </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
-              className="mt-8 flex flex-wrap gap-3"
-            >
-              {[
-                { icon: Waves, label: 'Rafting' },
-                { icon: Droplets, label: 'River Tubing' },
-                { icon: Heart, label: 'Kuliner' },
-                { icon: Award, label: 'Budaya Lokal' },
-              ].map((act, i) => (
-                <span
-                  key={i}
-                  className="inline-flex items-center gap-2 bg-white/10 border border-white/10 text-white text-sm px-4 py-2 rounded-md"
-                >
-                  <act.icon className="w-4 h-4 text-brand" />
-                  {act.label}
-                </span>
-              ))}
             </motion.div>
 
             <motion.div
@@ -193,11 +171,10 @@ function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.85 }}
-              className="mt-10 flex flex-wrap gap-3 max-w-2xl"
+              className="mt-10 grid grid-cols-2 gap-3 max-w-xl sm:flex sm:flex-wrap"
             >
               {[
                 { value: '15,000+', label: 'Peserta puas' },
-                { value: '12+', label: 'Tahun pengalaman' },
                 { value: '4.9', label: 'Rating Google' },
               ].map((stat, i) => (
                 <div key={i} className="rounded-2xl border border-white/10 bg-white/8 backdrop-blur-sm px-4 py-3 min-w-[140px]">
@@ -214,65 +191,31 @@ function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative rounded-[32px] border border-white/10 bg-black/18 p-4 md:p-5 shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(0,242,254,0.10),transparent_30%)] pointer-events-none" />
-              <div className="grid grid-cols-12 gap-3">
-                <div className="col-span-12 md:col-span-8 relative min-h-[320px] md:min-h-[520px] rounded-[28px] overflow-hidden border border-white/10">
-                  <Image
-                    src="/assets/images/rafting/4.jpeg"
-                    alt="Rafting Sicapit"
-                    fill
-                    priority={false}
-                    quality={75}
-                    sizes="(max-width: 768px) 100vw, 60vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-                  <div className="absolute left-4 top-4 rounded-md border border-white/15 bg-black/35 px-3 py-2 text-white text-xs uppercase tracking-[0.2em] font-mono">
-                    Sungai Cisadane
-                  </div>
-                  <div className="absolute left-4 bottom-4 right-4">
-                    <div className="flex items-end justify-between gap-4">
-                      <div>
-                        <p className="text-white/70 text-sm uppercase tracking-[0.2em] font-mono">Rute unggulan</p>
-                        <p className="text-white font-heading text-2xl md:text-3xl font-bold">Arus, alam, dan kampung dalam satu frame.</p>
-                      </div>
-                      <div className="hidden sm:block rounded-2xl bg-white/10 border border-white/10 px-4 py-3 text-right backdrop-blur-md">
-                        <p className="text-white/60 text-xs uppercase tracking-[0.2em]">Jarak</p>
-                        <p className="text-white font-bold text-lg">27 km</p>
-                      </div>
-                    </div>
-                  </div>
+            <div className="relative rounded-[32px] border border-white/10 bg-black/18 p-3 md:p-4 shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(0,242,254,0.08),transparent_28%)] pointer-events-none" />
+              <div className="relative aspect-[6/5] rounded-[28px] overflow-hidden border border-white/10">
+                <Image
+                  src="/assets/images/rafting/4.jpeg"
+                  alt="Rafting Sicapit"
+                  fill
+                  priority={false}
+                  quality={75}
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/30 px-3 py-2 text-white/80 text-[11px] uppercase tracking-[0.22em] font-mono backdrop-blur-md">
+                  Sungai Cisadane
                 </div>
-
-                <div className="col-span-12 md:col-span-4 grid grid-cols-2 md:grid-cols-1 gap-3">
-                  <div className="rounded-[24px] border border-white/10 bg-white/8 backdrop-blur-md p-5 min-h-[150px] flex flex-col justify-between">
-                    <div>
-                      <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Cocok untuk</p>
-                      <p className="text-white font-heading text-2xl font-bold mt-2">Rombongan</p>
-                    </div>
-                    <p className="text-white/70 text-sm leading-relaxed">Cocok untuk keluarga, sekolah, dan perusahaan.</p>
-                  </div>
-
-                  <div className="rounded-[24px] border border-white/10 bg-white/8 backdrop-blur-md p-5 min-h-[150px] flex flex-col justify-between">
-                    <div>
-                      <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Kesan utama</p>
-                      <p className="text-white font-heading text-2xl font-bold mt-2">Menantang</p>
-                    </div>
-                    <p className="text-white/70 text-sm leading-relaxed">Visual kuat, hierarki jelas, dan alur scroll yang tenang.</p>
-                  </div>
-
-                  <div className="col-span-2 rounded-[24px] border border-white/10 bg-[#0f0f0f]/70 p-5 flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Warna dominan</p>
-                      <p className="text-white font-heading text-xl md:text-2xl font-bold mt-1">Air, tanah, merah</p>
-                    </div>
-                    <div className="flex -space-x-2">
-                      <span className="w-7 h-7 rounded-full bg-[#00f2fe] border border-white/30" />
-                      <span className="w-7 h-7 rounded-full bg-[#4A3728] border border-white/30" />
-                      <span className="w-7 h-7 rounded-full bg-brand border border-white/30" />
-                    </div>
-                  </div>
+              </div>
+              <div className="mt-3 grid grid-cols-2 gap-3 px-1 pb-1">
+                <div className="rounded-2xl border border-white/10 bg-white/6 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-white/55 text-[11px] uppercase tracking-[0.18em] font-mono">Jarak</p>
+                  <p className="text-white font-heading text-xl font-bold mt-1">27 km</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/6 px-4 py-3 backdrop-blur-sm">
+                  <p className="text-white/55 text-[11px] uppercase tracking-[0.18em] font-mono">Cocok untuk</p>
+                  <p className="text-white font-heading text-xl font-bold mt-1">Rombongan</p>
                 </div>
               </div>
             </div>
@@ -325,7 +268,7 @@ function AboutSection() {
   return (
     <section id="tentang" className="py-20 lg:py-28 bg-surface" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-20 items-start">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -355,7 +298,7 @@ function AboutSection() {
                   <Award className="w-6 h-6 text-brand" />
                 </div>
                 <div>
-                  <p className="font-bold text-brand text-lg">12+ Tahun</p>
+                  <p className="font-bold text-brand text-lg">5 Tahun</p>
                   <p className="text-sm text-muted-foreground dark:text-slate-400">Pengalaman Rafting</p>
                 </div>
               </div>
@@ -366,26 +309,61 @@ function AboutSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
+            className="space-y-6"
           >
-            <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-brand/20 bg-brand/8 text-brand text-xs font-semibold uppercase tracking-[0.18em]">
               Tentang Kami
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-6">
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white leading-tight">
               Petualangan
               <span className="text-brand"> Kampung Sicapit</span>
             </h2>
-            <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed mb-8">
-              Kampung Sicapit menghadirkan rafting, river tubing, dan suasana kampung dalam satu pengalaman yang aman dan berkesan.
-            </p>
+            <div className="grid sm:grid-cols-3 gap-3">
+              {[
+                { value: 'Rafting', label: 'Sungai Cisadane' },
+                { value: 'River Tubing', label: 'Pengalaman santai' },
+                { value: 'Budaya', label: 'Nuansa kampung hidup' },
+              ].map((item, i) => (
+                <div key={i} className="rounded-2xl border border-line bg-surface-strong/60 p-4">
+                  <p className="font-heading text-lg font-bold text-foreground dark:text-white">{item.value}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{item.label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-3xl border border-line bg-surface-strong/40 p-5 md:p-6">
+              <p className="text-muted-foreground dark:text-slate-300 text-base md:text-lg leading-relaxed">
+                Kampung Sicapit menghadirkan rafting, river tubing, dan suasana kampung dalam satu pengalaman yang aman dan berkesan.
+              </p>
+            </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {features.map((feature, i) => (
+            <div className="grid sm:grid-cols-2 gap-4">
+              {features.slice(0, 4).map((feature, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                  className="flex gap-3 p-4 rounded-xl hover:bg-brand/10 transition-colors group"
+                  transition={{ duration: 0.5, delay: 0.35 + i * 0.08 }}
+                  className="flex gap-3 p-4 rounded-2xl border border-line bg-surface/70 hover:border-brand/30 hover:bg-brand/6 transition-colors group"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors">
+                    <feature.icon className="w-5 h-5 text-brand" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground dark:text-white text-sm mb-1">{feature.title}</h3>
+                    <p className="text-muted-foreground dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              {features.slice(4).map((feature, i) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.7 + i * 0.08 }}
+                  className="flex gap-3 p-4 rounded-2xl border border-line bg-surface/70 hover:border-brand/30 hover:bg-brand/6 transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors">
                     <feature.icon className="w-5 h-5 text-brand" />
@@ -445,22 +423,24 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-end mb-16"
         >
-          <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
-            Paket Rafting
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Pilih Paket <span className="text-brand">Petualangan</span> Anda
-          </h2>
-          <p className="text-muted-foreground dark:text-slate-300 text-lg max-w-2xl mx-auto mb-6">
-            Tersedia berbagai pilihan paket rafting yang disesuaikan untuk setiap tingkat 
-            keahlian, dari yang baru pertama kali hingga yang sudah berpengalaman.
-          </p>
-          
+          <div className="space-y-4">
+            <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 rounded-sm font-mono text-xs uppercase tracking-[0.2em]">
+              Paket Rafting
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white leading-tight">
+              Pilih Paket <span className="text-brand">Petualangan</span> Anda
+            </h2>
+            <p className="text-muted-foreground dark:text-slate-300 text-lg leading-relaxed max-w-2xl">
+              Tersedia berbagai pilihan paket rafting yang disesuaikan untuk setiap tingkat 
+              keahlian, dari yang baru pertama kali hingga yang sudah berpengalaman.
+            </p>
+          </div>
+
           {/* Info Badges & Real-time Status */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <div className="flex items-center gap-2 bg-background/80 backdrop-blur-md border px-4 py-2 rounded-full text-sm font-medium text-foreground shadow-sm">
+          <div className="flex flex-wrap items-start gap-3 lg:justify-end">
+            <div className="flex items-center gap-2 bg-background/80 backdrop-blur-md border px-4 py-2 rounded-md text-sm font-medium text-foreground shadow-sm">
               {isOpenNow ? (
                 <>
                   <span className="relative flex h-2 w-2">
@@ -478,7 +458,7 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
               <span className="text-muted-foreground">| {BUSINESS_HOURS.label}</span>
             </div>
             
-            <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-500 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md">
+            <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-500 px-4 py-2 rounded-md text-sm font-medium backdrop-blur-md">
               <Users className="w-4 h-4" />
               <span>Kapasitas: Minimal 10 Orang</span>
             </div>
@@ -486,7 +466,7 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {raftingPackages.map((pkg, i) => (
             <motion.div
               key={i}
@@ -494,11 +474,11 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
               whileHover={{ y: -8 }}
-              className={`relative h-full group ${pkg.popular ? 'md:-mt-4 md:mb-4' : ''}`}
+              className={`relative h-full group ${pkg.popular ? 'lg:col-span-2 lg:order-2 lg:-translate-y-3' : 'lg:col-span-1'} ${i === 0 ? 'lg:translate-y-4' : i === 2 ? 'lg:-translate-y-4' : ''}`}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <Badge className="bg-amber-500 text-white px-4 py-1 shadow-lg border-none animate-pulse">
+                  <Badge className="bg-amber-500 text-white px-4 py-1 shadow-lg border-none rounded-sm font-mono text-xs uppercase tracking-[0.2em]">
                     Paling Populer
                   </Badge>
                 </div>
@@ -613,7 +593,8 @@ const bentoItemsLayout = [
     title: 'Pemandu Ahli',
     tag: 'Tim Kami',
     colSpan: 'col-span-1 md:col-span-1',
-    rowSpan: 'row-span-1 md:row-span-1',
+    rowSpan: 'row-span-1 md:row-span-2',
+    offset: 'md:-translate-y-2',
     type: 'image',
   },
   {
@@ -622,6 +603,7 @@ const bentoItemsLayout = [
     tag: 'Keluarga',
     colSpan: 'col-span-1 md:col-span-1',
     rowSpan: 'row-span-1 md:row-span-1',
+    offset: 'md:translate-y-2',
     type: 'image',
   },
   {
@@ -630,6 +612,7 @@ const bentoItemsLayout = [
     tag: 'Aktivitas',
     colSpan: 'col-span-2 md:col-span-2',
     rowSpan: 'row-span-1 md:row-span-1',
+    offset: 'md:-translate-y-1',
     type: 'image',
   },
   {
@@ -637,7 +620,7 @@ const bentoItemsLayout = [
     title: 'Petualangan Seru',
     tag: 'Aktivitas',
     colSpan: 'col-span-2 md:col-span-2',
-    rowSpan: 'row-span-1 md:row-span-1',
+    rowSpan: 'row-span-1 md:row-span-2',
     type: 'image',
   },
   {
@@ -646,6 +629,7 @@ const bentoItemsLayout = [
     tag: 'Aktivitas',
     colSpan: 'col-span-1 md:col-span-1',
     rowSpan: 'row-span-1 md:row-span-1',
+    offset: 'md:-translate-y-1',
     type: 'image',
   },
   {
@@ -654,6 +638,7 @@ const bentoItemsLayout = [
     tag: 'Aktivitas',
     colSpan: 'col-span-1 md:col-span-1',
     rowSpan: 'row-span-1 md:row-span-1',
+    offset: 'md:translate-y-1',
     type: 'image',
   },
 ]
@@ -700,17 +685,17 @@ function GallerySection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-end mb-14"
         >
-          <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
-            Galeri Foto
-          </Badge>
-          {/* UBAH DI BARIS INI: Menggunakan text-foreground agar gelap di light mode, dan putih di dark mode */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white mb-4">
-            Momen <span className="text-brand">Tak Terlupakan</span>
-          </h2>
-          {/* UBAH JUGA DI SINI: text-muted-foreground agar teks deskripsi adaptif */}
-          <p className="text-muted-foreground dark:text-slate-400 text-lg max-w-2xl mx-auto">
+          <div className="space-y-3">
+            <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 rounded-sm font-mono text-xs uppercase tracking-[0.2em]">
+              Galeri Foto
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-white leading-tight">
+              Momen <span className="text-brand">Tak Terlupakan</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground dark:text-slate-400 text-lg leading-relaxed max-w-2xl">
             Potret singkat petualangan rafting dan suasana kampung.
           </p>
         </motion.div>
@@ -720,45 +705,51 @@ function GallerySection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 auto-rows-[250px] md:auto-rows-[300px] gap-2 sm:gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] sm:auto-rows-[190px] md:auto-rows-[150px] lg:auto-rows-[180px] gap-3 sm:gap-4 md:gap-5 md:grid-flow-dense"
         >
           {/* Slideshow Card */}
           <div 
-            className="relative group overflow-hidden rounded-2xl md:rounded-3xl col-span-2 row-span-2 shadow-lg bg-black cursor-pointer"
+            className="relative group overflow-hidden rounded-2xl md:rounded-3xl col-span-2 row-span-2 md:col-span-3 md:row-span-3 shadow-lg bg-black/80 border border-line cursor-pointer"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             {slideshowImages.map((src, i) => (
               <AnimatePresence key={src}>
                 {slideIndex === i && (
-                  <motion.img
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1.15 }}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 1.08 }}
+                    animate={{ opacity: 1, scale: 1.04 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1.2, ease: 'easeInOut' }}
-                    src={src}
-                    alt={`Slideshow ${i + 1}`}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="absolute inset-0"
                     onClick={() => setSelectedImg(src)}
-                  />
+                  >
+                    <Image
+                      src={src}
+                      alt={`Slideshow ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 60vw"
+                      className="object-cover filter contrast-[1.05] saturate-[0.95] sepia-[0.08]"
+                    />
+                  </motion.div>
                 )}
               </AnimatePresence>
             ))}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent pointer-events-none" />
             <div className="absolute top-4 left-4 z-10">
-              <span className="text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md bg-white/20 text-white border border-white/30">
+              <span className="text-[10px] font-semibold px-3 py-1.5 rounded-sm backdrop-blur-md bg-white/15 text-white border border-white/30 uppercase tracking-[0.18em] font-mono">
                 Sorotan Utama
               </span>
             </div>
             <button
               onClick={(e) => { e.stopPropagation(); setSlideIndex((prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length) }}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/50 transition-colors z-10"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-black/35 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/60 transition-colors z-10"
             >
               ❮
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); setSlideIndex((prev) => (prev + 1) % slideshowImages.length) }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/50 transition-colors z-10"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-black/35 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/60 transition-colors z-10"
             >
               ❯
             </button>
@@ -777,25 +768,29 @@ function GallerySection() {
           {bentoItemsLayout.map((item, i) => (
             <div
               key={i}
-              className={`relative group cursor-pointer overflow-hidden rounded-2xl md:rounded-3xl shadow-md ${item.colSpan} ${item.rowSpan}`}
+              className={`relative group cursor-pointer overflow-hidden rounded-2xl md:rounded-3xl shadow-md border border-line bg-black/20 ${item.colSpan} ${item.rowSpan} ${item.offset || ''}`}
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
               onClick={() => setSelectedImg(item.src)}
             >
-              <img
+              <Image
                 src={item.src}
                 alt={item.title}
-                className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out ${
-                  hoveredIdx === i ? 'scale-105 brightness-90' : 'scale-100 brightness-100'
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className={`object-cover transition-[transform,filter] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] filter ${
+                  hoveredIdx === i
+                    ? '-translate-y-1 contrast-[1.1] saturate-[1.02] sepia-[0.05]'
+                    : 'translate-y-0 contrast-[1.05] saturate-[0.95] sepia-[0.08]'
                 }`}
-               loading="lazy" />
+              />
               <div className="absolute top-4 left-4 z-10">
-                <span className={`text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md border border-black/10 dark:border-white/10 ${tagColors[item.tag] || 'bg-black/40 text-white'}`}>
+                <span className={`text-[10px] font-semibold px-3 py-1.5 rounded-sm backdrop-blur-md border border-black/10 dark:border-white/10 uppercase tracking-[0.18em] font-mono ${tagColors[item.tag] || 'bg-black/40 text-white'}`}>
                   {item.tag}
                 </span>
               </div>
-              <div className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t from-black/80 via-black/20 to-transparent ${hoveredIdx === i ? 'opacity-100' : 'opacity-0'}`} />
-              <div className={`absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 ${hoveredIdx === i ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500">
                 <h3 className="text-white font-bold text-lg mb-1">{item.title}</h3>
                 <div className="flex items-center gap-2 text-brand">
                   <Camera className="w-4 h-4" />
@@ -840,7 +835,15 @@ function GallerySection() {
                 {selectedImg.endsWith('.mp4') || selectedImg.endsWith('.webm') ? (
                   <video src={selectedImg} controls autoPlay className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
                 ) : (
-                  <img src={selectedImg} alt="Preview" className="w-full h-auto max-h-[80vh] object-contain rounded-lg"  loading="lazy" />
+                  <div className="relative w-full h-[80vh]">
+                    <Image
+                      src={selectedImg}
+                      alt="Preview"
+                      fill
+                      sizes="100vw"
+                      className="object-contain rounded-lg"
+                    />
+                  </div>
                 )}
               </div>
             )}
@@ -864,32 +867,113 @@ function TestimonialsSection() {
     source: 'Google Reviews',
   }))
 
+  const averageRating = (
+    customerReviews.reduce((sum, review) => sum + review.rating, 0) / customerReviews.length
+  ).toFixed(1)
+
+  const highlightedReview = customerReviews[0]
+  const remainingReviews = customerReviews.slice(1)
+
   return (
     <section id="testimoni" className="py-20 bg-surface overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-        <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
-          Testimoni
-        </Badge>
-          <h2 className="text-3xl font-bold text-foreground dark:text-white">Ulasan Pengunjung</h2>
-      </div>
-      <div className="flex gap-6 animate-marquee whitespace-nowrap w-max px-4">
-        {customerReviews.map((rev, i) => (
-          <Card key={i} className="w-[300px] shrink-0 inline-block whitespace-normal p-5 border border-muted/50 bg-background/50 backdrop-blur-md">
-            <div className="flex items-center gap-3 mb-3">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-brand ${rev.bgColor}`}>
-                {rev.avatar}
-              </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
+            Testimoni
+          </Badge>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground dark:text-white leading-tight">
+            Ulasan Pengunjung
+          </h2>
+          <p className="text-muted-foreground dark:text-slate-400 text-lg leading-relaxed mt-3">
+            Kesan singkat dari tamu yang sudah datang langsung ke Sicapit.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-6 lg:gap-8 items-start">
+          <div className="rounded-[28px] border border-line bg-surface-strong/70 p-6 lg:p-7 shadow-sm sticky top-24">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/8 px-3 py-1 text-brand text-xs font-semibold uppercase tracking-[0.18em]">
+              Google Reviews
+            </div>
+            <div className="mt-6 space-y-4">
               <div>
-                <h4 className="font-bold text-sm text-foreground">{rev.name}</h4>
-                <p className="text-xs text-muted-foreground">{rev.date}</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-mono">Rata-rata rating</p>
+                <div className="mt-2 flex items-end gap-3">
+                  <span className="text-5xl font-heading font-extrabold text-foreground dark:text-white leading-none">{averageRating}</span>
+                  <span className="text-base text-muted-foreground pb-1">/ 5</span>
+                </div>
+              </div>
+              <p className="text-muted-foreground dark:text-slate-300 leading-relaxed">
+                Ulasan dibuat lebih tenang dan mudah dibaca supaya fokusnya tetap ke pengalaman tamu, bukan ke efek visual yang berlebihan.
+              </p>
+            </div>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-2xl border border-line bg-background/60 p-4">
+                <p className="text-2xl font-heading font-bold text-foreground dark:text-white">{customerReviews.length}</p>
+                <p className="text-sm text-muted-foreground mt-1">Ulasan terpilih</p>
+              </div>
+              <div className="rounded-2xl border border-line bg-background/60 p-4">
+                <p className="text-2xl font-heading font-bold text-foreground dark:text-white">5/5</p>
+                <p className="text-sm text-muted-foreground mt-1">Rating rata-rata</p>
               </div>
             </div>
-            <div className="flex gap-0.5 text-amber-500 mb-2">
-              {[...Array(rev.rating)].map((_, idx) => <Star key={idx} className="w-4 h-4 fill-amber-500" />)}
-            </div>
-            <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">&quot;{rev.text}&quot;</p>
-          </Card>
-        ))}
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+            <Card className="md:col-span-2 lg:col-span-2 rounded-[28px] border border-line bg-surface-strong/70 p-6 lg:p-7 shadow-sm">
+              <div className="flex items-start justify-between gap-4 mb-5">
+                <div className="flex items-center gap-3">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-brand ${highlightedReview.bgColor}`}>
+                    {highlightedReview.avatar}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-base text-foreground dark:text-white">{highlightedReview.name}</h4>
+                    <p className="text-sm text-muted-foreground">{highlightedReview.date} · {highlightedReview.source}</p>
+                  </div>
+                </div>
+                <div className="rounded-full border border-brand/20 bg-brand/8 px-3 py-1 text-brand text-sm font-semibold">
+                  5.0
+                </div>
+              </div>
+
+              <div className="flex gap-0.5 text-amber-500 mb-4">
+                {[...Array(highlightedReview.rating)].map((_, idx) => (
+                  <Star key={idx} className="w-4 h-4 fill-amber-500" />
+                ))}
+              </div>
+
+              <p className="text-lg sm:text-xl text-foreground dark:text-slate-100 leading-relaxed max-w-2xl">
+                &quot;{highlightedReview.text}&quot;
+              </p>
+            </Card>
+
+            {remainingReviews.map((rev, i) => (
+              <Card
+                key={i}
+                className="rounded-[24px] border border-line bg-surface-strong/70 p-5 shadow-sm hover:border-brand/25 transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-11 h-11 rounded-2xl flex items-center justify-center font-bold text-brand ${rev.bgColor}`}>
+                    {rev.avatar}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground dark:text-white text-sm">{rev.name}</h4>
+                    <p className="text-xs text-muted-foreground">{rev.date}</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-0.5 text-amber-500 mb-3">
+                  {[...Array(rev.rating)].map((_, idx) => (
+                    <Star key={idx} className="w-4 h-4 fill-amber-500" />
+                  ))}
+                </div>
+
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4">
+                  &quot;{rev.text}&quot;
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -919,9 +1003,9 @@ function FAQSection() {
   return (
     <section id="faq" className="py-20 bg-surface" ref={ref}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-14">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} className="text-center mb-14 max-w-2xl mx-auto">
           <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">FAQ</Badge>
-          <h2 className="text-3xl font-bold text-foreground dark:text-white">FAQ Singkat</h2>
+          <h2 className="text-3xl font-bold text-foreground dark:text-white leading-tight">FAQ Singkat</h2>
         </motion.div>
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, i) => (
@@ -1056,10 +1140,10 @@ const handleSubmitBooking = (e: React.FormEvent) => {
       {/* Booking Form Section with Live Calculator */}
       <section id="booking-form" className="py-20 bg-surface border-t">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
             <Badge className="bg-brand/10 text-brand mb-3 px-3 py-1">Online Booking</Badge>
-            <h2 className="text-3xl font-bold text-foreground">Formulir Reservasi</h2>
-            <p className="text-muted-foreground mt-2">Isi data singkat untuk cek estimasi cepat.</p>
+            <h2 className="text-3xl font-bold text-foreground leading-tight">Formulir Reservasi</h2>
+            <p className="text-muted-foreground mt-2 leading-relaxed">Isi data singkat untuk cek estimasi cepat.</p>
           </div>
 
           <Card className="p-6 md:p-8 shadow-xl border border-muted/60 bg-background/80 backdrop-blur-md">

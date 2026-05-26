@@ -36,7 +36,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
           return (
             <article 
               key={index} 
-              className={`${isActive ? 'opacity-100 translate-y-0 z-10' : 'opacity-0 translate-y-4 pointer-events-none -z-10'} absolute top-0 left-0 w-full transition-all duration-700 ease-out`}
+              className={`${isActive ? 'opacity-100 translate-y-0 z-10' : 'opacity-0 translate-y-4 pointer-events-none -z-10'} absolute top-0 left-0 w-full transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)]`}
             >
               <div className="flex flex-col sm:flex-row items-start gap-4 p-6 md:p-8 bg-surface-strong/55 dark:bg-surface-strong/55 border border-line dark:border-white/5 rounded-[24px] shadow-sm hover:border-line dark:hover:border-white/10 transition-colors">
                 <div className="flex-shrink-0 relative">

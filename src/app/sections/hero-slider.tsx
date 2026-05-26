@@ -34,8 +34,8 @@ export function HeroSlider() {
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-[opacity,transform] duration-[1400ms] ease-out ${
-            index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
+          className={`absolute inset-0 transition-[opacity,transform] duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            index === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-[1.01]"
           }`}
         >
           <Image
@@ -43,8 +43,8 @@ export function HeroSlider() {
             alt={image.alt}
             fill
             sizes="100vw"
-            className={`object-cover transition-transform duration-[12000ms] ease-out ${
-              index === currentIndex ? "scale-100" : "scale-[1.03]"
+            className={`object-cover transition-transform duration-[12000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              index === currentIndex ? "scale-100" : "scale-[1.02]"
             }`}
             priority={index === 0}
             quality={75}

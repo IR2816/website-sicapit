@@ -1,182 +1,84 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { ArrowRight, TreePine, BookOpen, MapPin, Heart, Sparkles, Leaf, ChevronRight, Sun } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SiteNav } from '@/app/sections/site-nav'
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: 'spring' as const, stiffness: 100, damping: 15 },
-  },
-}
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react'
 
 export default function EduWisataHome() {
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-emerald-50 dark:bg-emerald-900/30">
+    <div className="min-h-screen bg-surface text-foreground">
       <SiteNav brand="Sicapit" />
-      
-      <main className="flex flex-col pt-16">
-        {/* --- HERO SECTION --- */}
-        <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <motion.div
-              initial={{ scale: 1.1 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              className="w-full h-full"
-            >
-              <Image 
-                src="/hero-kampung.png" 
-                alt="Edu Wisata Indonesia" 
-                fill 
-                priority
-                className="object-cover"
-                sizes="100vw"
-              />
-            </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
+
+      <main className="pt-20">
+        <section className="relative min-h-[70vh] flex items-center overflow-hidden border-b border-line">
+          <div className="absolute inset-0">
+            <Image
+              src="/hero-kampung.png"
+              alt="Edu Wisata Sicapit"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-surface" />
           </div>
 
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={containerVariants}
-              className="space-y-6"
-            >
-              <motion.div variants={itemVariants} className="flex justify-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/10 dark:bg-white/10 backdrop-blur-md border border-line dark:border-white/20 text-foreground/90 dark:text-white/90">
-                  <Leaf className="w-4 h-4 text-emerald-400" />
-                  <span className="text-sm font-medium tracking-wide">Pusat Informasi Edu Wisata</span>
-                </div>
-              </motion.div>
-
-              <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground dark:text-white tracking-tight leading-[1.1]">
-                Menyatu dengan <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Alam Tradisi</span>
-              </motion.h1>
-
-              <motion.p variants={itemVariants} className="text-lg sm:text-xl text-foreground/80 dark:text-white/80 max-w-2xl mx-auto leading-relaxed">
-                Jelajahi keindahan budaya, sistem pertanian berkelanjutan, dan kearifan lokal pedesaan Indonesia secara interaktif.
-              </motion.p>
-
-              <motion.div variants={itemVariants} className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  size="lg"
-                  className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-8 py-6 text-lg rounded-full transition-all hover:scale-105 w-full sm:w-auto font-semibold group"
-                  asChild
-                >
-                  <Link href="/edu-wisata/pertanian">
-                    <TreePine className="mr-2 w-5 h-5 transition-transform group-hover:-rotate-12" />
-                    Mulai Eksplorasi
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/5 hover:bg-white/10 text-white border-white/20 px-8 py-6 text-lg rounded-full backdrop-blur-sm transition-all w-full sm:w-auto font-medium group"
-                  asChild
-                >
-                  <Link href="#informasi">
-                    Pelajari Ciri Khas
-                    <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
-          
-          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-background to-transparent z-10" />
-        </section>
-
-        {/* --- QUICK INFO SECTION --- */}
-        <section id="informasi" className="py-24 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <Badge variant="outline" className="mb-6 px-4 py-1.5 text-emerald-600 dark:text-emerald-400 border-emerald-600/30 bg-emerald-50 dark:bg-emerald-900/20 rounded-full font-medium">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Daya Tarik Edu Wisata
+          <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <Badge className="bg-brand/12 text-brand border-brand/25 px-3 py-1 rounded-sm font-mono text-xs uppercase tracking-[0.2em]">
+                WIP · Edu Wisata
               </Badge>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-foreground">
-                Harmoni Sempurna Alam & Manusia
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Setiap kampung wisata menyimpan ekosistem luar biasa yang siap memberikan pengalaman dan pemahaman baru bagi para penjelajah sejati.
+              <h1 className="mt-6 font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                Halaman Edu Wisata sedang kami susun.
+              </h1>
+              <p className="mt-4 text-lg text-white/75 leading-relaxed">
+                Konten utama, galeri, dan panduan aktivitas Edu Wisata masih dalam tahap perapihan. Kami akan menambahkan detail lengkapnya segera.
               </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Button asChild className="bg-brand text-white hover:bg-brand/90 px-8 py-6 text-base font-bold rounded-2xl">
+                  <Link href="/">
+                    <ArrowLeft className="mr-2 h-5 w-5" />
+                    Kembali ke Beranda
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-base font-bold rounded-2xl">
+                  <Link href="/rafting">
+                    Lihat Rafting
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-            
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-            >
-              {[
-                { icon: MapPin, title: 'Tersebar Luas', desc: 'Ribuan desa wisata asri dengan keunikannya di penjuru Nusantara.', color: 'from-blue-500/20 to-cyan-500/20', iconColor: 'text-blue-500' },
-                { icon: Sun, title: 'Iklim Tropis', desc: 'Mendukung ragam flora & fauna eksotis yang bisa dipelajari sepanjang bulan.', color: 'from-amber-500/20 to-orange-500/20', iconColor: 'text-amber-500' },
-                { icon: Heart, title: 'Ekonomi Lokal', desc: 'Memberdayakan warga lokal langsung demi pariwisata yang mandiri.', color: 'from-rose-500/20 to-pink-500/20', iconColor: 'text-rose-500' },
-                { icon: BookOpen, title: 'Wawasan Praktis', desc: 'Belajar langsung rekreasi, agrikultur, dan tradisi otentik.', color: 'from-emerald-500/20 to-teal-500/20', iconColor: 'text-emerald-500' },
-              ].map((item, i) => (
-                <motion.div key={i} variants={itemVariants}>
-                  <Card className="h-full border-border/50 bg-card hover:bg-card/80 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 overflow-hidden group">
-                    <CardHeader className="pb-4 relative">
-                      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${item.color} rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                      <div className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center bg-background shadow-sm border border-border/50 mb-4 group-hover:scale-110 transition-transform duration-500">
-                        <item.icon className={`w-7 h-7 ${item.iconColor}`} />
-                      </div>
-                      <CardTitle className="text-xl font-bold">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="relative z-10">
-                      <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </section>
 
-        {/* --- CTA SECTION --- */}
-        <section className="py-32 relative overflow-hidden bg-emerald-950/20 mt-10 rounded-t-[3rem] sm:rounded-t-[5rem] mx-2 sm:mx-6 mb-6 border border-emerald-900/30">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-[100px]" />
-
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-foreground">
-              Siap untuk Petualangan Edukatif?
-            </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              Kami telah merangkum kegiatan edu-wisata untuk berbagai pengalaman bertani, kerajinan tangan, hingga memetik hasil alam.
-            </p>
-            <Button
-              size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-900/80 text-white px-10 py-7 text-lg rounded-full transition-all hover:scale-105 group"
-              asChild
-            >
-              <Link href="/edu-wisata/wisata-alam">
-                Jelajahi Sekarang
-                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+        <section className="py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-start">
+              <div className="space-y-4">
+                <span className="text-brand font-bold uppercase tracking-[0.2em] text-xs font-mono">Sedang Dipersiapkan</span>
+                <h2 className="font-heading text-3xl sm:text-4xl font-bold">Struktur Edu Wisata</h2>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  Kami sedang menyusun narasi, foto, serta detail aktivitas agar pengalaman Edu Wisata dapat dipahami dengan jelas.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-line bg-surface-strong/60 p-6">
+                <div className="flex items-center gap-3 text-brand">
+                  <Sparkles className="h-5 w-5" />
+                  <span className="font-semibold text-sm uppercase tracking-[0.2em]">Checklist WIP</span>
+                </div>
+                <ul className="mt-4 space-y-3 text-muted-foreground">
+                  <li>Detail kegiatan pertanian & edukasi</li>
+                  <li>Jadwal kunjungan dan alur pengalaman</li>
+                  <li>Galeri kegiatan warga dan workshop</li>
+                  <li>Informasi paket Edu Wisata</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
       </main>

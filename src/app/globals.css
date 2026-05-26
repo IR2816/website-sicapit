@@ -1038,13 +1038,48 @@ a {
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(var(--reveal-distance, 24px));
+  transition:
+    opacity var(--reveal-duration, 900ms) cubic-bezier(0.22, 1, 0.36, 1),
+    transform var(--reveal-duration, 900ms) cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.hero-text-shadow {
+  text-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+}
+
+.hero-text-soft {
+  text-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.scroll-reveal--soft {
+  --reveal-distance: 16px;
+  --reveal-duration: 850ms;
+}
+
+.scroll-reveal--lift {
+  --reveal-distance: 32px;
+  --reveal-duration: 1000ms;
+}
+
+.scroll-reveal--quick {
+  --reveal-distance: 12px;
+  --reveal-duration: 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @keyframes imageIn {

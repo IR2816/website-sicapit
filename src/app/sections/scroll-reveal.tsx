@@ -1,15 +1,43 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 type ScrollRevealProps = {
   children: React.ReactNode;
   className?: string;
+  delay?: number;
+  duration?: number;
+  distance?: number;
+  variant?: "soft" | "lift" | "quick";
 };
 
-export function ScrollReveal({ children, className = "" }: ScrollRevealProps) {
+const variantClassMap: Record<NonNullable<ScrollRevealProps["variant"]>, string> = {
+  soft: "scroll-reveal--soft",
+  lift: "scroll-reveal--lift",
+  quick: "scroll-reveal--quick",
+};
+
+export function ScrollReveal({
+  children,
+  className = "",
+  delay,
+  duration,
+  distance,
+  variant,
+}: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const style: CSSProperties & Record<string, string> = {};
+
+  if (delay !== undefined) {
+    style["--reveal-delay"] = `${delay}ms`;
+  }
+  if (duration !== undefined) {
+    style["--reveal-duration"] = `${duration}ms`;
+  }
+  if (distance !== undefined) {
+    style["--reveal-distance"] = `${distance}px`;
+  }
 
   useEffect(() => {
     const element = ref.current;
@@ -35,7 +63,11 @@ export function ScrollReveal({ children, className = "" }: ScrollRevealProps) {
   }, []);
 
   return (
-    <div ref={ref} className={`scroll-reveal ${visible ? "is-visible" : ""} ${className}`.trim()}>
+    <div
+      ref={ref}
+      style={style}
+      className={`scroll-reveal ${variant ? variantClassMap[variant] : ""} ${visible ? "is-visible" : ""} ${className}`.trim()}
+    >
       {children}
     </div>
   );

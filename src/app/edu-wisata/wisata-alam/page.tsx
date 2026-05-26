@@ -1,30 +1,58 @@
-import { SiteNav } from "@/app/sections/site-nav";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { SiteNav } from "@/app/sections/site-nav";
+import { Badge } from "@/components/ui/badge";
 
 export default function WisataAlamPage() {
   return (
-    <div className="min-h-screen bg-surface dark:bg-[#0d1117] text-foreground dark:text-white pt-32 pb-12">
+    <div className="min-h-screen bg-surface text-foreground">
       <SiteNav brand="Sicapit" />
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        <Link href="/edu-wisata" className="inline-flex items-center text-brand hover:text-brand/80 mb-8 transition-colors font-medium">
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Kembali ke Edu Wisata
-        </Link>
-        
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6">Wisata Alam</h1>
-        <p className="text-xl text-muted-foreground dark:text-slate-300 mb-12">
-          Halaman ini masih dalam tahap persiapan (Template). Detail informasi, rundown acara, dan panduan lengkap akan segera ditambahkan di sini.
-        </p>
 
-        <div className="bg-surface-strong dark:bg-[#161b22] border border-line dark:border-white/10 rounded-[2rem] p-12 h-80 flex flex-col items-center justify-center shadow-xl">
-          <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-6 animate-pulse border border-white/10">
-            <span className="text-2xl">🚧</span>
+      <main className="pt-20">
+        <section className="relative min-h-[60vh] flex items-center overflow-hidden border-b border-line">
+          <div className="absolute inset-0">
+            <Image
+              src="/hero-kampung.png"
+              alt="Edu Wisata Sicapit"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-surface" />
           </div>
-          <p className="text-slate-400 text-lg text-center font-medium">Segera Hadir</p>
-          <p className="text-slate-500 text-sm text-center mt-2">Struktur komponen akan ditambahkan kemudian.</p>
-        </div>
-      </div>
+
+          <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Badge className="bg-brand/12 text-brand border-brand/25 px-3 py-1 rounded-sm font-mono text-xs uppercase tracking-[0.2em]">
+              WIP · Edu Wisata
+            </Badge>
+            <h1 className="mt-6 text-4xl md:text-5xl font-bold text-white">Wisata Alam</h1>
+            <p className="mt-4 text-lg text-white/75 leading-relaxed">
+              Halaman ini masih dalam tahap persiapan (Template). Detail informasi, rundown acara, dan panduan lengkap akan segera ditambahkan di sini.
+            </p>
+            <Link
+              href="/edu-wisata"
+              className="mt-6 inline-flex items-center text-white/85 hover:text-white transition-colors font-medium"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Kembali ke Edu Wisata
+            </Link>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-surface-strong/70 border border-line rounded-[2rem] p-12 h-80 flex flex-col items-center justify-center shadow-sm">
+              <div className="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6 animate-pulse border border-line">
+                <span className="text-2xl">🚧</span>
+              </div>
+              <p className="text-muted-foreground text-lg text-center font-medium">Segera Hadir</p>
+              <p className="text-muted-foreground/60 text-sm text-center mt-2">Struktur komponen akan ditambahkan kemudian.</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
