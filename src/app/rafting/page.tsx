@@ -61,15 +61,6 @@ import { reviews } from '@/lib/data/reviews'
 // ==================== HERO SECTION ====================
 
 function HeroSection() {
-  const [particles, setParticles] = useState<
-    {
-      initialX: number
-      animX: string
-      duration: number
-      delay: number
-    }[]
-  >([])
-
   const [mounted, setMounted] = useState(false)
   const { theme, systemTheme } = useTheme()
 
@@ -79,20 +70,7 @@ function HeroSection() {
       (theme === 'system' && systemTheme === 'light'))
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     setMounted(true)
-    const timeout = setTimeout(() => {
-      setParticles(
-        [...Array(6)].map(() => ({
-          initialX: Math.random() * 1440,
-          animX: `+=${Math.random() * 200 - 100}`,
-          duration: 8 + Math.random() * 6,
-          delay: Math.random() * 5,
-        }))
-      )
-    }, 0)
-
-    return () => clearTimeout(timeout)
   }, [])
 
   return (
@@ -107,7 +85,7 @@ function HeroSection() {
           alt="Rafting Adventure"
           fill
           priority
-          quality={85}
+          quality={75}
           className="w-full h-full object-cover"
         />
 
@@ -115,155 +93,197 @@ function HeroSection() {
           <div
             className={`absolute inset-0 ${
               isLight
-                ? 'bg-gradient-to-b from-black/60 via-black/45 to-black/70'
-                : 'bg-gradient-to-b from-black/80 via-black/50 to-[#0a0a0a]'
+                ? 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_32%),linear-gradient(135deg,rgba(10,10,10,0.78)_0%,rgba(10,10,10,0.52)_55%,rgba(10,10,10,0.82)_100%)]'
+                : 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_32%),linear-gradient(135deg,rgba(6,6,6,0.82)_0%,rgba(6,6,6,0.56)_55%,rgba(6,6,6,0.88)_100%)]'
             }`}
           />
         )}
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {particles.map((p, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-brand/40 dark:bg-brand/30 rounded-full"
-            initial={{ x: p.initialX, y: 900 }}
-            animate={{ y: -100, x: p.animX }}
-            transition={{
-              duration: p.duration,
-              repeat: Infinity,
-              delay: p.delay,
-              ease: 'linear',
-            }}
-          />
-        ))}
-      </div>
-
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <Badge className="bg-brand/10 text-brand border-brand/20 px-4 py-2 text-sm mb-6 backdrop-blur-md rounded-full shadow-lg">
-            <MapPin className="w-3.5 h-3.5 mr-1.5" />
-            Kelurahan Semplak, Bogor Barat
-          </Badge>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
-        >
-          Selamat Datang di
-          <br />
-          <span className="text-brand">
-            Kampung Sicapit
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg sm:text-xl text-muted-foreground dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-sans"
-        >
-          Destinasi wisata air terpadu yang memadukan adrenalin dan
-          keasrian alam. Jelajahi keindahan Sungai Cisadane lewat
-          pengalaman edukasi, river tubing, dan rafting terbaik di Kota
-          Bogor.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-10"
-        >
-          {[
-            { icon: Waves, label: 'Rafting' },
-            { icon: Droplets, label: 'River Tubing' },
-            { icon: Heart, label: 'Wisata Kuliner' },
-            { icon: Award, label: 'Kesenian Lokal' },
-            { icon: TreePine, label: 'Alam Asri' },
-          ].map((act, i) => (
-            <span
-              key={i}
-              className="flex items-center gap-2 bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/10 dark:border-white/10 text-foreground dark:text-white text-sm md:text-base px-5 py-2.5 rounded-full hover:bg-surface/50 dark:hover:bg-surface/50 transition-colors"
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 lg:pt-36 lg:pb-20">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
+          <div className="text-left max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
             >
-              <act.icon className="w-4 h-4 text-brand" />
-              {act.label}
-            </span>
-          ))}
-        </motion.div>
+              <Badge className="bg-brand/10 text-brand border-brand/20 px-4 py-2 text-sm mb-6 rounded-md shadow-none tracking-[0.14em] uppercase">
+                <MapPin className="w-3.5 h-3.5 mr-1.5" />
+                Kelurahan Semplak, Bogor Barat
+              </Badge>
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button
-            size="lg"
-            className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-full transition-all font-bold group"
-            onClick={() =>
-              document
-                .querySelector('#paket')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            }
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.28 }}
+              className="space-y-5"
+            >
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-white/70">
+                Wisata air, budaya, dan kampung hidup
+              </p>
+              <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[0.95] tracking-tight">
+                Petualangan
+                <span className="block text-brand mt-3">Sicapit</span>
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-white/78 max-w-2xl leading-relaxed">
+                Satu tempat untuk arung jeram, river tubing, kuliner lokal, dan suasana kampung yang hidup. Dibuat untuk menarik perhatian sejak detik pertama, tanpa kehilangan rasa lokalnya.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.45 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              {[
+                { icon: Waves, label: 'Rafting' },
+                { icon: Droplets, label: 'River Tubing' },
+                { icon: Heart, label: 'Kuliner' },
+                { icon: Award, label: 'Budaya Lokal' },
+              ].map((act, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-2 bg-white/10 border border-white/10 text-white text-sm px-4 py-2 rounded-md"
+                >
+                  <act.icon className="w-4 h-4 text-brand" />
+                  {act.label}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mt-10 flex flex-col sm:flex-row gap-4"
+            >
+              <Button
+                size="lg"
+                className="bg-brand text-white hover:bg-brand/90 px-8 py-7 text-lg rounded-2xl transition-colors font-bold group"
+                onClick={() =>
+                  document
+                    .querySelector('#paket')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
+                Lihat Paket Rafting
+                <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 hover:text-white px-8 py-7 text-lg rounded-2xl backdrop-blur-sm font-bold bg-white/5"
+                onClick={() =>
+                  document
+                    .querySelector('#galeri')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
+                <Camera className="w-5 h-5 mr-2" />
+                Galeri Foto
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.85 }}
+              className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl"
+            >
+              {[
+                { icon: Users, value: '15,000+', label: 'Peserta Puas' },
+                { icon: Trophy, value: '12+', label: 'Tahun Pengalaman' },
+                { icon: Star, value: '4.9', label: 'Rating Google' },
+              ].map((stat, i) => (
+                <div key={i} className="rounded-2xl border border-white/10 bg-white/8 backdrop-blur-md p-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center border border-white/10">
+                      <stat.icon className="w-4.5 h-4.5 text-brand" />
+                    </div>
+                    <div className="text-xs uppercase tracking-[0.18em] text-white/60 font-mono">Statistik</div>
+                  </div>
+                  <div className="text-2xl md:text-3xl font-heading font-extrabold text-white">{stat.value}</div>
+                  <div className="text-sm text-white/68 mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative"
           >
-            Lihat Paket Rafting
-            <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+            <div className="relative rounded-[32px] border border-white/10 bg-black/20 p-4 md:p-5 shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand/15 via-transparent to-[#00f2fe]/10 pointer-events-none" />
+              <div className="grid grid-cols-12 gap-3">
+                <div className="col-span-12 md:col-span-8 relative min-h-[320px] md:min-h-[520px] rounded-[28px] overflow-hidden border border-white/10">
+                  <Image
+                    src="/assets/images/rafting/4.jpeg"
+                    alt="Rafting Sicapit"
+                    fill
+                    priority={false}
+                    quality={75}
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+                  <div className="absolute left-4 top-4 rounded-md border border-white/15 bg-black/35 px-3 py-2 text-white text-xs uppercase tracking-[0.2em] font-mono">
+                    Sungai Cisadane
+                  </div>
+                  <div className="absolute left-4 bottom-4 right-4">
+                    <div className="flex items-end justify-between gap-4">
+                      <div>
+                        <p className="text-white/70 text-sm uppercase tracking-[0.2em] font-mono">Rute unggulan</p>
+                        <p className="text-white font-heading text-2xl md:text-3xl font-bold">Arus, alam, dan kampung dalam satu frame.</p>
+                      </div>
+                      <div className="hidden sm:block rounded-2xl bg-white/10 border border-white/10 px-4 py-3 text-right backdrop-blur-md">
+                        <p className="text-white/60 text-xs uppercase tracking-[0.2em]">Jarak</p>
+                        <p className="text-white font-bold text-lg">27 km</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-line dark:border-white/20 text-foreground dark:text-white hover:bg-surface/30 dark:hover:bg-white/10 hover:text-foreground dark:hover:text-white px-8 py-7 text-lg rounded-full backdrop-blur-sm font-bold bg-white/70 dark:bg-black/20"
-            onClick={() =>
-              document
-                .querySelector('#galeri')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            <Camera className="w-5 h-5 mr-2" />
-            Galeri Foto
-          </Button>
-        </motion.div>
+                <div className="col-span-12 md:col-span-4 grid grid-cols-2 md:grid-cols-1 gap-3">
+                  <div className="rounded-[24px] border border-white/10 bg-white/8 backdrop-blur-md p-5 min-h-[150px] flex flex-col justify-between">
+                    <div>
+                      <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Cocok untuk</p>
+                      <p className="text-white font-heading text-2xl font-bold mt-2">Rombongan</p>
+                    </div>
+                    <p className="text-white/70 text-sm leading-relaxed">Paket yang terasa ramai, tapi tetap rapi untuk keluarga, sekolah, dan perusahaan.</p>
+                  </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-16 sm:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-black/10 dark:border-white/10 pt-12 pb-16"
-        >
-{[
-            { icon: Users, value: '15,000+', label: 'Peserta Puas' },
-            { icon: Trophy, value: '12+', label: 'Tahun Pengalaman' },
-            { icon: Star, value: '4.9', label: 'Rating Google' },
-            { icon: MapPin, value: '27 km', label: 'Jalur Rafting' },
-          ].map((stat, i) => (
-            <div key={i} className="text-center group">
-              <div className="flex justify-center mb-3">
-                <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center border border-brand/20 group-hover:scale-110 hover:bg-brand/20 transition-all">
-                  <stat.icon className="w-6 h-6 text-brand" />
+                  <div className="rounded-[24px] border border-white/10 bg-white/8 backdrop-blur-md p-5 min-h-[150px] flex flex-col justify-between">
+                    <div>
+                      <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Kesan utama</p>
+                      <p className="text-white font-heading text-2xl font-bold mt-2">Menantang</p>
+                    </div>
+                    <p className="text-white/70 text-sm leading-relaxed">Visual kuat, hierarki jelas, dan transisi yang lebih tenang saat pengguna scroll.</p>
+                  </div>
+
+                  <div className="col-span-2 rounded-[24px] border border-white/10 bg-[#0f0f0f]/70 p-5 flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-mono">Warna dominan</p>
+                      <p className="text-white font-heading text-xl md:text-2xl font-bold mt-1">Air, tanah, dan merah brand</p>
+                    </div>
+                    <div className="flex -space-x-2">
+                      <span className="w-7 h-7 rounded-full bg-[#00f2fe] border border-white/30" />
+                      <span className="w-7 h-7 rounded-full bg-[#4A3728] border border-white/30" />
+                      <span className="w-7 h-7 rounded-full bg-brand border border-white/30" />
+                    </div>
+                  </div>
                 </div>
               </div>
-              {/* SEKARANG SELALU PUTIH PEKAT */}
-              <div className="text-4xl md:text-5xl font-heading font-extrabold text-white mb-2">
-                {stat.value}
-              </div>
-              {/* SEKARANG SELALU PUTIH LEMBUT (AGAR MUDAH DIBACA) */}
-              <div className="text-sm font-medium text-slate-200">
-                {stat.label}
-              </div>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
