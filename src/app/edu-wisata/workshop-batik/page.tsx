@@ -1,58 +1,98 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { SiteNav } from "@/app/sections/site-nav";
-import { Badge } from "@/components/ui/badge";
+'use client'
+
+import { SiteNav } from '@/app/sections/site-nav'
+import { normalizePhoneForWhatsApp } from '@/lib/validation'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { ArrowLeft, Phone, PenTool, Shapes, Droplet, Brush, Eye } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function WorkshopBatikPage() {
+  const contactPhone = process.env.NEXT_PUBLIC_CONTACT_1_PHONE
+
   return (
-    <div className="min-h-screen bg-surface text-foreground">
+    <div className="min-h-screen flex flex-col bg-surface text-foreground antialiased selection:bg-brand selection:text-white">
       <SiteNav brand="Sicapit" />
 
-      <main className="pt-20">
-        <section className="relative min-h-[60vh] flex items-center overflow-hidden border-b border-line">
-          <div className="absolute inset-0">
-            <Image
-              src="/hero-kampung.png"
-              alt="Edu Wisata Sicapit"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-surface" />
-          </div>
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0">
+          <Image src="/assets/images/3.jpg" alt="Workshop Batik Sicapit" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-surface" />
+        </div>
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Badge className="bg-indigo-500/20 text-indigo-400 border-indigo-500/30 px-3 py-1 mb-4 rounded-sm font-mono text-xs uppercase tracking-[0.2em] backdrop-blur-sm">
+            <PenTool className="w-3.5 h-3.5 mr-1.5 inline" /> Edu Wisata
+          </Badge>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6">
+            Workshop <span className="text-indigo-400">Budaya Lokal</span>
+          </h1>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Belajar kesenian dasar seperti tarian daerah dan pengenalan corak lokal.
+          </p>
+          <Link href="/edu-wisata">
+            <Button variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <ArrowLeft className="w-4 h-4 mr-2" /> Kembali ke Edu Wisata
+            </Button>
+          </Link>
+        </div>
+      </section>
 
-          <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Badge className="bg-brand/12 text-brand border-brand/25 px-3 py-1 rounded-sm font-mono text-xs uppercase tracking-[0.2em]">
-              WIP · Edu Wisata
-            </Badge>
-            <h1 className="mt-6 text-4xl md:text-5xl font-bold text-white">Workshop Batik</h1>
-            <p className="mt-4 text-lg text-white/75 leading-relaxed">
-              Halaman ini masih dalam tahap persiapan (Template). Detail informasi, rundown acara, dan panduan lengkap akan segera ditambahkan di sini.
-            </p>
-            <Link
-              href="/edu-wisata"
-              className="mt-6 inline-flex items-center text-white/85 hover:text-white transition-colors font-medium"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Kembali ke Edu Wisata
-            </Link>
-          </div>
-        </section>
-
-        <section className="py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-surface-strong/70 border border-line rounded-[2rem] p-12 h-80 flex flex-col items-center justify-center shadow-sm">
-              <div className="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6 animate-pulse border border-line">
-                <span className="text-2xl">🚧</span>
+      {/* Content Section */}
+      <main className="flex-1 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-line lg:order-1 order-2">
+              <Image src="/assets/edu-wisata/tari_jaipong.jpg" alt="Seni dan Budaya Lokal" fill className="object-cover object-top" />
+            </div>
+            <div className="lg:order-2 order-1">
+              <h2 className="text-3xl font-heading font-bold mb-6">Merasakan Semangat Tradisi</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                Workshop kesenian memberikan kesempatan bagi pengunjung untuk belajar tarian daerah dan mencoba teknik dasar menggambar pola tradisional.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { title: 'Seni Tari Adat', icon: Shapes, desc: 'Pelajari dasar gerak ritmis tarian Jaipong dan tarian tradisional lainnya.' },
+                  { title: 'Batik & Menggambar', icon: Brush, desc: 'Pengenalan motif lokal dan dasar-dasar pewarnaan seni tradisi.' },
+                  { title: 'Makna Filosofi', icon: Eye, desc: 'Setiap gerakan dan motif memiliki sejarah dan cerita tersendiri.' },
+                  { title: 'Konsentrasi & Kesabaran', icon: Droplet, desc: 'Melatih ketenangan batin dalam proses menciptakan suatu seni.' },
+                ].map((item, i) => (
+                  <div key={i} className="group p-5 rounded-2xl bg-surface-strong/50 border border-line hover:bg-surface hover:border-indigo-500/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-bl-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="flex gap-4 relative z-10">
+                      <div className="bg-surface border border-line group-hover:border-indigo-500/20 group-hover:bg-indigo-500/10 p-3 rounded-xl text-indigo-500 h-fit shadow-sm transition-colors duration-300">
+                        <item.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-heading font-bold text-lg text-foreground group-hover:text-indigo-500 transition-colors duration-300">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <p className="text-muted-foreground text-lg text-center font-medium">Segera Hadir</p>
-              <p className="text-muted-foreground/60 text-sm text-center mt-2">Struktur komponen akan ditambahkan kemudian.</p>
             </div>
           </div>
-        </section>
+        </div>
       </main>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-surface-strong border-t border-line text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <PenTool className="w-12 h-12 text-indigo-500 mx-auto mb-6" />
+          <h2 className="text-3xl font-bold font-heading mb-4">Pesan Jadwal Workshop</h2>
+          <p className="text-muted-foreground mb-8 text-lg">Sesi workshop tersedia untuk grup sekolah atau instansi. Hubungi kami untuk detail lebih lanjut.</p>
+          {contactPhone && (
+            <a href={`https://wa.me/${normalizePhoneForWhatsApp(contactPhone)}?text=Halo,%20saya%20ingin%20info%20mengenai%20Workshop%20Budaya%20&%20Kesenian`} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl">
+                <Phone className="w-5 h-5 mr-2 fill-white" /> Daftar Sekarang
+              </Button>
+            </a>
+          )}
+        </div>
+      </section>
     </div>
-  );
+  )
 }

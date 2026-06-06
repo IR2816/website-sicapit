@@ -1,14 +1,32 @@
-export const metadata = {
-  title: 'Edu Wisata Bogor - Wisata Edukasi Pertanian Sicapit',
-  description: 'Pelajari pertanian berkelanjutan dan kearifan lokal di Edu Wisata Sicapit. Nikmati pengalaman edukatif langsung dari petani dan komunitas lokal Bogor.',
-  keywords: 'Edu Wisata Bogor, Wisata Edukasi Pertanian, Kampung Wisata Edukasi, Belajar Pertanian, Wisata Agro Semplak, Pertanian Organik',
-  openGraph: {
-    title: 'Edu Wisata Bogor - Wisata Edukasi Pertanian',
-    description: 'Pelajari pertanian berkelanjutan dan kearifan lokal di Sicapit.',
-    images: [{ url: 'https://sicapit.vercel.app/hero-kampung.png', width: 1200, height: 630 }],
-  }
-}
+import type { Metadata } from 'next';
 
-export default function EduWisataLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: 'Kampung Sicapit - Edu Wisata',
+  description:
+    'Pelajari tentang kampung wisata Sicapit, potensi wisata desa, kegiatan budaya, kuliner tradisional, dan panduan lengkap untuk mengunjungi kampung wisata.',
+  keywords: [
+    'kampung wisata',
+    'wisata desa',
+    'edukasi wisata',
+    'budaya Indonesia',
+    'tourism village',
+    'sicapit',
+    'edu wisata',
+  ],
+  icons: {
+    icon: '/assets/images/Icon.jpg',
+  },
+  openGraph: {
+    title: 'Kampung Sicapit - Edu Wisata',
+    description: 'Pelajari tentang kampung wisata Sicapit dan kekayaan budaya desa',
+    type: 'website',
+  },
+};
+
+export default function EduWisataLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return <>{children}</>;
 }
