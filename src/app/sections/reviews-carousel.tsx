@@ -41,7 +41,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
               <div className="flex flex-col sm:flex-row items-start gap-4 p-6 md:p-8 bg-surface-strong/55 dark:bg-surface-strong/55 border border-line dark:border-white/5 rounded-[24px] shadow-sm hover:border-line dark:hover:border-white/10 transition-colors">
                 <div className="flex-shrink-0 relative">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden relative">
-                    <Image src={review.avatar} alt={review.author} fill sizes="56px" className="object-cover" unoptimized />
+                    <Image src={review.avatar} alt={review.author} fill sizes="56px" className="object-cover" />
                   </div>
                   {review.isLocalGuide && (
                     <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-0.5 shadow-sm border border-line">

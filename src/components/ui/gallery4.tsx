@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -106,9 +107,11 @@ const Gallery4 = ({
               >
                 <a href={item.href} className="group rounded-[24px]">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-[24px] md:aspect-[5/4] lg:aspect-[16/9] shadow-lg border border-line">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 320px, 360px"
                       className="absolute h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 h-full bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-80" />

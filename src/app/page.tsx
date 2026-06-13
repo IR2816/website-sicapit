@@ -12,49 +12,11 @@ import { VillageStory } from "./sections/village-story";
 import { VillageAwards } from "./sections/village-awards";
 import { BUSINESS_HOURS, formatBusinessHours } from "@/lib/data/business-info";
 import { reviews } from "@/lib/data/reviews";
+import { guidePoints } from "@/lib/data/guide-points";
+import { travelTips } from "@/lib/data/travel-tips";
+import { videoHighlights } from "@/lib/data/video-highlights";
 // SECURITY: Import validation utilities
 import { normalizePhoneForWhatsApp } from "@/lib/validation";
-
-const guidePoints = [
-  {
-    title: "Alam Asri Seadanya",
-    text: "Hamparan hijau, udara yang masih segar, dan keindahan panorama alam untuk menjernihkan pikiran dari kepenatan kota.",
-  },
-  {
-    title: "Interaksi Masyarakat",
-    text: "Anda dapat berbaur dengan masyarakat dan melihat keseharian aktivitas masyarakat di kampung wisata Sicapit dan atau sekedar ngobrol santai mempelajari sosial perkampungan dari masyarakat itu sendiri.",
-  },
-  {
-    title: "Edukasi Budaya Perkampungan",
-    text: "Berkunjung ke kampung wisata Sicapit bukan hanya menikmati suasana perkampungan dengan konsep wisata, tetapi anda akan mendapatkan edukasi tata cara kemasyarakatan baik sosial hingga ekonomi di masyarakat perkampungan Sicapit", 
-  },
-];
-
-const travelTips = [
-  "Datang pada waktu pagi hari untuk mendapatkan pencahayaan terbaik saat di lokasi.",
-  "Gunakan alas kaki anti slip untuk wahana Tirta arung jeram, obat pribadi, dan perlengkapan pribadi lainnya.",
-  "Hubungi kontak kami terlebih dahulu untuk koordinasi jika datang bersama rombongan besar.",
-];
-const videoHighlights = [
-  {
-    title: "Dancer Parade",
-    desc: "Cuplikan suasana intim dari pertunjukan budaya dan gerak lokal di tengah kampung.",
-    src: "/assets/videos/Dancer_1.webm",
-    poster: "/assets/images/3.jpg",
-  },
-  {
-    title: "Rafting Sicapit",
-    desc: "Kegiatan wahana Tirta yang menantang adrenalin untuk anda di sungai Cisadane sepanjang 7km dengan panorama hutan Cifor dan jeram bagol yang menjadi icon jeram di sungai Cisadane. Di pandu oleh skipper dari masyarakat yang dilatih secara kompeten oleh pelatih profesional dan bersertifikasi. Kegiatan wahana Tirta ini sudah dilindungi asuransi yang memadai untuk keamanan rafting sicapit di sungai Cisadane.",   
-    src: "/assets/rafting/videos/Rafting_1.webm",
-    poster: "/assets/images/4.jpg",
-  },
-  {
-    title: "Jeram Sicapit",
-    desc: "Aliran sungai Cisadane yang melintasi di perkampungan Sicapit.",
-    src: "/assets/rafting/videos/Rafting_2.webm",
-    poster: "/assets/images/6.jpg",
-  },
-];
 
 export default function Home() {
   return (
@@ -107,7 +69,7 @@ export default function Home() {
               </a>
               <a href="#layanan" className="group w-full sm:w-auto px-8 py-4 bg-transparent border border-line hover:border-brand text-foreground font-bold text-sm tracking-wide rounded-2xl transition-colors duration-300 flex items-center justify-center gap-3">
                 Jelajahi Layanan
-                <svg className="w-4 h-4 text-brand group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <svg className="w-4 h-4 text-brand group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
             </div>
           </ScrollReveal>
@@ -198,7 +160,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-2 text-brand font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
                       Buka Laman Edu Wisata 
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </div>
                   </div>
                 </Link>
@@ -221,7 +183,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-2 text-[#00f2fe] font-bold text-sm tracking-wide group-hover:gap-4 transition-all duration-500 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 absolute bottom-8 left-8 md:left-10">
                       Buka Laman Rafting 
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </div>
                   </div>
                 </Link>
@@ -254,7 +216,7 @@ export default function Home() {
               <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-end">
                 <div className="space-y-3">
                   <span className="text-brand font-bold uppercase tracking-[0.2em] text-xs font-mono">Hiburan Masyarakat</span>
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold mt-0">Hiburan Masyarakat</h2>
+                  <h2 className="font-heading text-3xl md:text-4xl font-bold mt-0">Tawa & Kebahagiaan Kampung</h2>
                 </div>
                 <p className="text-muted-foreground max-w-2xl">Sedikit kebahagiaan dan tawa yang terekam secara alami di halaman kami. Semoga ikut tersenyum.</p>
               </div>
@@ -352,6 +314,7 @@ export default function Home() {
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="w-full block text-center px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-colors shadow-lg/20"
+                      aria-label="Hubungi via WhatsApp"
                     >
                       Hubungi WhatsApp
                     </a>

@@ -2,7 +2,9 @@ import { SiteNav } from '@/app/sections/site-nav'
 import { SiteFooter as Footer } from '@/components/Footer'
 
 export const metadata = {
-  title: 'Privacy Policy - Kampung Wisata Sicapit',
+  title: 'Kebijakan Privasi - Kampung Wisata Sicapit',
+  description: 'Kebijakan privasi Kampung Wisata Sicapit. Informasi tentang pengelolaan data pengunjung dan layanan wisata kami di Bogor.',
+  keywords: ['kebijakan privasi', 'privasi wisata', 'data pengunjung', 'kebijakan data sicapit'],
 }
 
 export default function PrivacyPolicy() {
@@ -10,7 +12,7 @@ export default function PrivacyPolicy() {
     <div className="bg-surface dark:bg-background min-h-screen flex flex-col">
       <SiteNav brand="Sicapit" />
       <main className="flex-1 container mx-auto px-6 py-32 max-w-4xl">
-        <h1 className="text-4xl font-bold mb-8 text-foreground dark:text-white">Kebijakan Privasi (Privacy Policy)</h1>
+        <h1 className="text-4xl font-bold mb-8 text-foreground dark:text-white">Kebijakan Privasi</h1>
         <div className="prose dark:prose-invert max-w-none text-muted-foreground space-y-6">
           <p>Terakhir diperbarui: {new Date().toLocaleDateString('id-ID')}</p>
           <p>Selamat datang di Kampung Wisata Sicapit. Kami sangat menghargai privasi Anda dan berkomitmen untuk melindungi informasi pribadi yang Anda bagikan kepada kami.</p>

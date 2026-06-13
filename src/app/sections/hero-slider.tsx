@@ -4,12 +4,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-
-const images = [
-  { src: "/assets/images/1.jpg", alt: "Pemandangan Kampung Wisata Sicapit" },
-  { src: "/assets/images/5.jpg", alt: "Suasana Asri Alam Sicapit" },
-  { src: "/assets/images/rafting/8.jpeg", alt: "Aktivitas rafting di Kampung Wisata Sicapit" },
-];
+import { heroImages as images } from "@/lib/data/hero-images";
 
 export function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);

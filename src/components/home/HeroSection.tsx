@@ -78,7 +78,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/rafting_assets/rafting_assets/images/gallery-bento2.png"
+          src="/rafting_assets/images/gallery-bento2.png"
           alt="Rafting Adventure"
           className="w-full h-full object-cover"
         />

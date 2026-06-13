@@ -81,7 +81,7 @@ export const packages = [
     distance: '7 km',
     difficulty: 'Mudah',
     difficultyColor: 'bg-emerald-100 text-emerald-700',
-    image: '/rafting_assets/rafting_assets/images/gallery-bento4.png',
+    image: '/rafting_assets/images/gallery-bento4.png',
     features: [
       'Nasi Box',
       'Kopi Break',
@@ -101,7 +101,7 @@ export const packages = [
     distance: '12 km',
     difficulty: 'Sedang',
     difficultyColor: 'bg-amber-100 text-amber-700',
-    image: '/rafting_assets/rafting_assets/images/gallery-bento1.png',
+    image: '/rafting_assets/images/gallery-bento1.png',
     features: [
       'Nasi Box',
       'Kopi Break',
@@ -121,7 +121,7 @@ export const packages = [
     distance: '27 km',
     difficulty: 'Sulit',
     difficultyColor: 'bg-red-100 text-red-700',
-    image: '/rafting_assets/rafting_assets/images/gallery-bento3.png',
+    image: '/rafting_assets/images/gallery-bento3.png',
     features: [
       'Nasi Box',
       'Kopi Break',

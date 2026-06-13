@@ -1,27 +1,36 @@
 'use client'
 
-import { organizationSchema, breadcrumbSchema } from '@/lib/schema'
+import {
+  touristAttractionSchema,
+  localBusinessSchema,
+  organizationSchema,
+  webSiteSchema,
+  breadcrumbSchema,
+} from '@/lib/schema'
 
 /**
  * Komponen untuk render JSON-LD Schema Scripts
- * Digunakan untuk structured data dan SEO
+ * Comprehensive structured data for SEO
  */
 export function JsonLdScripts() {
+  const schemas = [
+    touristAttractionSchema,
+    localBusinessSchema,
+    organizationSchema,
+    webSiteSchema,
+    breadcrumbSchema,
+  ]
+
   return (
     <>
-      {/* Organization + TouristAttraction Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        suppressHydrationWarning
-      />
-
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        suppressHydrationWarning
-      />
+      {schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          suppressHydrationWarning
+        />
+      ))}
     </>
   )
 }

@@ -30,83 +30,12 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
-import { useToast } from '@/hooks/use-toast'
-import {
-  Waves,
-  Mountain,
-  Shield,
-  Users,
-  Star,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  ChevronRight,
-  Menu,
-  X,
-  Heart,
-  Award,
-  Camera,
-  TreePine,
-  CheckCircle2,
-  Zap,
-  Trophy,
-  CalendarDays,
-  ArrowUp,
-  HelpCircle,
-  LifeBuoy,
-  Play,
-  Droplets,
-  UserCheck,
-  BaggageClaim,
-  HardHat,
-  AlertTriangle,
-  Info,
-  BookOpen,
-} from 'lucide-react'
+import { Award } from 'lucide-react'
+import { aboutFeatures as features } from '@/lib/data/about-features'
 
 export function AboutSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const features = [
-    {
-      icon: MapPin,
-      title: 'Lokasi Strategis',
-      desc: 'Hanya 10 km dari pusat Kota Bogor. Akses mudah dengan kendaraan pribadi maupun umum.',
-    },
-    {
-      icon: Waves,
-      title: 'Rafting & River Tubing',
-      desc: 'Arung jeram & river tubing di Sungai Cisadane. Tersedia untuk semua tingkat kesulitan.',
-    },
-    {
-      icon: Heart,
-      title: 'Wisata Kuliner',
-      desc: 'Ragam kuliner khas Bogor tersedia di area wisata, dari tradisional hingga jajanan lokal.',
-    },
-    {
-      icon: Award,
-      title: 'Kesenian Lokal',
-      desc: 'Pertunjukan budaya autentik khas Bogor, perpaduan wisata alam dan budaya.',
-    },
-    {
-      icon: TreePine,
-      title: 'Suasana Alam Asri',
-      desc: 'Dikelilingi pepohonan hijau dan udara segar untuk pengalaman wisata yang menyenangkan.',
-    },
-    {
-      icon: Users,
-      title: 'Menggerakkan Ekonomi',
-      desc: 'Membuka peluang usaha masyarakat sekitar: homestay, warung, hingga jasa pemandu.',
-    },
-  ]
 
   return (
     <section id="tentang" className="py-20 lg:py-28 bg-white" ref={ref}>
@@ -121,7 +50,7 @@ export function AboutSection() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/rafting_assets/rafting_assets/images/gallery-bento4.png"
+                src="/rafting_assets/images/gallery-bento4.png"
                 alt="Keindahan Sungai Rafting"
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />

@@ -2,7 +2,9 @@ import { SiteNav } from '@/app/sections/site-nav'
 import { SiteFooter as Footer } from '@/components/Footer'
 
 export const metadata = {
-  title: 'Terms of Service - Kampung Wisata Sicapit',
+  title: 'Syarat & Ketentuan - Kampung Wisata Sicapit',
+  description: 'Syarat dan ketentuan layanan wisata Kampung Wisata Sicapit. Informasi reservasi, keselamatan rafting, dan hak pengunjung.',
+  keywords: ['syarat ketentuan', 'ketentuan wisata', 'reservasi rafting', 'syarat layanan sicapit'],
 }
 
 export default function TermsOfService() {
@@ -10,7 +12,7 @@ export default function TermsOfService() {
     <div className="bg-surface dark:bg-background min-h-screen flex flex-col">
       <SiteNav brand="Sicapit" />
       <main className="flex-1 container mx-auto px-6 py-32 max-w-4xl">
-        <h1 className="text-4xl font-bold mb-8 text-foreground dark:text-white">Syarat & Ketentuan (Terms of Service)</h1>
+        <h1 className="text-4xl font-bold mb-8 text-foreground dark:text-white">Syarat & Ketentuan</h1>
         <div className="prose dark:prose-invert max-w-none text-muted-foreground space-y-6">
           <p>Terakhir diperbarui: {new Date().toLocaleDateString('id-ID')}</p>
           <p>Dengan mengakses atau menggunakan situs web dan layanan Kampung Wisata Sicapit, Anda setuju untuk terikat oleh Syarat dan Ketentuan ini.</p>

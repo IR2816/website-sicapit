@@ -42,7 +42,7 @@ export function SiteNav({ brand }: SiteNavProps) {
       >
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 md:w-11 md:h-11 overflow-hidden rounded-xl border border-brand/60 transition-transform duration-300 group-hover:-translate-y-0.5">
-            <Image src="/assets/images/Icon.jpg" alt="Logo Sicapit" fill sizes="48px" className="object-cover" />
+            <Image src="/assets/images/icon.jpg" alt="Logo Sicapit" fill sizes="48px" className="object-cover" />
           </div>
           <div className="flex flex-col">
             <span className="text-[9px] uppercase font-bold text-brand tracking-[0.2em] transform transition-transform group-hover:translate-x-0.5">Kampung Wisata</span>

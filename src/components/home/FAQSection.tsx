@@ -30,85 +30,11 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
-import { useToast } from '@/hooks/use-toast'
-import {
-  Waves,
-  Mountain,
-  Shield,
-  Users,
-  Star,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  ChevronRight,
-  Menu,
-  X,
-  Heart,
-  Award,
-  Camera,
-  TreePine,
-  CheckCircle2,
-  Zap,
-  Trophy,
-  CalendarDays,
-  ArrowUp,
-  HelpCircle,
-  LifeBuoy,
-  Play,
-  Droplets,
-  UserCheck,
-  BaggageClaim,
-  HardHat,
-  AlertTriangle,
-  Info,
-  BookOpen,
-} from 'lucide-react'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Phone } from 'lucide-react'
+import { raftingFaqDetails as faqItems } from '@/lib/data/rafting-faq-details'
 
-export const faqItems = [
-  {
-    q: 'Apakah saya harus bisa berenang untuk ikut rafting?',
-    a: 'Tidak perlu bisa berenang! Semua peserta akan diberikan life jacket (pelampung) berkualitas tinggi. Pemandu kami juga sudah terlatih untuk menangani berbagai situasi di air. Yang penting Anda tidak takut air dan siap untuk seru-seruan!',
-    icon: LifeBuoy,
-    tag: 'Keamanan',
-  },
-  {
-    q: 'Sebaiknya membawa apa saja saat rafting?',
-    a: 'Cukup bawa pakaian ganti, handuk, dan sunblock. Gunakan kaos dan celana pendek yang tidak kebesaran (hindari jeans). Sepatu atau sandal gunung yang melekat di kaki. Hindari membawa barang bawaan berlebihan karena akan mengganggu aktivitas di rakit.',
-    icon: BaggageClaim,
-    tag: 'Persiapan',
-  },
-  {
-    q: 'Apakah rafting aman untuk anak-anak?',
-    a: 'Untuk Paket Pamili (7 km), anak usia minimal 5 tahun sudah bisa ikut dengan pendampingan orang tua. Arus pada rute ini relatif tenang dan cocok untuk keluarga. Untuk Paket Konservasi dan Petualangan, minimal usia 12 tahun dengan kondisi fisik sehat.',
-    icon: UserCheck,
-    tag: 'Usia',
-  },
-  {
-    q: 'Bagaimana jika cuaca hujan pada hari H?',
-    a: 'Rafting tetap berlangsung saat hujan karena Anda akan basah anyway! Hujan justru membuat arus sungai lebih seru. Aktivitas hanya akan ditunda atau dibatalkan jika terjadi banjir besar atau kondisi sungai berbahaya. Keputusan ada di pihak pemandu untuk keselamatan semua peserta.',
-    icon: Droplets,
-    tag: 'Cuaca',
-  },
-  {
-    q: 'Saya pemula total, paket mana yang cocok?',
-    a: 'Untuk pemula, sangat direkomendasikan Paket Pamili dengan jarak 7 km. Arusnya tergolong ringan dan pemandu akan memberikan briefing lengkap tentang teknik mendayung dan posisi tubuh sebelum mulai. Yang penting ikuti instruksi pemandu dan nikmati perjalanannya!',
-    icon: HelpCircle,
-    tag: 'Kesulitan',
-  },
-  {
-    q: 'Bagaimana cara booking dan pembayarannya?',
-    a: 'Booking bisa langsung melalui WhatsApp kami di +62 857-7324-6998. Setelah konfirmasi jadwal, Anda bisa melakukan DP 50% dan pelunasan di tempat sebelum keberangkatan. Kami menerima transfer bank dan e-wallet.',
-    icon: CalendarDays,
-    tag: 'Booking',
-  },
-]
+export { raftingFaqDetails as faqItems } from '@/lib/data/rafting-faq-details'
 
 export function FAQSection() {
   const ref = useRef(null)

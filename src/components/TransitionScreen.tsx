@@ -52,7 +52,7 @@ export function TransitionScreen() {
           >
             <div className="relative flex justify-center items-center">
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-[28px] overflow-hidden flex items-center justify-center bg-surface/90 border border-line shadow-sm">
-                <Image src="/assets/images/Icon.jpg" alt="Sicapit" fill sizes="112px" className="object-cover" />
+                <Image src="/assets/images/icon.jpg" alt="Sicapit" fill sizes="112px" className="object-cover" />
               </div>
             </div>
             

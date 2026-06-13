@@ -6,6 +6,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { SiteNav } from '../sections/site-nav'
+import { PageBreadcrumb } from '@/components/page-breadcrumb'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -29,6 +30,7 @@ import {
   ChevronDown,
 } from 'lucide-react'
 import { normalizePhoneForWhatsApp } from '@/lib/validation'
+import { eduSubPages as subPages } from '@/lib/data/edu-wisata-subpages'
 
 /* ─── Animated Section Wrapper ─── */
 function AnimatedSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -47,72 +49,7 @@ function AnimatedSection({ children, className = '', delay = 0 }: { children: Re
   )
 }
 
-/* ─── Sub-page Card Data ─── */
-const subPages = [
-  {
-    href: '/edu-wisata/edukasi',
-    icon: BookOpen,
-    title: 'Edukasi Lengkap',
-    desc: 'Pelajari sejarah, potensi, dan program edukasi kampung wisata secara mendalam.',
-    tag: 'Mulai Disini',
-    tagColor: 'bg-brand',
-    image: '/assets/images/5.jpg',
-  },
-  {
-    href: '/edu-wisata/wisata-alam',
-    icon: Mountain,
-    title: 'Wisata Alam',
-    desc: 'Jelajahi keindahan alam sekitar kampung Sicapit yang asri dan menyegarkan.',
-    tag: 'Alam',
-    tagColor: 'bg-emerald-600',
-    image: '/hero-kampung.png',
-  },
-  {
-    href: '/edu-wisata/pertanian',
-    icon: Leaf,
-    title: 'Pertanian & Agrowisata',
-    desc: 'Belajar bertani organik, panen sayuran, dan memahami siklus pertanian tradisional.',
-    tag: 'Agrowisata',
-    tagColor: 'bg-emerald-600',
-    image: '/assets/images/5.jpg',
-  },
-  {
-    href: '/edu-wisata/kuliner-tradisi',
-    icon: UtensilsCrossed,
-    title: 'Kuliner Tradisi',
-    desc: 'Cicipi masakan khas desa dengan bahan lokal segar dan resep turun-temurun.',
-    tag: 'Kuliner',
-    tagColor: 'bg-amber-600',
-    image: '/assets/images/7.jpg',
-  },
-  {
-    href: '/edu-wisata/kerajinan-tangan',
-    icon: Scissors,
-    title: 'Kerajinan Tangan',
-    desc: 'Kreasi seni dan kerajinan tradisional langsung dari pengrajin lokal berpengalaman.',
-    tag: 'Kerajinan',
-    tagColor: 'bg-purple-600',
-    image: '/assets/edu-wisata/musik_sunda.jpg',
-  },
-  {
-    href: '/edu-wisata/workshop-batik',
-    icon: Palette,
-    title: 'Workshop Batik',
-    desc: 'Praktik langsung membatik dengan teknik tradisional dan modern.',
-    tag: 'Workshop',
-    tagColor: 'bg-indigo-600',
-    image: '/assets/images/3.jpg',
-  },
-  {
-    href: '/edu-wisata/homestay',
-    icon: HomeIcon,
-    title: 'Homestay',
-    desc: 'Pengalaman menginap autentik di rumah warga dengan suasana kekeluargaan.',
-    tag: 'Penginapan',
-    tagColor: 'bg-rose-600',
-    image: '/hero-kampung.png',
-  },
-]
+/* ─── Sub-page Card Data (imported from @/lib/data/edu-wisata-subpages) ─── */
 
 /* ─── Hero Section ─── */
 function HeroSection() {
@@ -250,7 +187,7 @@ function HeroSection() {
               <div className="relative aspect-[6/5] rounded-[28px] overflow-hidden border border-white/10">
                 <Image
                   src="/assets/images/5.jpg"
-                  alt="Edu Wisata Sicapit"
+                  alt="Pemandangan persawahan dan pedesaan Sicapit"
                   fill
                   priority={false}
                   quality={75}
@@ -284,7 +221,7 @@ function HeroSection() {
         className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 cursor-pointer z-10"
         onClick={() => document.querySelector('#tentang')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <ChevronDown className="w-7 h-7" />
+        <ChevronDown className="w-7 h-7" aria-label="Scroll ke bawah" />
       </motion.div>
     </section>
   )
@@ -472,6 +409,7 @@ export default function EduWisataPage() {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-brand selection:text-white">
       <SiteNav brand="Sicapit" />
+      <PageBreadcrumb items={[{ label: 'Edu Wisata' }]} />
       <HeroSection />
       <AboutSection />
       <Gallery4

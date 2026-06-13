@@ -2,8 +2,12 @@
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { SiteNav } from '../sections/site-nav'
+import { PageBreadcrumb } from '@/components/page-breadcrumb'
 import { raftingPackages } from '@/lib/data/rafting-packages'
 import { BUSINESS_HOURS } from '@/lib/data/business-info'
+import { raftingSlideshowImages as slideshowImages, raftingBentoItems as bentoItemsLayout, raftingVideoItems as videoItems } from '@/lib/data/rafting-gallery'
+import { raftingFaqs as faqs } from '@/lib/data/rafting-faq'
+import { aboutFeatures as features } from '@/lib/data/about-features'
 // Security: Import validation functions
 import { validateBookingForm, normalizePhoneForWhatsApp, sanitizeTextInput, encodeForURL } from '@/lib/validation'
 
@@ -40,7 +44,6 @@ import {
 import {
   Waves,
   Users,
-  Star,
   Phone,
   MapPin,
   Clock,
@@ -56,7 +59,6 @@ import {
   Play,
   Droplets,
 } from 'lucide-react'
-import { reviews } from '@/lib/data/reviews'
 
 // ==================== HERO SECTION ====================
 
@@ -231,39 +233,6 @@ function HeroSection() {
 function AboutSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const features = [
-    {
-      icon: MapPin,
-      title: 'Lokasi Strategis',
-      desc: 'Hanya 10 km dari pusat Kota Bogor. Akses mudah dengan kendaraan pribadi maupun umum.',
-    },
-    {
-      icon: Waves,
-      title: 'Rafting & River Tubing',
-      desc: 'Arung jeram & river tubing di Sungai Cisadane. Tersedia untuk semua tingkat kesulitan.',
-    },
-    {
-      icon: Heart,
-      title: 'Wisata Kuliner',
-      desc: 'Ragam kuliner khas Bogor tersedia di area wisata, dari tradisional hingga jajanan lokal.',
-    },
-    {
-      icon: Award,
-      title: 'Kesenian Lokal',
-      desc: 'Pertunjukan budaya autentik khas Bogor, perpaduan wisata alam dan budaya.',
-    },
-    {
-      icon: TreePine,
-      title: 'Suasana Alam Asri',
-      desc: 'Dikelilingi pepohonan hijau dan udara segar untuk pengalaman wisata yang menyenangkan.',
-    },
-    {
-      icon: Users,
-      title: 'Menggerakkan Ekonomi',
-      desc: 'Membuka peluang usaha masyarakat sekitar: homestay, warung, hingga jasa pemandu.',
-    },
-  ]
 
   return (
     <section id="tentang" className="py-20 lg:py-28 bg-surface" ref={ref}>
@@ -491,11 +460,13 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
                 <div>
                   {/* Card Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <Image
                       src={pkg.image}
                       alt={pkg.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                     loading="lazy" />
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute bottom-4 left-4">
                       <Badge className={`${pkg.difficultyColor} border-0 px-3 py-1 text-white`}>
@@ -559,99 +530,6 @@ const PackagesSection = ({ onSelectPackage }: PackagesSectionProps) => {
 }
 
 // ==================== GALLERY SECTION ====================
-
-const slideshowImages = [
-  '/assets/images/rafting/image.png',
-  '/assets/images/rafting/imagee.png',
-  '/assets/images/rafting/image-copy.png',
-  '/assets/images/rafting/image-copy-2.png',
-  '/assets/images/rafting/image-copy-3.png',
-  '/assets/images/rafting/image-copy-4.png',
-  '/assets/images/rafting/image-copy-5.png',
-  '/assets/images/rafting/image-copy-6.png',
-  '/assets/images/rafting/image-copy-7.png',
-  '/assets/images/rafting/image-copy-8.png',
-  '/assets/images/rafting/image-copy-9.png',
-  '/assets/images/rafting/image-copy-10.png',
-  '/assets/images/rafting/image-copy-11.png',
-  '/assets/images/rafting/image-copy-12.png',
-  '/assets/images/rafting/image-copy-13.png',
-  '/assets/images/rafting/image-copy-14.png',
-  '/assets/images/rafting/image-copy-15.png',
-  '/assets/images/rafting/image-copy-16.png',
-  '/assets/images/rafting/1.jpeg',
-  '/assets/images/rafting/2.jpeg',
-  '/assets/images/rafting/5.jpeg',
-  '/assets/images/rafting/6.jpeg',
-  '/assets/images/rafting/7.jpeg',
-  '/assets/images/rafting/8.jpeg',
-]
-
-const bentoItemsLayout = [
-  {
-    src: '/assets/images/rafting/3.jpeg',
-    title: 'Pemandu Ahli',
-    tag: 'Tim Kami',
-    colSpan: 'col-span-1 md:col-span-1',
-    rowSpan: 'row-span-1 md:row-span-2',
-    offset: 'md:-translate-y-2',
-    type: 'image',
-  },
-  {
-    src: '/assets/images/rafting/4.jpeg',
-    title: 'Bersama Tim',
-    tag: 'Keluarga',
-    colSpan: 'col-span-1 md:col-span-1',
-    rowSpan: 'row-span-1 md:row-span-1',
-    offset: 'md:translate-y-2',
-    type: 'image',
-  },
-  {
-    src: '/assets/images/rafting/7.jpeg',
-    title: 'Arus Deras',
-    tag: 'Aktivitas',
-    colSpan: 'col-span-2 md:col-span-2',
-    rowSpan: 'row-span-1 md:row-span-1',
-    offset: 'md:-translate-y-1',
-    type: 'image',
-  },
-  {
-    src: '/assets/images/rafting/6.jpeg',
-    title: 'Petualangan Seru',
-    tag: 'Aktivitas',
-    colSpan: 'col-span-2 md:col-span-2',
-    rowSpan: 'row-span-1 md:row-span-2',
-    type: 'image',
-  },
-  {
-    src: '/assets/images/rafting/1.jpeg',
-    title: 'Aksi di Rapids',
-    tag: 'Aktivitas',
-    colSpan: 'col-span-1 md:col-span-1',
-    rowSpan: 'row-span-1 md:row-span-1',
-    offset: 'md:-translate-y-1',
-    type: 'image',
-  },
-  {
-    src: '/assets/images/rafting/5.jpeg',
-    title: 'Mengayuh Bersama',
-    tag: 'Aktivitas',
-    colSpan: 'col-span-1 md:col-span-1',
-    rowSpan: 'row-span-1 md:row-span-1',
-    offset: 'md:translate-y-1',
-    type: 'image',
-  },
-]
-
-const videoItems = [
-  // Hapus "/rafting" karena di struktur Anda, folder videos langsung di bawah public/assets/
-  { src: '/assets/rafting/videos/Jeram-Bagol.webm', title: 'Jeram Bagol', tag: 'Video' },
-  { src: '/assets/rafting/videos/Konservasi.webm', title: 'Konservasi', tag: 'Video' },
-  { src: '/assets/rafting/videos/Rafting.webm', title: 'Aksi di Air', tag: 'Video' },
-  { src: '/assets/rafting/videos/Video.webm', title: 'Keseruan Rafting', tag: 'Video' },
-  { src: '/assets/rafting/videos/Rafting_1.webm', title: 'Petualangan Sungai', tag: 'Video' },
-  { src: '/assets/rafting/videos/Rafting_2.webm', title: 'Tantangan Arus', tag: 'Video' },
-]
 
 function GallerySection() {
   const ref = useRef(null)
@@ -854,147 +732,8 @@ function GallerySection() {
   )
 }
 
-// ==================== TESTIMONIALS SECTION ====================
-
-function TestimonialsSection() {
-  const customerReviews = reviews.map((review) => ({
-    name: review.author,
-    rating: review.rating,
-    text: review.text,
-    date: review.time,
-    avatar: review.author.charAt(0),
-    bgColor: 'bg-brand/20',
-    source: 'Google Reviews',
-  }))
-
-  const averageRating = (
-    customerReviews.reduce((sum, review) => sum + review.rating, 0) / customerReviews.length
-  ).toFixed(1)
-
-  const highlightedReview = customerReviews[0]
-  const remainingReviews = customerReviews.slice(1)
-
-  return (
-    <section id="testimoni" className="py-20 bg-surface overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-14">
-          <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-brand border-brand/50 px-3 py-1 mb-4">
-            Testimoni
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground dark:text-white leading-tight">
-            Ulasan Pengunjung
-          </h2>
-          <p className="text-muted-foreground dark:text-slate-400 text-lg leading-relaxed mt-3">
-            Kesan singkat dari tamu yang sudah datang langsung ke Sicapit.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-6 lg:gap-8 items-start">
-          <div className="rounded-[28px] border border-line bg-surface-strong/70 p-6 lg:p-7 shadow-sm sticky top-24">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/8 px-3 py-1 text-brand text-xs font-semibold uppercase tracking-[0.18em]">
-              Google Reviews
-            </div>
-            <div className="mt-6 space-y-4">
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground font-mono">Rata-rata rating</p>
-                <div className="mt-2 flex items-end gap-3">
-                  <span className="text-5xl font-heading font-extrabold text-foreground dark:text-white leading-none">{averageRating}</span>
-                  <span className="text-base text-muted-foreground pb-1">/ 5</span>
-                </div>
-              </div>
-              <p className="text-muted-foreground dark:text-slate-300 leading-relaxed">
-                Ulasan dibuat lebih tenang dan mudah dibaca supaya fokusnya tetap ke pengalaman tamu, bukan ke efek visual yang berlebihan.
-              </p>
-            </div>
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl border border-line bg-background/60 p-4">
-                <p className="text-2xl font-heading font-bold text-foreground dark:text-white">{customerReviews.length}</p>
-                <p className="text-sm text-muted-foreground mt-1">Ulasan terpilih</p>
-              </div>
-              <div className="rounded-2xl border border-line bg-background/60 p-4">
-                <p className="text-2xl font-heading font-bold text-foreground dark:text-white">5/5</p>
-                <p className="text-sm text-muted-foreground mt-1">Rating rata-rata</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-            <Card className="md:col-span-2 lg:col-span-2 rounded-[28px] border border-line bg-surface-strong/70 p-6 lg:p-7 shadow-sm">
-              <div className="flex items-start justify-between gap-4 mb-5">
-                <div className="flex items-center gap-3">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-brand ${highlightedReview.bgColor}`}>
-                    {highlightedReview.avatar}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-base text-foreground dark:text-white">{highlightedReview.name}</h4>
-                    <p className="text-sm text-muted-foreground">{highlightedReview.date} · {highlightedReview.source}</p>
-                  </div>
-                </div>
-                <div className="rounded-full border border-brand/20 bg-brand/8 px-3 py-1 text-brand text-sm font-semibold">
-                  5.0
-                </div>
-              </div>
-
-              <div className="flex gap-0.5 text-amber-500 mb-4">
-                {[...Array(highlightedReview.rating)].map((_, idx) => (
-                  <Star key={idx} className="w-4 h-4 fill-amber-500" />
-                ))}
-              </div>
-
-              <p className="text-lg sm:text-xl text-foreground dark:text-slate-100 leading-relaxed max-w-2xl">
-                &quot;{highlightedReview.text}&quot;
-              </p>
-            </Card>
-
-            {remainingReviews.map((rev, i) => (
-              <Card
-                key={i}
-                className="rounded-[24px] border border-line bg-surface-strong/70 p-5 shadow-sm hover:border-brand/25 transition-colors"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-11 h-11 rounded-2xl flex items-center justify-center font-bold text-brand ${rev.bgColor}`}>
-                    {rev.avatar}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground dark:text-white text-sm">{rev.name}</h4>
-                    <p className="text-xs text-muted-foreground">{rev.date}</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-0.5 text-amber-500 mb-3">
-                  {[...Array(rev.rating)].map((_, idx) => (
-                    <Star key={idx} className="w-4 h-4 fill-amber-500" />
-                  ))}
-                </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4">
-                  &quot;{rev.text}&quot;
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 // ==================== FAQ SECTION ====================
 
-const faqs = [
-  {
-    q: 'Apakah aman untuk pemula yang tidak bisa berenang?',
-    a: 'Sangat aman. Peserta memakai pelampung, helm, dan didampingi pemandu bersertifikat.',
-    icon: HelpCircle,
-    tag: 'Keamanan',
-  },
-  {
-    q: 'Berapa jumlah minimal peserta untuk booking?',
-    a: 'Ideal 4-6 orang per perahu, dan booking disarankan untuk grup 10 orang atau lebih.',
-    icon: CalendarDays,
-    tag: 'Persiapan',
-  },
-]
 
 function FAQSection() {
   const ref = useRef(null)
@@ -1130,11 +869,11 @@ const handleSubmitBooking = (e: React.FormEvent) => {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-brand selection:text-white">
       <SiteNav brand="Sicapit" />
+      <PageBreadcrumb items={[{ label: 'Rafting' }]} />
       <HeroSection />
       <AboutSection />
       <PackagesSection onSelectPackage={handleSelectPackageDirectly} />
       <GallerySection />
-      <TestimonialsSection />
       <FAQSection />
 
       {/* Booking Form Section with Live Calculator */}
@@ -1182,7 +921,7 @@ const handleSubmitBooking = (e: React.FormEvent) => {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="pax">Jumlah Peserta (Pax - Min. 10 Disarankan)</Label>
-                  <Input id="pax" type="number" min={1} value={formData.pax} onChange={(e) => setFormData({ ...formData, pax: parseInt(e.target.value) || 1 })} required />
+                  <Input id="pax" type="number" min={1} max={10} value={formData.pax} onChange={(e) => setFormData({ ...formData, pax: Math.min(10, Math.max(1, parseInt(e.target.value) || 1)) })} required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="date">Tanggal Kegiatan</Label>

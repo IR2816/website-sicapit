@@ -30,46 +30,9 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { contactInfo } from '@/lib/data/contact-info'
 import { useToast } from '@/hooks/use-toast'
-import {
-  Waves,
-  Mountain,
-  Shield,
-  Users,
-  Star,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  ChevronRight,
-  Menu,
-  X,
-  Heart,
-  Award,
-  Camera,
-  TreePine,
-  CheckCircle2,
-  Zap,
-  Trophy,
-  CalendarDays,
-  ArrowUp,
-  HelpCircle,
-  LifeBuoy,
-  Play,
-  Droplets,
-  UserCheck,
-  BaggageClaim,
-  HardHat,
-  AlertTriangle,
-  Info,
-  BookOpen,
-} from 'lucide-react'
+import { MapPin, ChevronRight } from 'lucide-react'
 
 export function ContactSection() {
   const ref = useRef(null)
@@ -100,33 +63,6 @@ export function ContactSection() {
     })
     setFormData({ name: '', phone: '', email: '', package: '', date: '', participants: '', message: '' })
   }
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: 'Telepon / WhatsApp',
-      value: '+62 857-7324-6998',
-      desc: 'Respons cepat di jam kerja',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'Kampungwisatasicapit382@gmail.com',
-      desc: 'Respon dalam 24 jam',
-    },
-    {
-      icon: MapPin,
-      label: 'Lokasi',
-      value: 'Kampung Wisata SiCapit, Gg. Flamboyan I No.1, Semplak, Bogor Barat',
-      desc: 'Kota Bogor, Jawa Barat',
-    },
-    {
-      icon: Clock,
-      label: 'Jam Operasional',
-      value: 'Setiap Hari, 08:00 - 17:00 WIB',
-      desc: 'Termasuk hari libur nasional',
-    },
-  ]
 
   return (
     <section id="kontak" className="py-20 lg:py-28 bg-white" ref={ref}>

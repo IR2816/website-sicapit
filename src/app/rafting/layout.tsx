@@ -1,17 +1,22 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Kampung Sicapit - Wisata Rafting & River Tubing Bogor',
-  description: 'Wisata air Kampung Sicapit di Bogor - Rafting & River Tubing di Sungai Cisadane. Lokasi strategis di Kelurahan Semplak, hanya 10 km dari pusat kota. Pesan sekarang!',
-  keywords: ['rafting', 'arung jeram', 'river tubing', 'wisata bogor', 'kampung sicapit', 'sungai cisadane', 'wisata air', 'adventure'],
-  authors: [{ name: 'Kampung Sicapit' }],
-  icons: {
-    icon: '/assets/images/Icon.jpg',
-  },
+  title: 'Rafting Sungai Cisadane - Kampung Wisata Sicapit Bogor',
+  description: 'Arung jeram & river tubing di Sungai Cisadane bersama Kampung Wisata Sicapit. Paket rafting mulai 5km, cocok untuk pemula hingga berpengalaman. Pesan sekarang!',
+  keywords: ['rafting bogor', 'arung jeram sicapit', 'rafting sungai cisadane', 'paket rafting bogor', 'wisata air bogor', 'rafting murah bogor', 'river tubing bogor'],
+  authors: [{ name: 'Kampung Wisata Sicapit' }],
   openGraph: {
-    title: 'Kampung Sicapit - Wisata Rafting Bogor',
-    description: 'Wisata rafting & river tubing di Sungai Cisadane, Bogor',
+    title: 'Rafting Sungai Cisadane - Kampung Wisata Sicapit Bogor',
+    description: 'Arung jeram & river tubing di Sungai Cisadane. Paket rafting untuk semua tingkat, dipandu skipper bersertifikasi.',
     type: 'website',
+    url: 'https://sicapit.vercel.app/rafting',
+    siteName: 'Kampung Wisata Sicapit',
+    images: [{ url: 'https://sicapit.vercel.app/hero-kampung.png', width: 1200, height: 630, alt: 'Rafting Kampung Wisata Sicapit' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Rafting Sungai Cisadane - Kampung Wisata Sicapit Bogor',
+    description: 'Arung jeram & river tubing di Sungai Cisadane. Paket rafting untuk semua tingkat.',
   },
 };
 

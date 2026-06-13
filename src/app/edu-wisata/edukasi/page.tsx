@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { SiteNav } from '@/app/sections/site-nav'
+import { PageBreadcrumb } from '@/components/page-breadcrumb'
 import { normalizePhoneForWhatsApp } from '@/lib/validation'
 import {
   TreePine,
@@ -86,9 +88,9 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 /* ─── Page Header ─── */
 function PageHeader() {
   return (
-    <section className="relative h-[60vh] min-h-[460px] flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative h-[60vh] min-h-[460px] flex items-center justify-center overflow-hidden pt-28">
       <div className="absolute inset-0">
-        <img src="/assets/images/2.jpg" alt="Edukasi Kampung Wisata SiCapit" className="w-full h-full object-cover" />
+        <Image src="/assets/images/2.jpg" alt="Edukasi Kampung Wisata SiCapit" fill className="w-full h-full object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-surface" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -127,7 +129,7 @@ function PageHeader() {
         className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 cursor-pointer"
         onClick={() => document.querySelector('#tentang')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <ChevronDown className="w-7 h-7" />
+        <ChevronDown className="w-7 h-7" aria-label="Scroll ke bawah" />
       </motion.div>
     </section>
   )
@@ -227,7 +229,7 @@ function AboutSection() {
           </div>
           <div className="relative">
             <div className="rounded-[32px] overflow-hidden shadow-xl border border-line">
-              <img src="/hero-kampung.png" alt="Pemandangan Kampung Wisata" className="w-full h-[500px] object-cover" />
+              <Image src="/hero-kampung.png" alt="Pemandangan Kampung Wisata" width={600} height={500} className="w-full h-[500px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
             <motion.div
@@ -361,7 +363,7 @@ function ActivitiesSection() {
             <motion.div key={i} whileHover={{ y: -8 }} transition={{ type: 'spring', stiffness: 300 }}>
               <Card className="overflow-hidden h-full border border-line bg-surface-strong shadow-sm hover:shadow-xl transition-all group">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={act.image} alt={act.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <Image src={act.image} alt={act.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <Badge className="absolute top-4 left-4 bg-brand text-white border-0 text-xs px-3 py-1 font-bold uppercase tracking-wider">
                     {act.tag}
@@ -390,13 +392,13 @@ function KategoriEdukasiSection() {
     { name: 'Tanaman Hias', image: '/assets/edu-wisata/bonsai.jpg', desc: 'Mengenal berbagai jenis tanaman hias tropis yang dibudidayakan di kampung; teknik pembibitan, perawatan, dan pemasaran kecil.' },
   ]
   const budayaItems = [
-    { name: 'Puncak Silat', image: '/assets/edu-wisata/pencak_silat.webp', desc: 'Belajar dasar-dasar pencak silat tradisional dalam sesi aman dan terstruktur untuk pemula.' },
-    { name: 'Tarian Tradisional', image: '/assets/edu-wisata/tari_jaipong.jpg', desc: 'Pelajari berbagai tarian tradisional lokal, gerakan dasar, dan makna budaya di baliknya.' },
-    { name: 'Musik Sunda', image: '/assets/edu-wisata/musik_sunda.jpg', desc: 'Mengenal musik tradisional Sunda dengan praktik alat musik dan ritme sederhana.' },
+    { name: 'Puncak Silat', image: '/assets/edu-wisata/pencak-silat.webp', desc: 'Belajar dasar-dasar pencak silat tradisional dalam sesi aman dan terstruktur untuk pemula.' },
+    { name: 'Tarian Tradisional', image: '/assets/edu-wisata/tari-jaipong.jpg', desc: 'Pelajari berbagai tarian tradisional lokal, gerakan dasar, dan makna budaya di baliknya.' },
+    { name: 'Musik Sunda', image: '/assets/edu-wisata/musik-sunda.jpg', desc: 'Mengenal musik tradisional Sunda dengan praktik alat musik dan ritme sederhana.' },
     { name: 'Enggrang', image: '/assets/edu-wisata/enggrang.jpg', desc: 'Mencoba keseimbangan menggunakan enggrang tradisional sambil memahami permainan rakyat.' },
     { name: 'Congklak', image: '/assets/edu-wisata/congklak.jpg', desc: 'Permainan papan tradisional yang melatih strategi, ketelitian, dan kebersamaan antar pemain.' },
-    { name: 'Gobak Sodor', image: '/assets/edu-wisata/gobak_sodor.jpg', desc: 'Permainan tim tradisional yang menguji kelincahan, strategi, dan kerja sama dalam kelompok.' },
-    { name: 'Lompat Tali', image: '/assets/edu-wisata/lompat_tali.jpg', desc: 'Aktivitas lompat tali berkelompok yang menyenangkan dan baik untuk koordinasi serta kebugaran.' },
+    { name: 'Gobak Sodor', image: '/assets/edu-wisata/gobak-sodor.jpg', desc: 'Permainan tim tradisional yang menguji kelincahan, strategi, dan kerja sama dalam kelompok.' },
+    { name: 'Lompat Tali', image: '/assets/edu-wisata/lompat-tali.jpg', desc: 'Aktivitas lompat tali berkelompok yang menyenangkan dan baik untuk koordinasi serta kebugaran.' },
     { name: 'Gundu', image: '/assets/edu-wisata/gundu.jpg', desc: 'Permainan tradisional menggunakan kelereng yang melatih fokus, ketepatan, dan keterampilan motorik halus.' },
     { name: 'Bakiak', image: '/assets/edu-wisata/bakiak.jpg', desc: 'Permainan sepatu kayu tradisional yang menuntut koordinasi, keseimbangan, dan kebersamaan tim.' },
   ]
@@ -452,7 +454,7 @@ function KategoriEdukasiSection() {
                 >
                   <Card className="h-full border border-line bg-surface hover:shadow-lg transition-all overflow-hidden group">
                     <div className="relative h-64 overflow-hidden">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
+                      <Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
                         <div className="w-10 h-10 bg-brand/90 backdrop-blur-sm rounded-lg flex items-center justify-center shrink-0">
@@ -483,7 +485,7 @@ function KategoriEdukasiSection() {
                 >
                   <Card className="h-full border border-line bg-surface hover:shadow-lg transition-all overflow-hidden group">
                     <div className="relative h-64 overflow-hidden">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
+                      <Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
                         <div className="w-10 h-10 bg-brand/90 backdrop-blur-sm rounded-lg flex items-center justify-center shrink-0">
@@ -514,7 +516,7 @@ function KategoriEdukasiSection() {
                 >
                   <Card className="h-full border border-line bg-surface hover:shadow-lg transition-all overflow-hidden group">
                     <div className="relative h-64 overflow-hidden">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
+                      <Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
                         <div className="w-10 h-10 bg-brand/90 backdrop-blur-sm rounded-lg flex items-center justify-center shrink-0">
@@ -717,6 +719,7 @@ function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="fixed bottom-24 right-6 z-40 w-12 h-12 bg-surface border border-line text-foreground rounded-full shadow-lg flex items-center justify-center hover:bg-surface-strong transition-colors"
+          aria-label="Kembali ke atas"
         >
           <ChevronUp className="w-6 h-6" />
         </motion.button>
@@ -732,6 +735,7 @@ export default function KampungWisataEdukasiPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-brand selection:text-white">
       <SiteNav brand="Sicapit" />
+      <PageBreadcrumb items={[{ label: 'Edu Wisata', href: '/edu-wisata' }, { label: 'Edukasi' }]} />
       <PageHeader />
       <main className="flex-1">
         <StatsSection />
