@@ -2,7 +2,7 @@
  * Data sub-halaman Edu Wisata Sicapit
  */
 
-import { LucideIcon, BookOpen, Mountain, Leaf, UtensilsCrossed, Scissors, Palette, Home as HomeIcon } from 'lucide-react';
+import { LucideIcon, BookOpen, Mountain, Leaf, UtensilsCrossed, Scissors, Home as HomeIcon } from 'lucide-react';
 
 export interface EduSubPage {
   href: string;
@@ -59,15 +59,6 @@ export const eduSubPages: EduSubPage[] = [
     tag: 'Kerajinan',
     tagColor: 'bg-purple-600',
     image: '/assets/edu-wisata/musik-sunda.jpg',
-  },
-  {
-    href: '/edu-wisata/workshop-batik',
-    icon: Palette,
-    title: 'Workshop Batik',
-    desc: 'Praktik langsung membatik dengan teknik tradisional dan modern.',
-    tag: 'Workshop',
-    tagColor: 'bg-indigo-600',
-    image: '/assets/images/3.jpg',
   },
   {
     href: '/edu-wisata/homestay',

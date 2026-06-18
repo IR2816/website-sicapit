@@ -15,17 +15,9 @@ import {
   TreePine,
   BookOpen,
   MapPin,
-  Users,
   Heart,
   Sparkles,
-  ArrowRight,
   ChevronRight,
-  Leaf,
-  UtensilsCrossed,
-  Palette,
-  Home as HomeIcon,
-  Mountain,
-  Scissors,
   Phone,
   ChevronDown,
 } from 'lucide-react'
@@ -165,7 +157,7 @@ function HeroSection() {
               className="mt-10 grid grid-cols-2 gap-3 max-w-xl sm:flex sm:flex-wrap"
             >
               {[
-                { value: '7+', label: 'Program edukasi' },
+                { value: '6+', label: 'Program edukasi' },
                 { value: '100%', label: 'Berbasis masyarakat' },
               ].map((stat, i) => (
                 <div key={i} className="rounded-2xl border border-white/10 bg-white/8 backdrop-blur-sm px-4 py-3 min-w-[140px]">
@@ -288,7 +280,7 @@ function AboutSection() {
                   <Sparkles className="w-6 h-6 text-brand" />
                 </div>
                 <div>
-                  <p className="font-bold text-brand text-lg">7+ Program</p>
+                  <p className="font-bold text-brand text-lg">6+ Program</p>
                   <p className="text-sm text-muted-foreground dark:text-slate-400">Edukasi Wisata</p>
                 </div>
               </div>
