@@ -7,6 +7,7 @@ import NextTopLoader from "nextjs-toploader";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { Playfair_Display, Source_Serif_4, DM_Mono } from "next/font/google";
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -100,6 +101,7 @@ export default function RootLayout({
             <SiteFooter />
           </ThemeInitializer>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
